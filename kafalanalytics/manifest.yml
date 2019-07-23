@@ -1,0 +1,8 @@
+---
+applications:
+ - name: HanogiAnalytics
+   random-route: true
+   path: target/HanogiAnalytics.war
+   memory: 1024M
+   instances: 1
+   buildpack: java_buildpack

@@ -1,0 +1,62 @@
+<web-app>
+  <display-name>KafalAnalytics</display-name>
+  <context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/config/spring_container_config.xml</param-value>
+	</context-param>
+	<welcome-file-list>
+		<welcome-file>/index.jsp</welcome-file>
+	</welcome-file-list>
+	<filter>
+ <filter-name>springSecurityFilterChain</filter-name>
+<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+</filter> 
+
+<!-- <filter-mapping>
+<filter-name>springSecurityFilterChain</filter-name>
+<url-pattern>/app/*</url-pattern>
+</filter-mapping> -->
+
+    <filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping> 
+	    <!-- <filter>
+        <filter-name>FilterToGetTimeOut </filter-name> 
+        <filter-class>com.app.security.FilterToGetTimeOut </filter-class> 
+    </filter>
+    <filter-mapping> 
+        <filter-name>FilterToGetTimeOut</filter-name> 
+        <url-pattern>/*</url-pattern> 
+    </filter-mapping>  -->
+  <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+   <listener>
+		<listener-class>org.springframework.security.web.session.HttpSessionEventPublisher
+		</listener-class>
+	</listener>
+<!-- 	<session-config>
+        <session-timeout>1</session-timeout>
+        
+	</session-config> -->
+	<!-- <session-management invalid-session-url="noauth/adlogoutsuccess">
+	<concurrency-control max-sessions="5" expired-url="noauth/adlogoutsuccess"  /> 
+	</session-management>  -->
+	<!-- <logout invalidate-session="true"
+                        success-handler-ref="LogoutAdSuccessHandler"
+                        delete-cookies="JSESSIONID"
+                        logout-url="/logout.html" /> -->
+     <servlet>
+        <servlet-name>mvc-dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+     <servlet-mapping>
+        <servlet-name>mvc-dispatcher</servlet-name>
+        <url-pattern>/app/*</url-pattern>
+    </servlet-mapping>
+</web-app>

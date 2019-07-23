@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/security
+                            http://www.springframework.org/schema/security/spring-security.xsd
+                            http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+
+
+<bean id="successEmployeeHandler"
+		class="org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler">
+		<property name="defaultTargetUrl" value="/app/auth/loginemployeesuccess" />
+	</bean>
+	<bean id="failureEmployeeHandler"
+		class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler">
+		<property name="defaultFailureUrl" value="/app/noauth/employeeloginfailed" />
+	</bean>
+
+
+	<bean id="authenticateEmployeeUser" class="com.app.security.AuthenticateEmployeeUser"></bean>
+
+	<bean id="authenticationEmployeeUser"
+		class="org.springframework.security.authentication.ProviderManager">
+		<property name="providers">
+			<list>
+				<ref bean="authenticateEmployeeUser"></ref>
+			</list>
+		</property>
+		<property name="eraseCredentialsAfterAuthentication" value="true" />
+	</bean>
+
+<bean id="EmployeeAuthenticationFilter" class="com.app.security.AuthenticationEmployeeFilter">
+		<property name="authenticationManager" ref="authenticationEmployeeUser" />
+		<property name="authenticationFailureHandler" ref="failureEmployeeHandler" />
+		<property name="authenticationSuccessHandler" ref="successEmployeeHandler" />
+	</bean>
+		
+		
+		<!-- logout filters for employee logout -->
+		<bean id="logoutAdHandler" class="com.app.security.LogoutAdHandler">
+	</bean>
+	<bean id="logoutAdSuccessHandler" class="com.app.security.LogoutAdSuccessHandler">
+	</bean>
+	
+	<bean id="securityContextLogoutHandler"
+		class="org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler">
+		<property name="invalidateHttpSession" value="true" />
+		<property name="clearAuthentication" value="true" />
+
+	</bean>
+	
+	<bean id="logoutAdFilter"
+		class="org.springframework.security.web.authentication.logout.LogoutFilter">
+		<constructor-arg name="logoutSuccessHandler" ref="logoutAdSuccessHandler" />
+		<constructor-arg name="handlers">
+			<list>
+				<ref bean="logoutAdHandler" />
+				<ref bean="securityContextLogoutHandler" />
+			</list>
+		</constructor-arg>
+		<property name="filterProcessesUrl" value="/j_employee_logout" />
+	</bean>
+		
+		
+		<bean id="customLogoutFilters" class="org.springframework.web.filter.CompositeFilter">
+		<property name="filters">
+			<list>
+				<ref bean="logoutAdFilter" />
+			</list>
+		</property>
+	</bean>
+		
+		<security:authentication-manager
+		erase-credentials="true">
+		<security:authentication-provider
+			ref="authenticateEmployeeUser" />
+	</security:authentication-manager>
+	
+	
+     <security:http pattern="/app/noauth/*" security="none" />
+	<security:http use-expressions="true"
+		entry-point-ref="LoginUrlAuthenticationEntryPoint">
+	<security:intercept-url pattern='/app/auth/*'
+	access="hasRole('USER_FULL_AUTH') and isFullyAuthenticated()"  />
+		<security:custom-filter position="FORM_LOGIN_FILTER" ref="EmployeeAuthenticationFilter" />
+		<security:custom-filter position="LOGOUT_FILTER"
+			ref="customLogoutFilters" />
+		<security:session-management>
+	<security:concurrency-control max-sessions="1" />
+</security:session-management>
+</security:http>
+
+<bean id="LoginUrlAuthenticationEntryPoint"
+		class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+		<property name="loginFormUrl" value="/app/noauth/employee/login" />
+	</bean>
+	<bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 20 * 1024 * 1024 Byte = 20 MB-->
+        <property name="maxUploadSize" value="30971520" />
+        <property name="defaultEncoding" value="UTF-8" />
+    </bean>
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="${mail.server.host}" />
+		<property name="port" value="${mail.server.port}" />
+		<property name="protocol" value="${mail.server.protocol}" />
+		<property name="username" value="${mail.server.username}" />
+		<property name="password" value="${mail.server.password}" />
+		<property name="javaMailProperties">
+            <props>
+                <prop key="mail.transport.protocol">smtp</prop>
+                <prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.debug">true</prop>
+            </props>
+        </property>
+	</bean>
+	
+	<bean id="mailMessage" class="org.springframework.mail.SimpleMailMessage">
+		<property name="from">
+			<value>kumaraashish1234@gmail.com</value>
+		</property>
+		
+		<property name="subject">
+			<value>Account Created Sucessfully</value>
+		</property>
+	</bean>
+	
+</beans>
+	
+                        
+                        
+                   
+              

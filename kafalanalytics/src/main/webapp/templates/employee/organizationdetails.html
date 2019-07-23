@@ -1,0 +1,110 @@
+<button type="button" class="btn btn-info pull-left glyphicon glyphicon-menu-hamburger" data-toggle="collapse" data-target="#demo">Menu</button>
+
+<br /><br />
+<aside id="demo" class="col-sm-2 show pl-0 pull-left collapse" style="height:100%">
+
+    <div  class="sidebar-left ">
+            <!-- Sidebar -->
+           
+                
+        
+                    <ul class="nav sidebar-nav " role="tablist" >
+                    
+             <li class="nav-item menu-item1 height-50px " >
+  
+                        <a (click)="changRoute('admin-dashboard','admin');" href="javascript:void(0)" class="passivelink" ><img src="./images/Admin screens logos-09.png" class=" sideIcon"/>  Dashboard</a>
+                        
+                    </li>
+                    
+                    <li class="nav-item menu-item1 height-50px"  >
+                        <a (click)="changRoute('employee-upload','employeeupload');" href="javascript:void(0)" class="passivelink"><img src="./images/Admin_screens_logos-02.png" class=" sideIcon"/>  Employee data upload</a>
+                    </li>
+                    <li class="nav-item menu-item1 height-50px" >
+                        <a (click)="changRoute('employee-data','employeedata');" href="javascript:void(0)" class="passivelink"> <img src="./images/Admin_screens_logos-03.png" class=" sideIcon">  Employee data</a>
+                        <hr class=" sidehr">
+                    </li>
+                   
+                    <li class="nav-item menu-item1 height-50px" >
+                        <a (click)="changRoute('client-upload','client');" href="javascript:void(0)" class="passivelink"> <img src="./images/Admin_screens_logos-02.png" class=" sideIcon" />  Client data upload</a>
+                    </li>
+                    <li class="nav-item menu-item1 height-50px" >
+                        <a (click)="changRoute('client-data','clientdata');" href="javascript:void(0)" class="passivelink"><img src="./images/Admin_screens_logos-03.png" class=" sideIcon"/>  Client data</a>
+                        <hr class=" sidehr">
+                    </li>
+                    
+                    <li class="nav-item menu-item1 height-50px" >
+                            <a (click)="changRoute('schedule-batch','schedule');" href="javascript:void(0)" class="passivelink"><img src="./images/Admin_screens_logos-08.png" class=" sideIcon"/>  Schedule </a>
+                        </li>
+                        <li class="nav-item menu-item1 height-50px " >
+                            <a (click)="changRoute('status-test','status');" href="javascript:void(0)" class="passivelink"><img src="./images/Admin_screens_logos-05.png" class=" sideIcon"/>  Status</a>
+                            <hr class=" sidehr">
+                        </li>
+                        
+                        <li class="nav-item menu-item1 height-50px" >
+                                <a (click)="changRoute('server-configuration','server');" href="javascript:void(0)" class="passivelink"><img src="./images/Admin_screens_logos-06.png" class=" sideIcon"/>  Configure Email server</a>
+                           <hr class=" sidehr">
+                            </li>
+                            <li class="nav-item menu-item1 height-50px" style=" margin-left:10px">
+                                    <a class="passivelink"><u>Account Settings:</u> </a>
+                                </li>
+                           
+                            <li class="nav-item menu-item1 height-50px" class="active" >
+                                <a  (click)="changRoute('organization-details','organization');" href="javascript:void(0)" class="activelink"><img src="./images/organizationWhite.png" class=" sideIcon"/>  Organization Details </a>
+                            </li>
+                            <li class="nav-item menu-item1 height-50px " >
+                                <a (click)="changRoute('register-organization','register');" href="javascript:void(0)" class="passivelink"><img src="./images/Blue-Admin screens logos-45.png" class=" sideIcon"/>  Admin Users</a>
+                               
+                            </li>
+  
+                          
+                </ul>
+                
+                
+        </div>
+  
+  </aside>
+  
+<main class="col-sm-10 pull-left " role="main">
+    <div class="mainPage">
+        <span class="heading">Account Settings - Organization details.</span><br/>
+        <button class="topButton"> Upgrade Plan</button>
+        <hr class="topHr">
+
+        <p class="divHead">Organization-details</p><br/> 
+        <div class="row">
+        <div class="col-sm-8 dashborder" >
+        <form [formGroup]="organizationForm" class="orgForm">
+
+            Company Website URL/ Social Media Page* <br />
+            <input formControlName="companyUrl" placeholder="www.somecompany.com" class="orgFrmInput"><br />
+            Industry Type*<br />
+            <input formControlName="industryType" placeholder="IT" class="orgFrmInput"><br />
+
+           No of employees in your organization* <br/>
+            <input formControlName="employees" placeholder="50" class="orgFrmInput"><br />
+              Company Address(optional)<br/>
+            <input formControlName="address" class="orgFrmInput"><br />
+            City(optional) State(optional)<br />
+            <input formControlName="city" class="orgAddress">
+            <input formControlName="state" class="orgAddress"><br />
+            Pincode(optional)  Country*<br />
+            <input formControlName="pincode" class="orgAddress">
+            <input formControlName="country" class="orgAddress"><br />
+
+          
+
+
+        </form>
+   
+    </div>
+    <div class="col-sm-2 upDiv" > 
+       Organization Logo (optional)<br/> <div class="upload"><img
+            src="./images/upload.png" style="width:40%; " /><br/>
+        Drag file here to <br/>upload<br/>
+    <button class="choose">Choose File</button><br/><br/></div><br/>
+    Max. size - 2MB
+    </div> </div><br/>
+        <div style="text-align:center"><button class="save">
+            Save changes</button></div><br/><br/><br/>
+    </div>
+</main>

@@ -1,0 +1,61 @@
+<aside class="col-sm-2 show pl-0 pull-left d-none d-xl-block" style="height:100%">
+  <div class="sidebar-left" style="background-color: white">
+
+
+    <ul class="nav sidebar-nav" role="tablist">
+      <li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRouteEmployee('my-dashboard','Analysis');">
+        <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+            src="images/dashboard_blue.png" style="width:17%; margin-right: 5px;" />Dashboard</a>
+      </li>
+      <hr style="width: 90%; margin-top: 1px; margin-bottom: 1px;">
+      <li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRouteEmployee('my-employee-dashboard','employee');">
+        <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+            src="images/tone_blue.png" style="width:17%; margin-right: 5px;" />Tone</a>
+      </li>
+      <li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="teamtoneemployeeEscalation('yes')">
+        <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+            src="images/escalation_blue.png" style="width:17%; margin-right: 5px;" />Escalation</a>
+      </li>
+      <li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="teamtoneemployeeAdverse('yes')">
+        <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+            src="images/adverse_blue.png" style="width:17%; margin-right: 5px;" />Adverse Events</a>
+      </li>
+      <hr style="width: 90%; margin-top: 1px; margin-bottom: 1px;">
+      <li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRoutePersonal('my-employee-personal-score','employee');">
+        <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+            src="images/personal_insights_blue.png" style="width:17%; margin-right: 5px;" />Personal Insights</a>
+      </li>
+      <li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRoutePersonal('my-team-score','employee');">
+        <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+            src="images/team_insights_blue.png" style="width:17%; margin-right: 5px;%" />My Team Insights</a>
+      </li>
+      <hr style="width: 90%; margin-top: 1px; margin-bottom: 1px;">
+      <li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRoute('touch-points');">
+        <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+            src="images/touch_points_blue.png" style="width:17%; margin-right: 5px;" />Touch Points</a>
+      </li>
+      <li class="nav-item menu-item height-40px" style="background-color:#497487; text-align: left" (click)="changRouteTouch('response-time');">
+        <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: white; display: inline; padding: 0px"><img
+            src="images/response_time_white.png" style="width:17%; margin-right: 5px;" />Response Time</a>
+      </li>
+      <li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRoute('personality-analytics');">
+        <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+            src="images/personality_analytics_blue.png" style="width:17%; margin-right: 5px;" />Personality Analytics</a>
+      </li>
+      <li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRoute('relationship');">
+        <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+            src="images/relationship_blue.png" style="width:17%; margin-right: 5px;" />Relationship</a>
+      </li>
+    </ul>
+  </div>
+</aside>
+
+<main class="col-xl-10 col-lg-12 pull-right" role="main">
+
+  <img *ngIf="first == true" (click)="firstclick()" src="images/response1.jpg" style="width: 1200px; height: 720px">
+  <img *ngIf="second == true" (click)="secondclick()" src="images/response2.jpg" style="width: 1200px; height: 720px">
+  <img *ngIf="third == true" (click)="thirdclick()" src="images/response3.jpg" style="width: 1200px; height: 720px">
+  <img *ngIf="forth == true" (click)="forthclick()" src="images/response4.jpg" style="width: 1200px; height: 720px">
+  <img *ngIf="fifth == true" src="images/response5.jpg" style="width: 1200px; height: 720px">
+
+</main>

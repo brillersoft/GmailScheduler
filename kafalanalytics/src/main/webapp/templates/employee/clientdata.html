@@ -1,0 +1,252 @@
+<aside class="col-sm-2 show pl-0 pull-left d-none d-xl-block" style="height:100%">
+    <div class="sidebar-left" style="background-color: white">
+            <!-- Sidebar -->
+           
+                
+        
+<ul class="nav sidebar-nav" role="tablist">
+<li class="nav-item menu-item1 height-40px" style="background-color:#FFFFFF; color:white !important" (click)="changeRouteAdmin('admin-dashboard');">
+    <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px"><img
+            src="images/Admin_screens_logos-11.png" style="width:18%"  />Admin Panel</a>
+</li>
+<li class="nav-item menu-item1 height-40px" style="background-color:#FFFFFF; text-align: left">
+    <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px"
+        (click)="changeRouteAdmin('employee-upload');">
+        <img src="images/Admin_screens_logos-02.png" style="width:18%">Employee data upload</a>
+</li>
+<li class="nav-item menu-item1 height-40px">
+    <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px"
+        (click)="changeRouteAdmin('employee-data');">
+        <img src="images/Admin_screens_logos-03.png" style="width:18%">Employee data</a>
+    
+</li>
+<hr style="width: 90%; margin-top: 1px; margin-bottom: 1px;">
+<li class="nav-item menu-item1 height-40px" style="background-color:#FFFFFF; text-align: left">
+    <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px"
+        (click)="changeRouteAdmin('client-upload');">
+        <img src="images/Admin_screens_logos-02.png" style="width:18%" /> Client data upload</a>
+</li>
+<li class="nav-item menu-item1 height-40px" style="background-color:#497487; text-align: left">
+    <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:white; display: inline; padding: 0px"
+        (click)="changeRouteAdmin('client-data');">
+        <img src="images/data_white.png" style="width:18%">Client data</a>
+    
+</li>
+<hr style="width: 90%; margin-top: 1px; margin-bottom: 1px;">
+<li class="nav-item menu-item1 height-40px" style="background-color:#FFFFFF; text-align: left">
+    <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px"
+        (click)="changeRouteAdmin('schedule-batch');">
+        <img src="images/Admin_screens_logos-08.png" style="width:18%">Schedule </a>
+</li>
+<li class="nav-item menu-item1 height-40px ">
+    <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px">
+        <img src="images/Admin_screens_logos-05.png" style="width:18%">Status</a>
+    
+</li>
+<hr style="width: 90%; margin-top: 1px; margin-bottom: 1px;">
+<li class="nav-item menu-item1 height-40px" style="background-color:#FFFFFF; text-align: left">
+    <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px"
+        (click)="changeRouteAdmin('server-configuration');">
+        <img src="images/Admin_screens_logos-06.png" style="width:18%">Configure Email server</a>
+</li>
+</ul>
+                
+        </div>
+
+</aside>
+
+<main class="col-lg-12 col-xl-10 pull-left" role="main">
+
+        <div style="width: 100%; text-align: center; margin-top: 7px;">
+                <a *ngIf="searchPage == false && errorMsgState == true" [ngStyle]="{'color':errorMsgType === true ? 'red' : '#497487', 'border-left':errorMsgType === true ? '1px solid red' : '1px solid #497487', 'border-bottom':errorMsgType === true ? '1px solid red' : '1px solid #497487', 'border-right':errorMsgType === true ? '1px solid red' : '1px solid #497487' }" class="Ubuntu-L" style="background-color: white;border-left: 1px solid red;border-bottom: 1px solid red;border-right: 1px solid red;border-radius: 0px 0px 5px 5px;color: red;padding-left: 5em;padding-right: 5em;padding-bottom: 0.5em;padding-top: 0.4em;font-size:13.5px;" >
+                    {{errorMsg}}
+                </a>
+            </div>
+
+    <div style=" background-color: white; border-radius: 5px; margin-top: 15px; min-height: 500px;">
+        <div *ngIf="searchPage == true">
+
+            <h1 style="margin-left:3%; padding-top: 16px; font-size: 18px; padding-bottom: 6px;"
+    class="Ubuntu-L">Client Data-Search</h1>
+            <hr style="width: 95%; border-top: 1px solid #D8D8D8">
+            <div class=" text-center">         
+                    <!-- <form class="form-inline inputWithIcon">
+                            <input type="search" class="form-control text-center font-size-14 search-box" style="width: 30%" name="search" placeholder="Type name of email id ">
+                            
+                    </form> -->
+
+                    <form [formGroup]="clForm"  >
+                            <div formArrayName="clSearch">
+                                <section [formGroupName]="i"
+                                *ngFor="let cl of clForm.controls.clSearch.controls; let i = index">
+                                        <input formControlName="clientName" type="search" class="form-control text-center font-size-14 search-box" style="width: 30%; background: #f7f7f7;" name="search" placeholder="Type name or email id ">
+                                        <br>
+                                        <br>
+                                    <div class="form-inline width-x-searchform" style="margin:auto; margin-bottom: 10px;">
+                                        <input formControlName="designation" placeholder="Designation" style=" width: 40%; line-height: 1.5em; margin-right: 25px; margin-left: 8%; border: 1px solid grey;border-radius: 10px;padding-left: 12px;" class="inputD">
+                          
+                                        <input formControlName="account" placeholder="Account" style=" width: 40%; line-height: 1.5em; border: 1px solid grey;border-radius: 10px;padding-left: 12px;" class="inputD">
+                           
+                                    </div>
+                                    <div class="form-inline width-x-searchform" style="margin:auto;  margin-bottom: 10px;">
+                                        <input formControlName="organization" placeholder="Organization" style=" width: 40%; line-height: 1.5em; margin-bottom: 10px; margin-right: 25px; margin-left: 8%; border: 1px solid grey;border-radius: 10px;padding-left: 12px;" class="inputD">
+                                        <input formControlName="location" placeholder="Location" style=" width: 40%; line-height: 1.5em; margin-bottom: 10px; border: 1px solid grey;border-radius: 10px;padding-left: 12px;" class="inputD">
+                                    </div>
+                                    <div class="form-inline width-x-searchform" style="margin:auto;  margin-bottom: 10px;">
+                                            <span class="Ubuntu-L" style="font-size: 18px; margin-left: 8%;">Executive</span>
+                                            <span class="Ubuntu-L" style="font-size: 15px; margin-left: 50px; margin-right: 5px;">no</span>
+                                            <ui-switch defaultBgColor="#497487" defaultBoColor="#497487" color="#497487" size="small" [ngModelOptions]="{standalone: true}" [(ngModel)]="executive"></ui-switch>
+                                            <span class="Ubuntu-L" style="font-size: 15px; margin-left: 5px; margin-right: 10px;">yes</span>
+                                            
+                                    </div>
+                                    
+
+                                </section>
+                            </div>
+                                
+                                    <div style="text-align: center" >
+                            <button class="Ubuntu-L buttonwidth" type="submit"  style="border-radius: 10px; border-color: #497487; color: #FFFFFF; font-weight: bold; background-color: #497487; text-align: center" (click)="searchCl()">
+                              Submit
+                            </button>
+                        </div>
+                       
+                          </form>
+                        
+        </div>
+
+            
+
+        </div>
+
+        
+
+        <div *ngIf="searchPage == false">
+            <div class="container-fluid">
+                <h1 style="margin-left:3%; padding-top: 16px; font-size: 18px; padding-bottom: 6px; display: inline"
+                class="Ubuntu-L">Client Data</h1>
+            <a  class="Ubuntu-L searchbuttonwidth" (click)="backbutton()" style="font-weight: bold  ;border-radius: 15px; border-color: #497487; text-align: center; color: #FFFFFF; background-color: #497487; display: inline-block; font-size: 14px;  padding-top: 0.3em; padding-bottom: 0.3em;margin-left: 25px;margin-top: 18px; margin-bottom: 9px">
+                <img src="images/search-icone.png" style="height:16px">Search
+            </a>
+            <!-- <div class="delbuttongap" style="display: inline-block; text-align: right; ">
+                <a style="cursor: pointer;"><img class="delbutton" src="images/delete_full.png"  (click)="DeleteCheckedEmployees()"></a>
+            </div> -->
+            <div *ngIf="toggleDelete == true" class="delbuttongap d-none d-md-inline-block" (click)="DeleteCheckedClients()" style="display: inline-block; text-align: right; ">
+                <a  class="cursor-pointer Ubuntu-L" style="font-weight: bold  ;border-radius: 5px; border-color: #f57660; text-align: left; color: #FFFFFF; background-color: #f57660;display: inline-block; font-size: 14px; width: 110px;padding-top: 0.1em; padding-bottom: 0.1em;margin-left: 25px;margin-top: 18px; margin-bottom: 9px; padding-left: 1em;">
+                    <img src="images/delete_icon.png" style="height:30px"> Delete
+                </a>
+            </div>
+            <hr style="width: 95%; border-top: 1px solid #D8D8D8">
+            <div *ngIf="toggleDelete == true" class="d-sm-none" (click)="DeleteCheckedClients()" style="display: inline-block; text-align: right; margin-left: 50% ">
+                <a  class="cursor-pointer Ubuntu-L" style="font-weight: bold  ;border-radius: 5px; border-color: #f57660; text-align: left; color: #FFFFFF; background-color: #f57660;display: inline-block; font-size: 14px; width: 110px;padding-top: 0.1em; padding-bottom: 0.1em;margin-left: 25px;margin-top: 1px; margin-bottom: 15px; padding-left: 1em;">
+                    <img src="images/delete_icon.png" style="height:30px"> Delete
+                </a>
+            </div>
+            
+            <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="employee-tab" role="tabpanel" aria-labelledby="nav-home-tab">
+            <div class="row">
+                    <!-- <div class="row">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4 d-none d-md-block"> -->
+                                    <!-- <a type="Filter" class="btn btn-default font-size-13 margin-top-5px width-50per color-ff border-radius-20 height-26 padding-top-2px " style="background-color:brown; color: ghostwhite; margin-left: 32%;" (click)="adverseevents();">Adverse Events</a> -->
+                                <!-- <a *ngIf="ClientDetails.length == 0" type="Filter" class="btn btn-default font-size-13 margin-top-5px width-50per color-ff border-radius-20 height-26 padding-top-2px " style="background-color:grey; color: ghostwhite; margin-left: 32%;" >0 results found</a>
+                            </div>
+                            <div class="col-md-4"></div>
+                        </div> -->
+            <div class="col-md-12">
+                    <div class="card border-none margin-5-">
+                      <div class="" style="padding:0px !important">
+                          <div class="row">
+                              <div class="col-md-12">
+                                <table class="font-size-12 Ubuntu-L" style="width: 100%;">
+                                    <thead class="background-color-439cc4 color-ff ">
+                                            <!-- <tr style="width:100%; background-color: #FFFFFF">
+                                                    <td style="width: 6%;">
+                                                        <button class="btn background-color-439cc4 padding-8 margin-left--1 margin-top-3 " style="border-top-left-radius: 8px;border-top-right-radius: 8px;" (click)="backbutton()">
+                                                        <div class="background-color-ff width-45px font-size-10 border-radius-5px padding-1 Ubuntu-M">
+                                                            <img class="width-16px" src="images/back.png">&nbsp;<span>Back</span>
+                                                        </div>
+                                                        </button>
+                                                      </td>
+                                            </tr> -->
+                                        <tr>
+                                            <td class="ver-a-middle border-r" style="width: 50px; padding-left: 5px;">Sr. No.</td>
+                                            <td class="ver-a-middle border-r" style="width: 100px; padding-left: 5px;">Account</td>
+                                            <td class="ver-a-middle border-r" style="width: 170px; padding-left: 5px;">Name</td>
+                                            <td class="ver-a-middle border-r d-none d-md-table-cell" style="width: 170px; padding-left: 5px;">Email-ID</td>
+                                            <td class="ver-a-middle border-r d-none d-md-table-cell" style="width: 70px; padding-left: 5px;">Executive</td>
+                                            <td class="ver-a-middle border-r d-none d-md-table-cell" style="width: 146px; padding-left: 5px;">Designation</td>
+                                            <td class="ver-a-middle border-r d-none d-md-table-cell" style="width: 146px; padding-left: 5px;" >Organization</td>
+                                            <td class="ver-a-middle border-r d-none d-md-table-cell" style="width: 90px; padding-left: 5px;">Location</td>
+                                            <td class="ver-a-middle border-r d-none d-md-table-cell" style="width: 90px; padding-left: 5px;">Actions
+                                                <br>
+                                                Edit/Delete
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="ver-a-middle border-r d-sm-none" style="width: 70px; padding-left: 5px;">Executive</td>
+                                            <td class="ver-a-middle border-r d-sm-none" style="width: 146px; padding-left: 5px;">Designation</td>
+                                            <td class="ver-a-middle border-r d-sm-none" style="width: 90px; padding-left: 5px;">Edit/Delete</td>
+                                        </tr>
+                                    </thead>
+                                </table>
+                                <div class="border-radius-8 border-4" *ngFor="let clDetails of ClientDetails let i=index">
+                                <table class="Ubuntu-L" style="width: 100%">
+                                    <tr class="height-45px">
+                                        <td class="text-center ver-a-middle border-0 bg-color-eaeaea"  style="width: 50px; font-size: 13px;">{{i+1}}</td> 
+                                        <td class="ver-a-middle border-0 bg-color-eaeaea text-center" style="width: 110px; font-size: 13px;" >{{clDetails.account}}</td>
+                                        <td *ngIf="clDetails.clientNameToggle == false" class="ver-a-middle border-0 bg-color-eaeaea text-center" style="width: 190px; font-size: 13px;" >{{clDetails.clientName}}</td>
+                                        <td *ngIf="clDetails.clientNameToggle == true" class="ver-a-middle border-0 bg-color-eaeaea text-center" style="width: 190px; font-size: 13px;" ><input type="text" [(ngModel)]="clDetails.clientName"></td>
+                                        <td class="ver-a-middle border-0 bg-color-eaeaea text-center d-none d-md-table-cell" style="width: 185px; font-size: 13px;" >{{clDetails.emailId}}</td>
+                                        <td *ngIf="clDetails.executiveToggle == false" class="ver-a-middle border-0 bg-color-eaeaea text-center d-none d-md-table-cell" style="width: 80px; font-size: 13px;" >
+                                                <img *ngIf="clDetails.executive == 'yes'" src="images/tie-01.png" style="height:28px; width:28px;">
+                                        </td>
+                                        <td *ngIf="clDetails.executiveToggle == true" class="ver-a-middle border-0 bg-color-eaeaea text-center d-none d-md-table-cell" style="width: 80px; font-size: 13px;" ><input type="checkbox" ng-checked="clDetails.executive == yes" [(ngModel)]="clDetails.executive" style="width:40px"></td>
+                                        <td *ngIf="clDetails.designationToggle == false" class="ver-a-middle border-0 bg-color-eaeaea text-center d-none d-md-table-cell" style="width: 160px; font-size: 13px;">{{clDetails.designation}}</td>
+                                        <td *ngIf="clDetails.designationToggle == true" class="ver-a-middle border-0 bg-color-eaeaea text-center d-none d-md-table-cell" style="width: 150px; font-size: 13px;"><input type="text"  [(ngModel)]="clDetails.designation" style="width: 100px"></td>
+                                        <td *ngIf="clDetails.organizationToggle == false" class="ver-a-middle border-0 bg-color-eaeaea text-center d-none d-md-table-cell" style="width: 160px; font-size: 13px;">{{clDetails.organization}}</td>
+                                        <td *ngIf="clDetails.organizationToggle == true" class="ver-a-middle border-0 bg-color-eaeaea text-center d-none d-md-table-cell" style="width: 160px; font-size: 13px;"><input type="text" [(ngModel)]="clDetails.organization" style="width: 100px"></td>
+                                        <td *ngIf="clDetails.locationToggle == false" class="ver-a-middle border-0 bg-color-eaeaea text-center d-none d-md-table-cell" style="width: 100px; font-size: 13px;">{{clDetails.location}}</td>
+                                        <td *ngIf="clDetails.locationToggle == true" class="ver-a-middle border-0 bg-color-eaeaea text-center d-none d-md-table-cell" style="width: 100px; font-size: 13px;"><input type="text" [(ngModel)]="clDetails.location" style="width: 90px"></td>
+                                        <td class="ver-a-middle border-0 bg-color-eaeaea text-center d-none d-md-table-cell" style="width: 100px; font-size: 13px;">
+                                        <a *ngIf="clDetails.editchecked == false" ><img src="images/edit_icon.png" style="width: 30%" (click)="toggleEditButton(i)"> </a>
+                                        <a *ngIf="clDetails.editchecked == true" ><img src="images/apply_button.png" style="width: 30%" (click)="saveCl(i)"> </a>
+                                        <a *ngIf="clDetails.editchecked == true" ><img src="images/cancel_button.png" style="width: 30%" (click)="toggleEditButton(i)"> </a>
+                                        <a *ngIf="clDetails.checked == false" ><img src="images/unchecked_icon.png" style="width: 30%" (click)="toggleDeleteButton(i)"> </a>
+                                        <a *ngIf="clDetails.checked == true" ><img src="images/checked_icon.png" style="width: 30%" (click)="toggleDeleteButton(i)"> </a>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                            <td *ngIf="clDetails.executiveToggle == false" class="ver-a-middle border-0 bg-color-eaeaea text-center d-sm-none" style="width: 80px; font-size: 13px;" >
+                                                    <img *ngIf="clDetails.executive == 'yes'" src="images/tie-01.png" style="height:28px; width:28px;">
+                                            </td>
+                                            <td *ngIf="clDetails.executiveToggle == true" class="ver-a-middle border-0 bg-color-eaeaea text-center d-sm-none" style="width: 80px; font-size: 13px;" ><input type="checkbox" ng-checked="clDetails.executive == yes" [(ngModel)]="clDetails.executive" style="width:40px"></td>
+                                            <td *ngIf="clDetails.designationToggle == false" class="ver-a-middle border-0 bg-color-eaeaea text-center d-sm-none" style="width: 160px; font-size: 13px;">{{clDetails.designation}}</td>
+                                            <td *ngIf="clDetails.designationToggle == true" class="ver-a-middle border-0 bg-color-eaeaea text-center d-sm-none" style="width: 150px; font-size: 13px;"><input type="text"  [(ngModel)]="clDetails.designation" style="width: 100px"></td>
+                                            <td class="ver-a-middle border-0 bg-color-eaeaea text-center d-sm-none" style="width: 100px; font-size: 13px;">
+                                                    <a *ngIf="clDetails.editchecked == false" ><img src="images/edit_icon.png" style="width: 30%" (click)="toggleEditButton(i)"> </a>
+                                                    <a *ngIf="clDetails.editchecked == true" ><img src="images/apply_button.png" style="width: 30%" (click)="saveCl(i)"> </a>
+                                                    <a *ngIf="clDetails.editchecked == true" ><img src="images/cancel_button.png" style="width: 30%" (click)="toggleEditButton(i)"> </a>
+                                                    <a *ngIf="clDetails.checked == false" ><img src="images/unchecked_icon.png" style="width: 30%" (click)="toggleDeleteButton(i)"> </a>
+                                                    <a *ngIf="clDetails.checked == true" ><img src="images/checked_icon.png" style="width: 30%" (click)="toggleDeleteButton(i)"> </a>
+                                                    </td>
+
+                                    </tr>
+                                </table>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+        </div>
+
+    </div>
+    <notifier-container></notifier-container>
+</main>

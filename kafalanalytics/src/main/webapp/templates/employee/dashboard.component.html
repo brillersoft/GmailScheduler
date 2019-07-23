@@ -1,0 +1,519 @@
+<style>
+	a:hover {
+    color: #0056b3;
+    text-decoration: none;
+}
+</style>
+<aside class="col-sm-2 show pl-0 pull-left d-none d-xl-block" style="height:100%">
+	<div class="sidebar-left" style="background-color: white;">
+		<!-- <ul class="nav sidebar-nav" role="tablist">
+				   <li class="nav-item menu-item height-50px" style="background-color:#497487">
+					 <span class="nav-link color-ff font-size-19 Ubutu-B margin-top-2px margin-bottom-3" role="tab" >Tone </span>
+				   </li>
+					<li class="nav-item menu-item border-bottom-2 height-100px">
+					  <img src="images/kafal-4-circles.png" style="width:18%;margin-top: 8%">
+								   <p class="OpenSans-Semibold font-size-12 margin-top-3">Over all Email Tone Analysis</p>
+					 </li>
+					 <li class="nav-item menu-item">
+						<button type="button" class="btn border-1 border-radius-20 background-color-transparent width-80 margin-10 padding-0 Ubuntu-B" style="color:#497487;margin-top: 17px;font-weight: 600">{{dashboard.employeeName}}</button>
+					 </li>
+					 <li class="nav-item menu-item">
+						<p class="Ubuntu-B font-size-14" style="color:#497487;font-weight: 500">Insights</p>
+						<div class="hr-3"></div>
+					 </li>
+					 <li class="nav-item">
+						   <div class="pad-10">
+							   <span class="OpenSans-Semibold font-size-11" style="color:#323232"><u>Department-</u><br>
+								   <span class=" OpenSans-Semibold font-size-15" style="color:#323232">&nbsp;{{dashboard.department}}</span>
+							   </span>
+	  
+						   </div>
+					   </li>
+					   <li class="nav-item">
+							<div class="pad-10">
+								<span class="OpenSans-Semibold font-size-11" style="color:#323232"><u>Reporting to persons-</u><br>
+									<span class="OpenSans-Semibold font-size-15" style="color:#323232">{{dashboard.reportTo}}</span>
+								</span>
+							</div>
+					   </li>
+					   <li class="nav-item">
+						   <div class="pad-10">
+							   <span class="OpenSans-Semibold font-size-11" style="color:#323232"><u>No of people in team-</u><br>
+								   <span class=" OpenSans-Semibold font-size-15" style="color:#323232">{{dashboard.noOfTeamMember}}</span>
+							   </span>
+						   </div>
+						</li>
+						<li class="nav-item">
+						   <div class="pad-10">
+							   <span class="OpenSans-Semibold font-size-11" style="color:#323232"><u>No of Emails-</u><br>
+								   <span class=" OpenSans-Semibold font-size-15" style="color:#323232">{{dashboard.noOfMail}}</span>
+							   </span>
+						   </div>
+						</li>
+				  </ul>
+				  <div class="text-right pad-10">                
+				  <a href="javascript:void(0)" data-toggle="collapse" data-target="#showmore" class="color-439cc4 OpenSans-Semibold font-size-10">Show More <i class="fa fa-angle-down"></i></a>
+				  </div>                  
+				  <div id="showmore" class="collapse pad-10">
+					<div class="text-center">
+					   <p class="Ubuntu-B font-size-14" style="color:#497487;font-weight: 500">Relation</p>
+					   <hr class="hr-4" />
+					</div>
+					 team bar
+					  <ul class="bar-ul nav Ubuntu-L font-size-11 color-606060">
+						<li>Team</li>
+						<li [ngStyle]="{'width': teamRelation.good / 1.3 + '%' }">
+							 <span>{{teamRelation.good}}</span>
+							<div class="progress height-3px">
+							 
+							<div class="progress-bar bgcolor-green margin-left-2px" role="progressbar" style="width: 100%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+							</div>
+						</li>
+						<li [ngStyle]="{'width': teamRelation.bad / 1.3 + '%' }">
+						  <span>{{teamRelation.bad}}</span>
+							<div class="progress height-3px">
+							<div class="progress-bar bgcolor-red margin-left-2px" role="progressbar" style="width: 100%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+							
+							</div>
+						</li>
+					  </ul>
+					  
+					  client bar
+					   <ul class="bar-ul nav Ubuntu-L font-size-11 color-606060">
+						<li>Client</li>
+						<li [ngStyle]="{'width': clientRelation.good / 1.3 + '%' }">
+							 <span>{{clientRelation.good}}</span>
+							<div class="progress height-3px">
+							 
+							<div class="progress-bar bgcolor-green margin-left-2px" role="progressbar" style="width: 100%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+							</div>
+						</li>
+						<li [ngStyle]="{'width':clientRelation.bad / 1.3 + '%' }">
+						  <span>{{clientRelation.bad}}</span>
+							<div class="progress height-3px">
+							<div class="progress-bar bgcolor-red margin-left-2px" role="progressbar" style="width: 100%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+						   
+							</div>
+						</li>
+					  </ul>
+					  
+					 
+					  
+					   bar presents
+					  <div class="text-center">
+					  <div class=" form-check-inline">
+						  <div class="spinner-dot bg-danger"></div>
+						  <label class="form-check-label OpenSans-Semibold font-size-11"> &nbsp; Bad</label>
+						</div>
+						<div class="form-check form-check-inline">
+						  <div class="spinner-dot bg-success"></div>
+						  <label class="form-check-label OpenSans-Semibold font-size-11"> &nbsp; Good</label>
+						</div>
+					  
+					  </div>
+					   
+				  </div> -->
+		<ul class="nav sidebar-nav" role="tablist">
+			<li class="nav-item menu-item height-40px" style="background-color:#497487; text-align: left" (click)="changRouteDash('my-dashboard','Analysis');">
+				<a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: white; display: inline; padding: 0px"><img
+					 src="images/dashboard_white.png" style="width:17%; margin-right: 5px;" />Dashboard</a>
+			</li>
+			<hr style="width: 90%; margin-top: 1px; margin-bottom: 1px;">
+			<li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRoute('my-employee-dashboard','employee');">
+				<a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+					 src="images/tone_blue.png" style="width:17%; margin-right: 5px;" />Tone</a>
+			</li>
+			<li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="teamtoneemployeeEscalation('yes')">
+				<a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+					 src="images/escalation_blue.png" style="width:17%; margin-right: 5px;" />Escalation</a>
+			</li>
+			<li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="teamtoneemployeeAdverse('yes')">
+				<a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+					 src="images/adverse_blue.png" style="width:17%; margin-right: 5px;" />Adverse Events</a>
+			</li>
+			<hr style="width: 90%; margin-top: 1px; margin-bottom: 1px;">
+			<li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRoutePersonal('my-employee-personal-score','employee');">
+				<a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+					 src="images/personal_insights_blue.png" style="width:17%; margin-right: 5px;" />Personal Insights</a>
+			</li>
+			<li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRoutePersonal('my-team-score','employee');">
+				<a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+					 src="images/team_insights_blue.png" style="width:17%; margin-right: 5px;%" />My Team Insights</a>
+			</li>
+			<hr style="width: 90%; margin-top: 1px; margin-bottom: 1px;">
+			<li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRouteTouch('touch-points');">
+				<a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+					 src="images/touch_points_blue.png" style="width:17%; margin-right: 5px;" />Touch Points</a>
+			</li>
+			<li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRouteTouch('response-time');">
+                <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3"
+				            style="color: black; display: inline; padding: 0px"><img
+					          src="images/response_time_blue.png" style="width:17%; margin-right: 5px;" />Response Time</a>
+              </li>
+              <li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRouteTouch('personality-analytics');">
+                <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3"
+				            style="color: black; display: inline; padding: 0px"><img
+					          src="images/personality_analytics_blue.png" style="width:17%; margin-right: 5px;" />Personality Analytics</a>
+              </li>
+              <li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRouteTouch('relationship');">
+                <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3"
+				            style="color: black; display: inline; padding: 0px"><img
+					          src="images/relationship_blue.png" style="width:17%; margin-right: 5px;" />Relationship</a>
+              </li> 
+		</ul>
+	</div>
+</aside>
+<main class="col-xl-10 col-lg-12 pull-left" role="main">
+
+	<div class="col-md-12">
+		<div class="row mar-l-30-m">
+			<ul class="nav font-size-12">
+				<li class="li-breadcrumbnew triangle-left width-70px">
+					<div class="pad-t-5 " style="color: #497487;">Tone</div>
+				</li>
+			</ul>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<p *ngIf="companyName.length == 0" class="Ubuntu-m font-size-22 mb-0 text-center padding-top-2per">Overall Email
+					Tone
+					Analysis</p>
+				<p *ngIf="companyName.length != 0" class="Ubuntu-m font-size-22 text-center padding-top-2per">Overall Email Tone
+					Analysis of {{companyName}}</p>
+			</div>
+		</div>
+
+		<button type="Filter" class="d-none d-md-inline-block d-lg-none btn btn-default font-size-13  color-ff border-radius-20 height-26 padding-top-2px "
+		 style="background-color:#01579b; margin-left: 30%" (click)="changRoute('my-employee-dashboard','employee');">Employee</button>
+		<button type="Filter" class="d-none d-md-inline-block d-lg-none btn btn-default font-size-13  color-ff border-radius-20 height-26 padding-top-2px "
+		 style="background-color:#01579b; margin-left: 30%" (click)="changRouteClient('my-client-dashboard','client');">Client</button>
+
+		<!-- desktop comp start -->
+		<div class="row d-none d-md-flex" style="width: 100%; height: 100%;">
+			<div class="col-lg-6 col-md-6" style="width: 49%">
+				<svg style="width:100%;height:460px;" id="componentleft">
+					<g style="font-size:15px">
+						<circle id="outercircle-left-90" (click)="onclickcircleemployee('analytical');" style='fill:white;stroke:#1976d2;stroke-width:6; cursor: pointer;'></circle>
+						<circle id="outercircle-left-120" (click)="onclickcircleemployee('confident');" style='fill:white;stroke:#673ab7;stroke-width:6; cursor: pointer;' />
+						<circle id="outercircle-left-150" (click)="onclickcircleemployee('tentative');" style='fill:white;stroke:#f9a825;stroke-width:6; cursor: pointer;' />
+						<circle id="outercircle-left-180" (click)="onclickcircleemployee('fear');" style='fill:white;stroke:#311b92;stroke-width:6; cursor: pointer;' />
+						<circle id="outercircle-left-210" (click)="onclickcircleemployee('sadness');" style='fill:white;stroke:#757575;stroke-width:6; cursor: pointer;' />
+						<circle id="outercircle-left-240" (click)="onclickcircleemployee('joy');" style='fill:white;stroke:#00e676;stroke-width:6; cursor: pointer;' />
+						<circle id="outercircle-left-270" (click)="onclickcircleemployee('anger');" style='fill:white;stroke:#e53935;stroke-width:6; cursor: pointer;' />
+
+						<text id="outercircle-text-left-90" (click)="onclickcircleemployee('analytical');" style='fill:black; cursor: pointer;'
+						 x="236" y="409" />
+						<text id="outercircle-text-left-120" (click)="onclickcircleemployee('confident');" style='fill:black; cursor: pointer;'
+						 x="166" y="388" />
+						<text id="outercircle-text-left-150" (click)="onclickcircleemployee('tentative');" style='fill:black; cursor: pointer;'
+						 x="102" y="332" />
+						<text id="outercircle-text-left-180" (click)="onclickcircleemployee('fear');" style='fill:black; cursor: pointer;'
+						 x="80" y="252" />
+						<text id="outercircle-text-left-210" (click)="onclickcircleemployee('sadness');" style='fill:black; cursor: pointer;'
+						 x="100" y="178" />
+						<text id="outercircle-text-left-240" (click)="onclickcircleemployee('joy');" style='fill:black; cursor: pointer;'
+						 x="159" y="120" />
+						<text id="outercircle-text-left-270" (click)="onclickcircleemployee('anger');" style='fill:black; cursor: pointer;'
+						 x="237" y="98" />
+
+						<text id="text-left-275" x="161" y="450">Analytical</text>
+						<text id="text-left-120" x="74" y="403">Confident</text>
+						<text id="text-left-150" x="24" y="352">Tentative</text>
+						<text id="text-left-180" x="28" y="254">Fear</text>
+						<text id="text-left-210" x="39" y="150">Sadness</text>
+						<text id="text-left-240" x="115" y="90">Joy</text>
+						<text id="text-left-270" x="210" y="54">Anger</text>
+					</g>
+					<g>
+						<path id="outerarc-left" />
+						<circle id="outerarc-left-90" style='fill:#1976d2' />
+						<circle id="outerarc-left-120" style='fill:#673ab7' />
+						<circle id="outerarc-left-150" style='fill:#f9a825' />
+						<circle id="outerarc-left-180" style='fill:#311b92' />
+						<circle id="outerarc-left-210" style='fill:#757575' />
+						<circle id="outerarc-left-240" style='fill:#00e676' />
+						<circle id="outerarc-left-270" style='fill:#e53935' />
+					</g>
+					<g>
+						<circle id="middlegreycircle-left" r='95' cx='250' cy='250' style='fill:#f5f5f5' />
+						<circle id="innerwhitecircle-left" r='75' cx='250' cy='250' style='fill:white;stroke:#01579b' />
+						<circle id="iconcircle-left" r='50' cx='250' cy='250' style='fill:white;stroke:#01579b' />
+						<circle id="personface-left" r='20' cx='250' cy='240' style='fill:white;stroke:#01579b' />
+						<path id="personbody-left" />
+					</g>
+					<g class="d-none d-lg-flex">
+						<rect id="bluetextbox-left" width="100" height="30" x='325' y='235' style='fill:#01579b' />
+						<text x="350" y="255" font-family="Verdana" font-size="12" fill="white"><a (click)="changRoute('my-employee-dashboard','employee');"
+							 style="cursor: pointer;" href="javascript:void(0)">Employee</a></text>
+						<path id="bluetextarc-left" />
+					</g>
+				</svg>
+			</div>
+			<div class="d-none d-xl-block">
+				<div class="outer">
+					<div class="inner"></div>
+				</div>
+			</div>
+			<div class="d-none d-lg-block" style="width: 49%">
+				<svg style="width:100%;height:460px;" id="componentright">
+					<g style="font-size:15 px">
+						<circle id="outercircle-right-90" (click)="onclickcircleclient('analytical');" style='fill:white;stroke:#1976d2;stroke-width:6; cursor: pointer;' />
+						<circle id="outercircle-right-60" (click)="onclickcircleclient('confident');" style='fill:white;stroke:#673ab7;stroke-width:6; cursor: pointer;' />
+						<circle id="outercircle-right-30" (click)="onclickcircleclient('tentative');" style='fill:white;stroke:#f9a825;stroke-width:6; cursor: pointer;' />
+						<circle id="outercircle-right-0" (click)="onclickcircleclient('fear');" style='fill:white;stroke:#311b92;stroke-width:6; cursor: pointer;' />
+						<circle id="outercircle-right-330" (click)="onclickcircleclient('sadness');" style='fill:white;stroke:#757575;stroke-width:6; cursor: pointer;' />
+						<circle id="outercircle-right-300" (click)="onclickcircleclient('joy');" style='fill:white;stroke:#00e676;stroke-width:6; cursor: pointer;' />
+						<circle id="outercircle-right-270" (click)="onclickcircleclient('anger');" style='fill:white;stroke:#e53935;stroke-width:6; cursor: pointer;' />
+
+
+						<text id="outercircle-text-right-90" (click)="onclickcircleclient('analytical');" style='fill:black; cursor: pointer;'
+						 x="236" y="410" />
+						<text id="outercircle-text-right-60" (click)="onclickcircleclient('confident');" style='fill:black; cursor: pointer;'
+						 x="320" y="391" />
+						<text id="outercircle-text-right-30" (click)="onclickcircleclient('tentative');" style='fill:black; cursor: pointer;'
+						 x="371" y="331" />
+						<text id="outercircle-text-right-0" (click)="onclickcircleclient('fear');" style='fill:black; cursor: pointer;' x="392"
+						 y="254" />
+						<text id="outercircle-text-right-330" (click)="onclickcircleclient('sadness');" style='fill:black; cursor: pointer;'
+						 x="370" y="176" />
+						<text id="outercircle-text-right-300" (click)="onclickcircleclient('joy');" style='fill:black; cursor: pointer;'
+						 x="312" y="119" />
+						<text id="outercircle-text-right-270" (click)="onclickcircleclient('anger');" style='fill:black; cursor: pointer;'
+						 x="234" y="99" />
+
+
+						<text id="text-right-85" x="270" y="449">Analytical</text>
+						<text id="text-right-55" x="360" y="407">Confident</text>
+						<text id="text-right-25" x="420" y="352">Tentative</text>
+						<text id="text-right-0" x="447" y="251">Fear</text>
+						<text id="text-right-325" x="406" y="145">Sadness</text>
+						<text id="text-right-295" x="353" y="84">Joy</text>
+						<text id="text-right-265" x="247" y="55">Anger</text>
+					</g>
+					<g>
+						<path id="outerarc-right" />
+						<circle id="outerarc-right-90" style='fill:#1976d2' />
+						<circle id="outerarc-right-60" style='fill:#673ab7' />
+						<circle id="outerarc-right-30" style='fill:#f9a825' />
+						<circle id="outerarc-right-0" style='fill:#311b92' />
+						<circle id="outerarc-right-330" style='fill:#757575' />
+						<circle id="outerarc-right-300" style='fill:#00e676' />
+						<circle id="outerarc-right-270" style='fill:#e53935' />
+					</g>
+					<g>
+						<circle id="middlegreycircle-right" r='95' cx='250' cy='250' style='fill:#f5f5f5' />
+						<circle id="innerwhitecircle-right" r='75' cx='250' cy='250' style='fill:white;stroke:#01579b' />
+						<circle id="iconcircle-right" r='50' cx='250' cy='250' style='fill:white;stroke:#01579b' />
+						<circle id="personface-right" r='20' cx='250' cy='240' style='fill:white;stroke:#01579b' />
+						<path id="personbody-right" />
+					</g>
+					<g class="d-none d-lg-flex">
+						<rect id="bluetextbox-right" width="100" height="30" x='75' y='235' style='fill:#01579b' />
+						<text x="100" y="255" font-family="Verdana" font-size="12" fill="white"><a (click)="changRouteClient('my-client-dashboard','client');"
+							 style="cursor: pointer;" href="javascript:void(0)">Client</a></text>
+						<path id="bluetextarc-right" />
+					</g>
+				</svg>
+			</div>
+
+			<!--  tablet screen -->
+
+			<div class="col-sm-6 d-none d-md-block d-lg-none">
+				<svg style="width:100%;height:550px;" id="componentright">
+					<g style="font-size:15 px">
+						<circle id="outercircle-rightT-90" (click)="onclickcircleclient('analytical');" style='fill:white;stroke:#1976d2;stroke-width:6; cursor: pointer;' />
+						<circle id="outercircle-rightT-60" (click)="onclickcircleclient('confident');" style='fill:white;stroke:#673ab7;stroke-width:6; cursor: pointer;' />
+						<circle id="outercircle-rightT-30" (click)="onclickcircleclient('tentative');" style='fill:white;stroke:#f9a825;stroke-width:6; cursor: pointer;' />
+						<circle id="outercircle-rightT-0" (click)="onclickcircleclient('fear');" style='fill:white;stroke:#311b92;stroke-width:6; cursor: pointer;' />
+						<circle id="outercircle-rightT-330" (click)="onclickcircleclient('sadness');" style='fill:white;stroke:#757575;stroke-width:6; cursor: pointer;' />
+						<circle id="outercircle-rightT-300" (click)="onclickcircleclient('joy');" style='fill:white;stroke:#00e676;stroke-width:6; cursor: pointer;' />
+						<circle id="outercircle-rightT-270" (click)="onclickcircleclient('anger');" style='fill:white;stroke:#e53935;stroke-width:6; cursor: pointer;' />
+
+
+						<text id="outercircle-text-rightT-90" (click)="onclickcircleclient('analytical');" style='fill:black; cursor: pointer;'
+						 x="110" y="410" />
+						<text id="outercircle-text-rightT-60" (click)="onclickcircleclient('confident');" style='fill:black; cursor: pointer;'
+						 x="190" y="391" />
+						<text id="outercircle-text-rightT-30" (click)="onclickcircleclient('tentative');" style='fill:black; cursor: pointer;'
+						 x="240" y="331" />
+						<text id="outercircle-text-rightT-0" (click)="onclickcircleclient('fear');" style='fill:black; cursor: pointer;'
+						 x="270" y="254" />
+						<text id="outercircle-text-rightT-330" (click)="onclickcircleclient('sadness');" style='fill:black; cursor: pointer;'
+						 x="250" y="176" />
+						<text id="outercircle-text-rightT-300" (click)="onclickcircleclient('joy');" style='fill:black; cursor: pointer;'
+						 x="190" y="119" />
+						<text id="outercircle-text-rightT-270" (click)="onclickcircleclient('anger');" style='fill:black; cursor: pointer;'
+						 x="110" y="99" />
+
+
+						<text id="text-rightT-85" x="135" y="449">Analytical</text>
+						<text id="text-rightT-55" x="250" y="407">Confident</text>
+						<text id="text-rightT-25" x="290" y="352">Tentative</text>
+						<text id="text-rightT-0" x="320" y="251">Fear</text>
+						<text id="text-rightT-325" x="300" y="145">Sadness</text>
+						<text id="text-rightT-295" x="250" y="84">Joy</text>
+						<text id="text-rightT-265" x="150" y="55">Anger</text>
+					</g>
+					<g>
+						<path id="outerarc-rightT" />
+						<circle id="outerarc-rightT-90" style='fill:#1976d2' />
+						<circle id="outerarc-rightT-60" style='fill:#673ab7' />
+						<circle id="outerarc-rightT-30" style='fill:#f9a825' />
+						<circle id="outerarc-rightT-0" style='fill:#311b92' />
+						<circle id="outerarc-rightT-330" style='fill:#757575' />
+						<circle id="outerarc-rightT-300" style='fill:#00e676' />
+						<circle id="outerarc-rightT-270" style='fill:#e53935' />
+					</g>
+					<g>
+						<circle id="middlegreycircle-right" r='95' cx='125' cy='250' style='fill:#f5f5f5' />
+						<circle id="innerwhitecircle-right" r='75' cx='125' cy='250' style='fill:white;stroke:#01579b' />
+						<circle id="iconcircle-right" r='50' cx='125' cy='250' style='fill:white;stroke:#01579b' />
+						<circle id="personface-rightT" r='20' cx='125' cy='240' style='fill:white;stroke:#01579b' />
+						<path id="personbody-rightT" />
+					</g>
+					<g class="d-none d-lg-flex">
+						<rect id="bluetextbox-right" width="100" height="30" x='75' y='235' style='fill:#01579b' />
+						<text x="100" y="255" font-family="Verdana" font-size="12" fill="white"><a (click)="changRouteClient('my-client-dashboard','client');"
+							 style="cursor: pointer;" href="javascript:void(0)">Client</a></text>
+						<path id="bluetextarc-right" />
+					</g>
+				</svg>
+			</div>
+
+			<!--  tablet screen end -->
+
+		</div>
+		<!-- desktop comp end -->
+
+		<!-- mobile comp start -->
+		<div class="row d-sm-none">
+
+			<div class="col-sm-5">
+				<svg style="width:100%;height:400px	;" id="componenttop">
+					<g style="font-size:9px">
+						<circle id="outercircle-top-180" (click)="onclickcircleemployee('analytical');" style='fill:white;stroke:#1976d2;stroke-width:6; cursor: pointer;'></circle>
+						<circle id="outercircle-top-210" (click)="onclickcircleemployee('confident');" style='fill:white;stroke:#673ab7;stroke-width:6; cursor: pointer;' />
+						<circle id="outercircle-top-240" (click)="onclickcircleemployee('tentative');" style='fill:white;stroke:#f9a825;stroke-width:6; cursor: pointer;' />
+						<circle id="outercircle-top-270" (click)="onclickcircleemployee('fear');" style='fill:white;stroke:#311b92;stroke-width:6; cursor: pointer;' />
+						<circle id="outercircle-top-300" (click)="onclickcircleemployee('sadness');" style='fill:white;stroke:#757575;stroke-width:6; cursor: pointer;' />
+						<circle id="outercircle-top-330" (click)="onclickcircleemployee('joy');" style='fill:white;stroke:#00e676;stroke-width:6; cursor: pointer;' />
+						<circle id="outercircle-top-360" (click)="onclickcircleemployee('anger');" style='fill:white;stroke:#e53935;stroke-width:6; cursor: pointer;' />
+
+						<text id="outercircle-text-top-180" (click)="onclickcircleemployee('analytical');" style='fill:black; cursor: pointer;'
+						 x="45" y="250" />
+						<text id="outercircle-text-top-210" (click)="onclickcircleemployee('confident');" style='fill:black; cursor: pointer;'
+						 x="60" y="200" />
+						<text id="outercircle-text-top-240" (click)="onclickcircleemployee('tentative');" style='fill:black; cursor: pointer;'
+						 x="90" y="165" />
+						<text id="outercircle-text-top-270" (click)="onclickcircleemployee('fear');" style='fill:black; cursor: pointer;'
+						 x="140" y="150" />
+						<text id="outercircle-text-top-300" (click)="onclickcircleemployee('sadness');" style='fill:black; cursor: pointer;'
+						 x="190" y="165" />
+						<text id="outercircle-text-top-330" (click)="onclickcircleemployee('joy');" style='fill:black; cursor: pointer;'
+						 x="230" y="200" />
+						<text id="outercircle-text-top-360" (click)="onclickcircleemployee('anger');" style='fill:black; cursor: pointer;'
+						 x="245" y="250" />
+
+						<text id="text-top-275" x="0" y="230">Analytical</text>
+						<text id="text-top-120" x="5" y="180">Confident</text>
+						<text id="text-top-150" x="50" y="130">Tentative</text>
+						<text id="text-top-180" x="140" y="110">Fear</text>
+						<text id="text-top-210" x="200" y="130">Sadness</text>
+						<text id="text-top-240" x="270" y="180">Joy</text>
+						<text id="text-top-280" x="275" y="220">Anger</text>
+					</g>
+					<g>
+						<path id="outerarc-top" />
+						<circle id="outerarc-top-180" style='fill:#1976d2' />
+						<circle id="outerarc-top-210" style='fill:#673ab7' />
+						<circle id="outerarc-top-240" style='fill:#f9a825' />
+						<circle id="outerarc-top-270" style='fill:#311b92' />
+						<circle id="outerarc-top-300" style='fill:#757575' />
+						<circle id="outerarc-top-330" style='fill:#00e676' />
+						<circle id="outerarc-top-360" style='fill:#e53935' />
+					</g>
+					<g>
+
+						<circle id="iconcircle-top" r='40' cx='150' cy='250' style='fill:white;stroke:#01579b' />
+						<circle id="personface-top" r='15' cx='150' cy='240' style='fill:white;stroke:#01579b' />
+						<path id="personbody-top" />
+					</g>
+					<g>
+						<rect id="bluetextbox-top" width="100" height="30" x='100' y='335' style='fill:#01579b' />
+						<text x="120" y="355" font-family="Verdana" font-size="12" fill="white"><a (click)="changRoute('my-employee-dashboard','employee');"
+							 style="cursor: pointer;" href="javascript:void(0)">Employee</a></text>
+						<!-- <path id="bluetextarc-left" /> -->
+					</g>
+				</svg>
+			</div>
+
+			<!-- <div class="col-sm-1">
+				<div class="outerhorizontal">
+				  <div class="innerhorizontal"></div>
+				</div>
+			</div> -->
+
+			<div class="col-sm-5">
+				<svg style="width:100%;height:400px	;" id="componenttop">
+					<g style="font-size:9px">
+						<circle id="outercircle-bottom-180" (click)="onclickcircleemployee('analytical');" style='fill:white;stroke:#1976d2;stroke-width:6; cursor: pointer;'></circle>
+						<circle id="outercircle-bottom-150" (click)="onclickcircleemployee('confident');" style='fill:white;stroke:#673ab7;stroke-width:6; cursor: pointer;' />
+						<circle id="outercircle-bottom-120" (click)="onclickcircleemployee('tentative');" style='fill:white;stroke:#f9a825;stroke-width:6; cursor: pointer;' />
+						<circle id="outercircle-bottom-90" (click)="onclickcircleemployee('fear');" style='fill:white;stroke:#311b92;stroke-width:6; cursor: pointer;' />
+						<circle id="outercircle-bottom-60" (click)="onclickcircleemployee('sadness');" style='fill:white;stroke:#757575;stroke-width:6; cursor: pointer;' />
+						<circle id="outercircle-bottom-30" (click)="onclickcircleemployee('joy');" style='fill:white;stroke:#00e676;stroke-width:6; cursor: pointer;' />
+						<circle id="outercircle-bottom-0" (click)="onclickcircleemployee('anger');" style='fill:white;stroke:#e53935;stroke-width:6; cursor: pointer;' />
+
+						<text id="outercircle-text-bottom-180" (click)="onclickcircleemployee('analytical');" style='fill:black;  cursor: pointer;'
+						 x="40" y="100" />
+						<text id="outercircle-text-bottom-150" (click)="onclickcircleemployee('confident');" style='fill:black; cursor: pointer;'
+						 x="60" y="150" />
+						<text id="outercircle-text-bottom-120" (click)="onclickcircleemployee('tentative');" style='fill:black; cursor: pointer;'
+						 x="90" y="185" />
+						<text id="outercircle-text-bottom-90" (click)="onclickcircleemployee('fear');" style='fill:black; cursor: pointer;'
+						 x="140" y="200" />
+						<text id="outercircle-text-bottom-60" (click)="onclickcircleemployee('sadness');" style='fill:black; cursor: pointer;'
+						 x="190" y="190" />
+						<text id="outercircle-text-bottom-30" (click)="onclickcircleemployee('joy');" style='fill:black; cursor: pointer;'
+						 x="230" y="150" />
+						<text id="outercircle-text-bottom-0" (click)="onclickcircleemployee('anger');" style='fill:black; cursor: pointer;'
+						 x="245" y="100" />
+
+						<text id="text-bottom-180" x="0" y="70">Analytical</text>
+						<text id="text-bottom-150" x="0" y="165">Confident</text>
+						<text id="text-bottom-120" x="50" y="220">Tentative</text>
+						<text id="text-bottom-90" x="140" y="250">Fear</text>
+						<text id="text-bottom-60" x="200" y="220">Sadness</text>
+						<text id="text-bottom-30" x="270" y="165">Joy</text>
+						<text id="text-bottom-0" x="275" y="70">Anger</text>
+					</g>
+					<g>
+						<path id="outerarc-top" />
+						<circle id="outerarc-bottom-180" style='fill:#1976d2' />
+						<circle id="outerarc-bottom-150" style='fill:#673ab7' />
+						<circle id="outerarc-bottom-120" style='fill:#f9a825' />
+						<circle id="outerarc-bottom-90" style='fill:#311b92' />
+						<circle id="outerarc-bottom-60" style='fill:#757575' />
+						<circle id="outerarc-bottom-30" style='fill:#00e676' />
+						<circle id="outerarc-bottom-0" style='fill:#e53935' />
+					</g>
+					<g>
+
+						<circle id="iconcircle-bottom" r='40' cx='150' cy='90' style='fill:white;stroke:#01579b' />
+						<circle id="personface-bottom" r='15' cx='150' cy='80' style='fill:white;stroke:#01579b' />
+						<path id="personbody-bottom" />
+					</g>
+					<g>
+						<rect id="bluetextbox-bottom" width="100" height="30" x='100' y='0' style='fill:#01579b' />
+						<text x="130" y="20" font-family="Verdana" font-size="12" fill="white"><a (click)="changRouteClient('my-client-dashboard','client');"
+							 style="cursor: pointer;" href="javascript:void(0)">Client</a></text>
+						<!-- <path id="bluetextarc-left" /> -->
+					</g>
+				</svg>
+			</div>
+
+
+		</div>
+
+	</div>
+</main>

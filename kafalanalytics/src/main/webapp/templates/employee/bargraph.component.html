@@ -1,0 +1,308 @@
+<!-- <link href="bootstrap.min.css" rel="stylesheet"> -->
+<aside  class="col-sm-2 show pl-0 pull-left d-none d-xl-block" style="height:100%">
+	<div class="sidebar-left" style="background-color: white">
+		
+          
+          <ul class="nav sidebar-nav" role="tablist">
+              <li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRouteEmployee('my-dashboard','Analysis');">
+                <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3"
+				            style="color: black; display: inline; padding: 0px"><img
+					          src="images/dashboard_blue.png" style="width:17%; margin-right: 5px;" />Dashboard</a>
+              </li> 
+              <hr style="width: 90%; margin-top: 1px; margin-bottom: 1px;">
+              <li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRouteEmployee('my-employee-dashboard','employee');">
+                  <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3"
+				            style="color: black; display: inline; padding: 0px"><img
+					          src="images/tone_blue.png" style="width:17%; margin-right: 5px;" />Tone</a>
+              </li>
+              <li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="teamtoneemployeeEscalation('yes')">
+                <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3"
+				            style="color: black; display: inline; padding: 0px"><img
+					          src="images/escalation_blue.png" style="width:17%; margin-right: 5px;" />Escalation</a>
+              </li>
+              <li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="teamtoneemployeeAdverse('yes')">
+                <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3"
+				            style="color: black; display: inline; padding: 0px"><img
+					          src="images/adverse_blue.png" style="width:17%; margin-right: 5px;" />Adverse Events</a>
+              </li>
+              <hr style="width: 90%; margin-top: 1px; margin-bottom: 1px;">
+              <li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRoutePersonal('my-employee-personal-score','employee');">
+                <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3"
+				            style="color: black; display: inline; padding: 0px"><img
+					          src="images/personal_insights_blue.png" style="width:17%; margin-right: 5px;" />Personal Insights</a>
+              </li>
+              <li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRoutePersonal('my-team-score','employee');">
+                <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3"
+				            style="color: black; display: inline; padding: 0px"><img
+					          src="images/team_insights_blue.png" style="width:17%; margin-right: 5px;%" />My Team Insights</a>
+              </li> 
+              <hr style="width: 90%; margin-top: 1px; margin-bottom: 1px;" >
+              <li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRouteTouch('touch-points');">
+                <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3"
+				            style="color: black; display: inline; padding: 0px"><img
+					          src="images/touch_points_blue.png" style="width:17%; margin-right: 5px;" />Touch Points</a>
+              </li>
+              <li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRouteTouch('response-time');">
+                <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3"
+				            style="color: black; display: inline; padding: 0px"><img
+					          src="images/response_time_blue.png" style="width:17%; margin-right: 5px;" />Response Time</a>
+              </li>
+              <li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRouteTouch('personality-analytics');">
+                <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3"
+				            style="color: black; display: inline; padding: 0px"><img
+					          src="images/personality_analytics_blue.png" style="width:17%; margin-right: 5px;" />Personality Analytics</a>
+              </li>
+              <li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRouteTouch('relationship');">
+                <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3"
+				            style="color: black; display: inline; padding: 0px"><img
+					          src="images/relationship_blue.png" style="width:17%; margin-right: 5px;" />Relationship</a>
+              </li>        
+              </ul>
+	</div>          
+  </aside>
+<main class="col-xl-10 col-lg-12 pull-right" role="main">
+
+<div style="height: 600px; margin-top: 20px">
+  <div   ng-controller="MyCtrl"   style="background: #efefef; width: 100%; height: 100%; overflow: auto; min-height: 100%" >
+    <div ng-repeat="">
+    
+      <!-- <h3  class="d-none d-md-block" style="font-family: Arial, Helvetica, sans-serif; " align="center">Revenue by customers by gross margin</h3>
+      <h5  class="d-sm-none" style="font-family: Arial, Helvetica, sans-serif; " align="center">Revenue by customers by gross margin</h5> -->
+        <div style="text-align: center;">
+          <span class="font-size-20 Ubuntu-B" align="center">Client Happiness Index</span>
+        </div>
+      <div>
+      <a *ngIf="previousPage" (click)='loadPreviousCharts()' class="previous round amain margin-desktop200 d-none d-md-inline" >&#8249;</a>
+      <a *ngIf="!previousPage" class="previous round disabled amain margin-desktop200 d-none d-md-inline">&#8249;</a>
+      <a *ngIf="previousPage" (click)='loadPreviousCharts()' class="previous round amain d-sm-none" >&#8249;</a>
+      <a *ngIf="!previousPage" class="previous round disabled amain d-sm-none">&#8249;</a>
+      <p class="inline-block pmain">{{ currentPage}} of {{ noOfPages }} </p>
+      <a *ngIf="nextPage" (click)='loadNextCharts()' ng-class="{linkDisabled: getCurrentPage()}" class="next round amain">&#8250;</a>
+      <a *ngIf="!nextPage" class="next round disabled amain">&#8250;</a>
+      <span class="font-size-15 Ubuntu-B inline" style="margin-left: 13.5%;">Email Wise</span>
+      <ui-switch defaultBgColor="#497487" defaultBoColor="#497487" color="#497487" size="small"  (change)="onChangeSwitch()"></ui-switch>
+      <span class="font-size-15 Ubuntu-B inline">Client Wise</span>
+     <!-- <a *ngIf="!clientPage" (click)='setChartDataClient()' class="agap rcorners2 amain d-none d-md-inline-block margin-desktop550">Switch to people wise</a>
+     <a *ngIf="clientPage" (click)='setChartData()' class="agap rcorners2 amain d-none d-md-inline-block margin-desktop550">Switch to email wise</a> -->
+     <!-- <a *ngIf="!clientPage" (click)='setChartDataClient()' class="agap rcorners2 amain d-sm-none margin-mobile30">Switch view</a> -->
+     <!-- <a *ngIf="clientPage" (click)='setChartData()' class="agap rcorners2 amain d-sm-none margin-mobile30">Switch view</a> -->
+     <br>
+     <br>
+     
+     <!-- <md-switch ng-model="data.cb2" aria-label="Switch 2" ng-true-value="'yup'" ng-false-value="'nope'" class="md-warn">
+    Switch 2 (md-warn): {{ data.cb2 }}
+  </md-switch> -->
+    </div>
+      <!-- <p>{{ currentPage }}</p>
+      <p>{{ noOfPages }}</p>
+      <p>{{ dataBarLabels.length }}</p> -->
+      <!-- <div>
+      <p style="writing-mode: vertical-rl">Customer revenue in millions</p>
+    </div> -->
+      <div [ngStyle]="getMyStyles()" class="barg d-none d-md-block" style="position: relative;" >
+          <!-- <p style="writing-mode: vertical-rl; display: inline-block">Customer revenue in millions</p> -->
+        <canvas baseChart width="10" 
+                [colors]="chartColors"
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+                [chartType]="barChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"
+                class="d-none d-md-inline-block" ></canvas>
+      </div>
+
+      <div class="barg-mobile d-sm-none" style="position: relative;" >
+        <!-- <p style="writing-mode: vertical-rl; display: inline-block">Customer revenue in millions</p> -->
+      <canvas baseChart width="5" 
+              [colors]="chartColors"
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [chartType]="barChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"
+              class="d-sm-none" style="display: inline-block" ></canvas>
+    </div>
+      <!-- <button (click)="randomize()">Update</button> -->
+    </div>
+    <!-- <p style="writing-mode: vertical-rl; display: inline-block; margin-top: 60px">Happy Chart</p> -->
+    <!-- <div class="container " style="margin-left: auto; width: 58%; height: 60%;" > -->
+      
+      <div [ngStyle]="getMyStylesDonut()" class="d-none d-md-inline-flex donut_container " >
+          <!-- <p style="writing-mode: vertical-rl; display: inline-block; margin-top: 30px;">Happy Chart</p> -->
+        <br>
+        <br>
+          <div *ngIf="barChartLabels.length >= 1" class="donut_frame" [ngStyle]="{'background-image': getUrl1()}" style="background-repeat: no-repeat; background-position: 30px 98px; background-size: 40%;">
+            <div class="vl2" ></div>
+              <canvas baseChart [colors]="doughnutColors"
+                [data]="datadoughnutChart[0]"
+                [options]="donutChartOptions"
+                [labels]="doughnutChartLabels"
+                [chartType]="doughnutChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"
+                width="100px" height="120px">
+                </canvas>
+            </div>
+            <div *ngIf="barChartLabels.length >= 2" class="donut_frame" [ngStyle]="{'background-image': getUrl2()}" style="background-repeat: no-repeat; background-position: 30px 98px; background-size: 40%;">
+              <div class="vl2" ></div>
+              <canvas width="100px" height="120px" baseChart 
+                [colors]="doughnutColors"
+                [data]="datadoughnutChart[1]"
+                [labels]="doughnutChartLabels"
+                [options]="donutChartOptions"
+                [chartType]="doughnutChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked1($event)">
+              </canvas>
+            </div>
+            <div *ngIf="barChartLabels.length >= 3" class="donut_frame" [ngStyle]="{'background-image': getUrl3()}" style="background-repeat: no-repeat; background-position: 30px 98px; background-size: 40%;">
+              <div class="vl2" ></div>
+              <canvas width="100px" height="120px" baseChart 
+                [data]="datadoughnutChart[2]"
+                [colors]="doughnutColors"
+                [labels]="doughnutChartLabels"
+                [options]="donutChartOptions"
+                [chartType]="doughnutChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked2($event)">
+              </canvas>
+            </div>
+            <div   *ngIf="barChartLabels.length >= 4" class="donut_frame" [ngStyle]="{'background-image': getUrl4()}" style="background-repeat: no-repeat; background-position: 30px 98px; background-size: 40%;">
+              <div class="vl2" ></div>
+              <canvas width="100px" height="120px" baseChart 
+                [data]="datadoughnutChart[3]"
+                [colors]="doughnutColors"
+                [options]="donutChartOptions"
+                [labels]="doughnutChartLabels"
+                [chartType]="doughnutChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked3($event)">
+              </canvas>
+            </div>
+            <div *ngIf="barChartLabels.length >= 5" class="donut_frame" [ngStyle]="{'background-image': getUrl5()}" style="background-repeat: no-repeat; background-position: 30px 98px; background-size: 40%;">
+              <div class="vl2" ></div>
+              <canvas width="100px" height="120px" baseChart 
+                [data]="datadoughnutChart[4]"
+                [colors]="doughnutColors"
+                [options]="donutChartOptions"
+                [labels]="doughnutChartLabels"
+                [chartType]="doughnutChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked4($event)">
+              </canvas>
+            </div>
+            <div *ngIf="barChartLabels.length >= 6" class="donut_frame" [ngStyle]="{'background-image': getUrl6()}" style="background-repeat: no-repeat; background-position: 30px 98px; background-size: 40%;" >
+              <div class="vl2" ></div>
+              <canvas width="100px" height="120px" baseChart 
+                [data]="datadoughnutChart[5]"
+                [colors]="doughnutColors"
+                [options]="donutChartOptions"
+                [labels]="doughnutChartLabels"
+                [chartType]="doughnutChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked5($event)">
+              </canvas>
+            </div>
+            <div *ngIf="barChartLabels.length >= 7" class="donut_frame" [ngStyle]="{'background-image': getUrl7()}" style="background-repeat: no-repeat; background-position: 30px 98px; background-size: 40%;" >
+              <div class="vl2" ></div>
+              <canvas width="100px" height="120px" baseChart 
+                [data]="datadoughnutChart[6]"
+                [colors]="doughnutColors"
+                [labels]="doughnutChartLabels"
+                [options]="donutChartOptions"
+                [chartType]="doughnutChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked6($event)">
+              </canvas>
+            </div>
+          </div>
+
+          <div class="d-sm-none donut_container-mobile" >
+            <!-- <p style="writing-mode: vertical-rl; display: inline-block; margin-top: 30px;">Happy Chart</p> -->
+          <br>
+          <br>
+            <div *ngIf="barChartLabels.length >= 1" class="donut_frame-mobile" [ngStyle]="{'background-image': getUrl1()}" style="background-repeat: no-repeat; background-position: 15px 75px; background-size: 40%;">
+              <div class="vl2-mobile" ></div>
+                <canvas baseChart [colors]="doughnutColors"
+                  [data]="datadoughnutChart[0]"
+                  [options]="donutChartOptions"
+                  [labels]="doughnutChartLabels"
+                  [chartType]="doughnutChartType"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"
+                  width="50px" height="60px">
+                  </canvas>
+              </div>
+              <div *ngIf="barChartLabels.length >= 2" class="donut_frame" [ngStyle]="{'background-image': getUrl2()}" style="background-repeat: no-repeat; background-position: 15px 75px; background-size: 40%;">
+                <div class="vl2-mobile" ></div>
+                <canvas width="50px" height="60px" baseChart 
+                  [colors]="doughnutColors"
+                  [data]="datadoughnutChart[1]"
+                  [labels]="doughnutChartLabels"
+                  [options]="donutChartOptions"
+                  [chartType]="doughnutChartType"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked1($event)">
+                </canvas>
+              </div>
+              <div *ngIf="barChartLabels.length >= 3" class="donut_frame" [ngStyle]="{'background-image': getUrl3()}" style="background-repeat: no-repeat; background-position: 15px 75px; background-size: 40%;">
+                <div class="vl2-mobile" ></div>
+                <canvas width="50px" height="60px" baseChart 
+                  [data]="datadoughnutChart[2]"
+                  [colors]="doughnutColors"
+                  [labels]="doughnutChartLabels"
+                  [options]="donutChartOptions"
+                  [chartType]="doughnutChartType"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked2($event)">
+                </canvas>
+              </div>
+            </div>
+    <br>
+    <br>
+    <br>
+    
+    <!-- <h3 *ngIf="clientPage" class="d-none d-md-block" style="font-family: Arial, Helvetica, sans-serif; " align="center">Tone distribution of client organizations (people wise)</h3>
+    <h3 *ngIf="!clientPage" class="d-none d-md-block" style="font-family: Arial, Helvetica, sans-serif; " align="center">Tone distribution of client organizations (email wise)</h3>
+
+    <h5 *ngIf="clientPage" class="d-sm-none" style="font-family: Arial, Helvetica, sans-serif; " align="center">Tone distribution of client organizations (people wise)</h5>
+    <h5 *ngIf="!clientPage" class="d-sm-none" style="font-family: Arial, Helvetica, sans-serif; " align="center">Tone distribution of client organizations (email wise)</h5> -->
+    <!-- </div> -->
+
+    <!-- <angular-d3-donut style="width: 100%; margin-left: 450px"  [id]="donutChartId" [data]="donutChartData"></angular-d3-donut> -->
+
+  </div>
+  <!-- <script>
+    angular.module('MainDashboard', [])
+    .controller('myCtrl', ['$scope', function($scope) {
+        $scope.count = 0;
+        $scope.myFunc = function() {
+            $scope.count++;
+        };
+    }]);
+  </script> -->
+
+
+
+  <script>
+    angular.module('switchDemo1', ['ngMaterial'])
+  .controller('SwitchDemoCtrl', function($scope) {
+    $scope.data = {
+      cb1: true,
+      cb4: true,
+      cb5: false
+    };
+  
+    $scope.message = 'false';
+  
+    $scope.onChange = function(cbState) {
+      $scope.message = cbState;
+    };
+  });
+  </script>
+</div>
+</main>

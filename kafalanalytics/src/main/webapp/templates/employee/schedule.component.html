@@ -1,0 +1,192 @@
+<aside class="col-sm-2 show pl-0 pull-left d-none d-xl-block" style="height:100%">
+
+    <div class="sidebar-left" style="background-color: white">
+            <!-- Sidebar -->
+           
+                
+        
+                    <ul class="nav sidebar-nav" role="tablist" >
+                    
+             <li class="nav-item menu-item1 height-40px" style="background-color:#FFFFFF; color:white !important" (click)="changeRouteAdmin('admin-dashboard');">
+
+                        <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px"><img src="images/Admin_screens_logos-11.png" style="width:18%"/>Admin Panel</a>
+                        
+                    </li>
+                    <li class="nav-item menu-item1 height-40px" style="background-color:#FFFFFF; text-align: left">
+                        <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px" (click)="changeRouteAdmin('employee-upload');">
+                            <img src="images/Admin_screens_logos-02.png" style="width:18%">Employee data upload</a>
+                    </li>
+                    <li class="nav-item menu-item1 height-40px" >
+                        <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px" (click)="changeRouteAdmin('employee-data');"> 
+                            <img src="images/Admin_screens_logos-03.png" style="width:18%">Employee data</a>
+                            
+                    </li>
+                    <hr style="width: 90%; margin-top: 1px; margin-bottom: 1px;">
+                    <li class="nav-item menu-item1 height-40px" style="background-color:#FFFFFF; text-align: left">
+                        <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px" (click)="changeRouteAdmin('client-upload');"> 
+                            <img src="images/Admin_screens_logos-02.png" style="width:18%" /> Client data upload</a>
+                    </li>
+                    <li class="nav-item menu-item1 height-40px" style="background-color:#FFFFFF; text-align: left">
+                        <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px" (click)="changeRouteAdmin('client-data');" >
+                            <img src="images/Admin_screens_logos-03.png" style="width:18%">Client data</a>
+                            
+                    </li>
+                    <hr style="width: 90%; margin-top: 1px; margin-bottom: 1px;">
+                    <li class="nav-item menu-item1 height-40px" style="background-color:#497487; text-align: left">
+                            <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:white; display: inline; padding: 0px">
+                                <img src="images/schedule_white.png" style="width:18%">Schedule </a>
+                        </li>
+                        <li class="nav-item menu-item1 height-40px ">
+                            <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px">
+                                <img src="images/Admin_screens_logos-05.png" style="width:18%">Status</a>
+                                
+                        </li>
+                        <hr style="width: 90%; margin-top: 1px; margin-bottom: 1px;">
+                        <li class="nav-item menu-item1 height-40px" style="background-color:#FFFFFF; text-align: left">
+                                <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px" (click)="changeRouteAdmin('server-configuration');">
+                                    <img src="images/Admin_screens_logos-06.png" style="width:18%">Configure Email server</a>
+                            </li>
+                </ul>
+                
+        </div>
+
+</aside>
+
+<main class="col-lg-12 col-xl-10 pull-left" role="main">
+<div style=" background-color: white; border-radius: 5px" ng-controller="TabController">
+<h1 style="margin-left:3%; padding-top: 16px; font-size: 18px; padding-bottom: 6px;" class="Ubuntu-L">Schedule</h1>
+<hr style="width: 95%; border-top: 1px solid #D8D8D8">
+<div style="text-align:center">
+<a class="Ubuntu-L" style="display:block;padding-bottom: 15px; padding-top: 5px">Set the Schedule</a>
+<div style="display:inline-grid">
+<div [class.icon-empSch]="daily" style="display:grid;  ">
+<a [class.bluebutton]="daily" class="Ubuntu-L schbutton " style="color: #439cc4" (click)="tabtoggle('daily')"  >Daily</a>
+</div>
+</div>
+<div style="display:inline-grid">
+<div [class.icon-empSch]="weekly" style="display:grid; ">
+<a [class.bluebutton]="weekly" class="Ubuntu-L schbutton" style="color: #439cc4" (click)="tabtoggle('weekly')" >Weekly</a>
+</div>
+</div>
+<!-- <div style="display:inline-grid">
+<div [class.icon-empSch]="monthly" style="display:grid;  ">
+<a [class.bluebutton]="monthly" class="Ubuntu-L schbutton"  (click)="tabtoggle('monthly')" >Monthly</a>
+</div>
+</div> -->
+
+<br/>
+
+<div ng-show="isSet(1)">
+<form *ngIf="daily == true" [formGroup]="scheduleForm" class="Ubuntu-L">
+  <!-- Start Date:<br/>
+    <input formControlName="date" type="date" name="date">  
+  <br/> -->
+  
+    Time
+    <br/>
+    <input formControlName="time"  class="inputDFull" style="padding-left: 25px; padding-right: 25px; background-color : #f7f7f7; border: 1px solid #b7b7b7; width: 190px;" type="time" name="usr_time">
+    <!-- <owl-date-time #dt1></owl-date-time> -->
+    <!-- <ngx-material-timepicker #picker></ngx-material-timepicker> -->
+    <div style="padding-top: 7em">
+        &nbsp;
+    </div>
+    <input [class.bluebutton]="scheduleForm.valid" [disabled]="!scheduleForm.valid" type="submit" style="border-radius:30px; color:white; width: 12%; padding-top: 0.3em; padding-bottom: 0.3em;" (click)="scheduleBatch()">
+  </form>
+ 
+  <form *ngIf="weekly == true" [formGroup]="scheduleFormWeekly" class="Ubuntu-L">
+    <!-- Start Day:<br/>
+      <input formControlName="day" name="day">   -->
+    
+      Time
+      <br/>
+      <input formControlName="time" class="inputDFull" style="padding-left: 25px; padding-right: 25px; background-color : #f7f7f7; border: 1px solid #b7b7b7; width: 190px;" type="time" name="usr_time">
+      <div class="Ubuntu-L" style="width: 100%;padding-top: 40px">
+
+		<a  [style.background-color]="getWeekColor('MON')" (click)="setDayActive('MON')" class="Ubuntu-L formstep" style="display: inline; color: white;  padding-left: 0.5em; padding-right: 0.5em">Mon</a>
+		<hr style="width: 4%; display: inline-block">
+		<a  [style.background-color]="getWeekColor('TUE')" (click)="setDayActive('TUE')" class="Ubuntu-L formstep" style="display: inline; color: white;  padding-left: 0.6em; padding-right: 0.6em">Tue</a>
+		<hr style="width: 4%; display: inline-block">
+		<a   [style.background-color]="getWeekColor('WED')" (click)="setDayActive('WED')" class="Ubuntu-L formstep" style="display: inline; color: white;  padding-left: 0.5em; padding-right: 0.5em">Wed</a>
+        <hr style="width: 4%; display: inline-block">
+        <a   [style.background-color]="getWeekColor('THU')" (click)="setDayActive('THU')" class="Ubuntu-L formstep" style="display: inline; color: white;  padding-left: 0.6em; padding-right: 0.6em">Thu</a>
+        <hr style="width: 4%; display: inline-block">
+        <a   [style.background-color]="getWeekColor('FRI')" (click)="setDayActive('FRI')" class="Ubuntu-L formstep" style="display: inline; color: white; padding-left: 0.8em; padding-right: 0.8em">Fri</a>
+        <hr style="width: 4%; display: inline-block">
+        <a  [style.background-color]="getWeekColor('SAT')" (click)="setDayActive('SAT')" class="Ubuntu-L formstep" style="display: inline; color: white;  padding-left: 0.65em; padding-right: 0.65em">Sat</a>
+        <hr style="width: 4%; display: inline-block">
+        <a  [style.background-color]="getWeekColor('SUN')" (click)="setDayActive('SUN')" class="Ubuntu-L formstep" style="display: inline; color: white; padding-left: 0.6em; padding-right: 0.6em">Sun</a>
+
+      </div>
+      <div style="padding-top: 4em">
+          &nbsp;
+      </div>
+
+      <input [class.bluebutton]="scheduleFormWeekly.valid" [disabled]="!scheduleFormWeekly.valid" type="submit" style="border-radius:30px; color:white; width: 12%; padding-top: 0.3em; padding-bottom: 0.3em;" (click)="scheduleBatchWeekly()">
+    </form> 
+    <!-- <form *ngIf="monthly == true" [formGroup]="scheduleFormMonthly" class="Ubuntu-L">
+        Start Date:<br/>
+          <input formControlName="date" type="date" name="date">  
+        <br/>
+        
+          Time
+          <br/>
+          <input formControlName="time" class="inputD" type="time" name="usr_time">
+          <br/>
+          <br/>
+          <br/>
+          <input type="submit" style="border-radius:30px; background-color:#497487; color:white; width: 12%" (click)="scheduleBatch()">
+    </form>   -->
+    
+    <div class="Ubuntu-L" style="width: 100%; padding-top: 15px; padding-bottom: 15px;">
+        <hr style="width: 30%; display: inline-block">
+        <a class="Ubuntu-L" style="padding-right: 5px;">or</a>
+        <hr style="width: 30%; display: inline-block; padding-left: 5px">
+    </div>
+    <div *ngIf="progressBar.status != 'active' && scheduleProgress == false && scheduleWait == false" (click)="runBatchNow()" class="Ubuntu-L" style="width: 100%; margin-top: 20px">
+        <a class="Ubuntu-L cursor-pointer" (click)="runCronNow()" style="background-color: #f57660; color: white; padding-left: 1.5em; padding-right: 1.5em; padding-top: 0.5em; padding-bottom: 0.5em; border-radius: 20px; " >Run Now</a>
+    </div>
+    <div *ngIf="scheduleWait == true && scheduleProgress == false" >
+        <a class="Ubuntu-L" style="color: #f57660; display:block; margin-bottom: 20px;">Starting Hanogi Email Sync. Please wait...</a>
+        <a class="Ubuntu-L cursor-pointer" (click)="stopBatchNow()" style="border: 1px solid #497487; color: 497487; padding-left: 2em; padding-right: 2em; padding-top:0.1em; padding-bottom: 0.1em; border-radius: 20px; " >Stop</a>
+    </div>
+    <div *ngIf="scheduleProgress == true"  class="Ubuntu-L" style="width: 100%; text-align: right;">
+        <a *ngIf="progressBar.status == 'active'" class="Ubuntu-L" style="color: #f57660;  margin-right: 41%;">Hanogi Email Sync is running.</a>
+        <a *ngIf="progressBar.status != 'active'" class="Ubuntu-L" style="color: #439cc4;  margin-right: 36%;">Hanogi Email Sync has completed successfully.</a>
+        <div style="width: 100%; margin-top: 10px;">
+            <a class="Ubuntu-L" style="color: #f57660; font-size:12px; display: inline;">Overall progress - {{progressBar.currentEmpNum}}/{{progressBar.totalEmps}} completed</a>
+            <div style="border-left: 1px solid #f57660; height: 15px; display: inline-flex;  margin-left: 10px; margin-right: 10px;"></div>
+            <div class="progress" style="width: 50%; height: 12px; margin-top: 5px; margin-bottom: 15px; border-radius: 15px; display: inline-flex; margin-right: 15%; overflow: visible;">
+                <div [style.width]="progressbarPercentage + '%'" class="progress-bar" style=" background-color: #f57660; text-align: right;border-radius: 15px;">
+                    <a style="border: 1px solid #f57660;/* padding: 1em; */margin-right: auto;margin-right:  0;width: fit-content;align-self: flex-end;background-color: #f57660;padding-left: 1em;padding-right: 1em;padding-top: 0.35em;padding-bottom: 0.35em;border-radius: 15px; font-weight: bold;">{{progressbarPercentage}}%</a>
+                    </div>
+            </div>
+        </div>
+        <div style="width: 100%">
+            <div style="display: inline-grid;">
+                <a class="Ubuntu-L" style="color: #f57660; font-size:12px; ">Current Mailbox - {{progressBar.currentEmailId}}</a>
+                <a class="Ubuntu-L" style="color: #f57660; font-size:12px; display: block;">{{progressBar.currentMailNum}}/{{progressBar.totalMails}} mails ({{progressBar.typeMailbox}})</a>
+            </div>
+            <div style="border-left: 1px solid #f57660; height: 15px; display: inline-grid; margin-left: 10px; margin-right: 10px;"></div>
+            <div class="progress" style="width: 50%; height: 8px; margin-top: 5px; margin-bottom: 15px; border-radius: 15px; display: inline-flex; margin-right: 15%; overflow: visible;">
+                    <div [style.width]="progressbarPercentageMails + '%'" class="progress-bar" style=" background-color: #f57660; text-align: right;border-radius: 15px;">
+                        <a style="border: 1px solid #f57660;/* padding: 1em; */margin-right: auto;margin-right:  0;width: fit-content;align-self: flex-end;background-color: #f57660;padding-left: 1em;padding-right: 1em;padding-top: 0.1em;padding-bottom: 0.1em;border-radius: 11px; font-weight: bold;">{{progressbarPercentageMails}}%</a>
+                        </div>
+                </div>
+        </div>
+        <a *ngIf="progressBar.status == 'active'" class="Ubuntu-L cursor-pointer" (click)="stopBatchNow()" style="border: 1px solid #497487; color: 497487; padding-left: 2em; padding-right: 2em; padding-top:0.1em; padding-bottom: 0.1em; border-radius: 20px; margin-right: 45%;" >Stop</a>
+        <a *ngIf="progressBar.status != 'active'" class="Ubuntu-L cursor-pointer" (click)="runCronNow()" style="background-color: #497487; color: white; padding-left: 2em; padding-right: 2em; padding-top:0.1em; padding-bottom: 0.1em; border-radius: 20px; margin-right: 45%;" >Run Again</a>
+    </div>
+</div>
+
+
+
+
+
+<br/><br/>
+<br/>
+<br/>
+</div>
+
+</div>
+<notifier-container></notifier-container>
+</main> 

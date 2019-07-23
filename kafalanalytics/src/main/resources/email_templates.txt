@@ -1,0 +1,15 @@
+<html>
+<body>
+<div id="emailContent">
+
+	<p style="text-transform: capitalize;">Dear {{USER_NAME}},</p><br>
+
+<p>Your generated Otp is -- {{otp}}.</p><br>
+<p>please Click on link below to reset your password....</p><br>
+<p><a href="http://localhost:8080/KafalAnalytics/forgotPassword.jsp">Click theLink</a></p><br>
+<p>Thank You</p><br>
+
+<p>Kafal Support Team</p>
+</div>
+</body>
+</html>

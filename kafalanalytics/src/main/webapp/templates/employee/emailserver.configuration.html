@@ -1,0 +1,385 @@
+<aside class="col-sm-2 show pl-0 pull-left d-none d-xl-block" style="height:100%">
+
+  <div class="sidebar-left" style="background-color: white">
+          <!-- Sidebar -->
+         
+              
+      
+                  <ul class="nav sidebar-nav" role="tablist" >
+                  
+           <li class="nav-item menu-item1 height-40px" style="background-color:#FFFFFF; color:white !important" (click)="changeRouteAdmin('admin-dashboard');">
+
+                      <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px"><img src="images/Admin_screens_logos-11.png" style="width:18%"/>Admin Panel</a>
+                      
+                  </li>
+                  <li class="nav-item menu-item1 height-40px" style="background-color:#FFFFFF; text-align: left">
+                      <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px" (click)="changeRouteAdmin('employee-upload');">
+                          <img src="images/Admin_screens_logos-02.png" style="width:18%">Employee data upload</a>
+                  </li>
+                  <li class="nav-item menu-item1 height-40px" >
+                      <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px" (click)="changeRouteAdmin('employee-data');"> 
+                          <img src="images/Admin_screens_logos-03.png" style="width:18%">Employee data</a>
+                          
+                  </li>
+                  <hr style="width: 90%; margin-top: 1px; margin-bottom: 1px;">
+                  <li class="nav-item menu-item1 height-40px" style="background-color:#FFFFFF; text-align: left">
+                      <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px" (click)="changeRouteAdmin('client-upload');"> 
+                          <img src="images/Admin_screens_logos-02.png" style="width:18%" /> Client data upload</a>
+                  </li>
+                  <li class="nav-item menu-item1 height-40px" style="background-color:#FFFFFF; text-align: left">
+                      <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px" (click)="changeRouteAdmin('client-data');" >
+                          <img src="images/Admin_screens_logos-03.png" style="width:18%">Client data</a>
+                          
+                  </li>
+                  <hr style="width: 90%; margin-top: 1px; margin-bottom: 1px;">
+                  <li class="nav-item menu-item1 height-40px" style="background-color:#FFFFFF; text-align: left">
+                          <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px" (click)="changeRouteAdmin('schedule-batch');">
+                              <img src="images/Admin_screens_logos-08.png" style="width:18%">Schedule </a>
+                      </li>
+                      <li class="nav-item menu-item1 height-40px ">
+                          <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px">
+                              <img src="images/Admin_screens_logos-05.png" style="width:18%">Status</a>
+                              
+                      </li>
+                      <hr style="width: 90%; margin-top: 1px; margin-bottom: 1px;">
+                      <li class="nav-item menu-item1 height-40px" style="background-color:#497487; text-align: left">
+                              <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:white; display: inline; padding: 0px">
+                                  <img src="images/conf_email_white.png" style="width:18%">Configure Email server</a>
+                          </li>
+              </ul>
+              
+      </div>
+
+</aside>
+
+<main class="col-lg-12 col-xl-10 pull-left" role="main">
+  <div style="background-color: white; border-radius: 5px"
+	ng-controller="TabController">
+	<h1 style="margin-left: 25px; font-size: 23px; margin-top: 30px;"
+		class="Ubuntu-L">Configure Email server</h1>
+	<hr>
+
+
+	<mat-tab-group [disableRipple]="true"> 
+		<mat-tab> 
+		<ng-template mat-tab-label> 
+			<img src="./images/Servers icons-Gmail.png" style="width: 25%">
+			<span>Gmail</span>
+		</ng-template> <br />
+	<br />
+
+	<!-- Changes by aashish-->
+	<div *ngIf="gmailStep5 == false" class="tab">
+		<hr style="color: #17bbc5;width: 10%; display: inline-block; margin-left: 20%">
+		<div style="display: inline">
+			<a [style.background-color]="getGmailStep1Background()"  class="Ubuntu-L formstep-active" style="border: 1px solid white;">1</a>
+			<!-- <a class="Ubuntu-L" style="">Create Server Account</a> -->
+		</div>
+		<hr style="width: 10%; display: inline-block">
+		<a [style.border]="getGmailStep2Border()" [style.background-color]="getGmailStep2Background()" [style.color]="getGmailStep2Color()" class="Ubuntu-L formstep" style="display: inline;">2</a>
+		<hr style="width: 10%; display: inline-block">
+		<a [style.border]="getGmailStep3Border()" [style.background-color]="getGmailStep3Background()" [style.color]="getGmailStep3Color()" class="Ubuntu-L formstep" style="display: inline;">3</a>
+		<hr style="width: 10%; display: inline-block">
+		<a [style.border]="getGmailStep4Border()" [style.background-color]="getGmailStep4Background()" [style.color]="getGmailStep4Color()" class="Ubuntu-L formstep" style="display: inline;">4</a>
+		<hr style="width: 10%; display: inline-block">
+	</div>
+
+	<div *ngIf="gmailStep1 == true" style="margin-top: 50px;">
+		<h4 class="Ubuntu-L ng-star-inserted" style="font-size: 17px; text-align: center; font-weight: bold;">Step 1 - Create Server Account
+		</h4>
+		<!-- <br /> -->
+		<br>
+		<h4 class="Ubuntu-L ng-star-inserted" style="font-size: 15px; text-align: center; color: #f57660">Please note down following from this step which you need to input in step 3
+		</h4>
+		<h4 class="Ubuntu-L ng-star-inserted" style="font-size: 17px; margin-left: 41%; ">Step 1 - Service Account ID
+		</h4>
+		<h4 class="Ubuntu-L ng-star-inserted" style="font-size: 17px; margin-left: 41%; ">Step 2 - Client ID /Unique ID 
+		</h4>
+		<h4 class="Ubuntu-L ng-star-inserted" style="font-size: 17px; margin-left: 41% ">Step 3 - Authorization
+		</h4>
+		<h4 class="Ubuntu-L ng-star-inserted" style="font-size: 17px; margin-left:41% ">Step 4 - P12 file
+		</h4>
+		<br>
+		<br>
+		<h4 class="Ubuntu-L ng-star-inserted" style="font-size: 17px; text-align: center; ">To create account, please follow instructions:
+		</h4>
+		<div style="text-align: center;">
+			<a class="cursor-pointer" href="https://support.google.com/a/answer/7378726?hl=en" target="_blank" style="background-color: rgb(23, 187, 197); border-radius: 14px;color: white; text-align: center; padding: 0.3em; padding-left: 1.8em; padding-right: 1.8em" >https://support.google.com/a/answer/7378726?hl=en</a>
+		</div>
+	</div>
+	
+	<div *ngIf="gmailStep3 == true" class="tab" style="margin-top: 50px;">
+		<h4 class="Ubuntu-L ng-star-inserted" style="font-size: 17px; text-align: center; font-weight: bold;">Step 3 - Authorization
+		</h4>
+		<br>
+
+		<h4 class="Ubuntu-L ng-star-inserted" style="font-size: 17px; text-align: center; ">Link for Authorization
+		</h4>
+
+		<div style="text-align: center;">
+			<a class="cursor-pointer" href="https://admin.google.com/AdminHome?chromeless=1#OGX:ManageOuthClients" target="_blank" style="background-color: rgb(23, 187, 197); border-radius: 14px;color: white; text-align: center; padding: 0.3em; padding-left: 1.8em; padding-right: 1.8em" >https://admin.google.com/AdminHome?chromeless=1#OGX:ManageOuthClients</a>
+		</div>
+		<br>
+		<h4 class="Ubuntu-L ng-star-inserted" style="font-size: 15px; text-align: center; color: #f57660">Enter Unique ID / Client ID in Client Name and authorize following scopes
+		</h4>
+		<h4 class="Ubuntu-L ng-star-inserted" style="font-size: 15px; text-align: center; color: #f57660">(you need to create multiple entries for each of following)
+		</h4>
+		<br>
+		<h4 class="Ubuntu-L ng-star-inserted" style="font-size: 15px;margin-left: 34%; margin-bottom: 0.1rem;">1. https://mail.google.com
+		</h4>
+
+		<h4 class="Ubuntu-L ng-star-inserted" style="font-size: 15px;margin-left: 34%; margin-bottom: 0.1rem; ">2. https://www.googleapis.com/auth/gmail.labels
+		</h4>
+		<h4 class="Ubuntu-L ng-star-inserted" style="font-size: 15px;margin-left: 34%; margin-bottom: 0.1rem; ">3. https://www.googleapis.com/auth/gmail.modify
+		</h4>
+		<h4 class="Ubuntu-L ng-star-inserted" style="font-size: 15px;margin-left: 34%; margin-bottom: 0.1rem; ">4. https://www.googleapis.com/auth/gmail.readonly
+		</h4>
+		<h4 class="Ubuntu-L ng-star-inserted" style="font-size: 15px;margin-left: 34%; margin-bottom: 0.1rem; ">5. https://www.googleapis.com/auth/gmail.settings.basic
+		</h4>
+		<h4 class="Ubuntu-L ng-star-inserted" style="font-size: 15px;margin-left: 34%; margin-bottom: 0.1rem;">6. https://www.googleapis.com/auth/gmail.settings.sharing
+		</h4>
+	</div>
+
+	<div *ngIf="gmailStep4 == true" class="tab" style="margin-top: 50px;">
+
+		<h4 class="Ubuntu-L ng-star-inserted" style="font-size: 17px; text-align: center; font-weight: bold;">Step 4 - P12 Authentication
+		</h4>
+		<br>
+
+		<form [formGroup]="myForm" (submit)="saveGmailConfig()">
+			<div class="form-inline" style="margin-bottom: 10px; display: inline; text-align: center">
+				<a class="Ubuntu-L" style="margin-left: 30%;">Service Account ID:</a> 
+				<input formControlName="serviceaccountuser"
+					placeholder="Service Account User" class="inputDFull Ubuntu-L"
+					style="width: 30%; line-height: 1.5em; margin-left: 6%;">
+	
+			</div>
+			<br>
+			<div
+				*ngIf="myForm.controls.serviceaccountuser.invalid && (myForm.controls.serviceaccountuser.dirty || myForm.controls.serviceaccountuser.touched)"
+				style="display: block; width: 40%; margin-left: 50%; position: absolute;">
+				<font color="RED" size="1.5"><i>Service Account ID: 
+						Required in correct format*.</i></font>
+			</div>
+			<br>
+	
+			<div class="form-inline" style="margin-bottom: 10px; display: inline; text-align: center;">
+				<a class="Ubuntu-L" style="margin-left: 30%">Client ID/ Unique ID: </a> 
+				 <input formControlName="clientid" placeholder="Client Id"
+					class="inputDFull Ubuntu-L"
+					style="width: 30%; line-height: 1.5em; margin-left: 5.5%;">
+	
+			</div>
+			<br>
+			<div
+				*ngIf="myForm.controls.clientid.invalid && (myForm.controls.clientid.dirty || myForm.controls.clientid.touched)"
+				style="display: block; width: 40%; margin-left: 50%; position: absolute;">
+				<font color="RED" size="1.5"><i>Client Id Required in
+						correct format*.</i></font>
+			</div>
+			<br>
+	
+			<div class="form-inline" style="margin-bottom: 10px;">
+				<a class="Ubuntu-L" style="margin-left: 30%">P12 File:</a>
+				<input type="file" accept=".p12"
+					(change)="runImportRecordsJob($event)"
+					formControlName="newPhoto" style="margin-left: 15%" class="form-control" required #newPhoto>
+	
+				<p class="warning" >
+					<font color="RED" size="1.5"><i>{{fileExtensionMessage}}</i></font>
+				</p>
+			</div>
+			<br>
+			<div style="text-align: center">
+				<button type="submit"
+					[disabled]="!myForm.valid || fileExtensionError"
+					style="border-radius: 10px; border-color: #487497; background-color: #497487; color: white; width: 30%; text-align: center">
+					Save Settings</button>
+				
+			</div>
+	
+		</form>
+		</div>
+
+		<div *ngIf="gmailStep2==true" class="tab" style="margin-top: 50px;">
+			<h4 class="Ubuntu-L ng-star-inserted" style="font-size: 17px; text-align: center; font-weight: bold;">Step 2 - Enable API Access
+			</h4>
+			<!-- <br /> -->
+			<br>
+			<h4 class="Ubuntu-L ng-star-inserted" style="font-size: 15px; text-align: center; color: #f57660">Login and follow instructions given below:
+			</h4>
+			<h4 class="Ubuntu-L ng-star-inserted" style="font-size: 17px; margin-left: 31%; ">1. Go to admin.google.com and login as Super Administrator
+			</h4>
+			<h4 class="Ubuntu-L ng-star-inserted" style="font-size: 17px; margin-left: 31%; ">2. Go to Security > API reference
+			</h4>
+			<h4 class="Ubuntu-L ng-star-inserted" style="font-size: 17px; margin-left: 31%; ">3. Make sure the enable API access box is checked.
+			</h4>
+			<h4 class="Ubuntu-L ng-star-inserted" style="font-size: 17px; margin-left: 31%; ">4. At the bottom, click Save.
+			</h4>
+			<br>
+			<br>
+			<h4 class="Ubuntu-L ng-star-inserted" style="font-size: 17px; text-align: center; ">Link for login:
+			</h4>
+			<div style="text-align: center;">
+				<a href="https://admin.google.com" target="_blank" class="cursor-pointer" style="background-color: rgb(23, 187, 197); border-radius: 14px;color: white; text-align: center; padding: 0.3em; padding-left: 1.8em; padding-right: 1.8em" >admin.google.com</a>
+			</div>
+		</div>
+
+		<div *ngIf="gmailStep5==true" class="tab" style="margin-top: 50px;">
+
+			<h4 class="Ubuntu-L ng-star-inserted" style="font-size: 17px; text-align: center; font-weight: bold;">Gmail Server Details
+			</h4>
+			<br>
+			<br>
+			<h4 class="Ubuntu-L ng-star-inserted" style="font-size: 17px; text-align: center; display: inline-block; margin-left: 40%;">Service Account ID:
+			</h4>
+			<a class="Ubuntu-L" style="display: inline">{{gmailServiceAccountID}}</a>
+			<h4 class="Ubuntu-L ng-star-inserted" style="font-size: 17px; text-align: center; display: inline-block; margin-left: 40%;">Client ID/ Unique ID:
+			</h4>
+			<a class="Ubuntu-L" style="display: inline">{{gmailClientID}}</a>
+			<h4 class="Ubuntu-L ng-star-inserted" style="font-size: 17px; text-align: center; display: inline-block; margin-left: 40%;">P12 file Availability:
+			</h4>
+			<a *ngIf="p12file == true" class="Ubuntu-L" style="display: inline">File is available</a>
+			<a *ngIf="p12file == false" class="Ubuntu-L" style="display: inline">File is not available</a>
+
+			<br>
+			<br>
+			<!-- <div style="width: 100%; text-align: center;">
+				<img src="" style="height: 10px">
+				<a class="Ubuntu-L" style="font-size: 14px; font-weight: bold; color: #497487">Configuration is sucessful</a>
+			</div> -->
+			<div style="text-align: center">
+			<a class="Ubuntu-L" (click)="changeSettings()" style="border: 1px solid #497487; padding: 0.2em; padding-right: 2.8em; padding-left: 2.8em; color: #497487; border-radius: 15px; font-weight: bold;" >Change Settings</a>
+			</div>
+		</div>
+
+	<div style="text-align: right;">
+		<a *ngIf="gmailStep1 == false && gmailStep5 == false" [style.margin-right]="backMargin()" class="Ubuntu-L cursor-pointer" (click)="gmailBack()" style="display: inline-block; background-color: grey; padding: 0.2em; color: white; font-size: 16px; border-radius: 20px; padding-left: 2.8em; padding-right: 2.8em">Back</a>
+		<a *ngIf="gmailStep4 == false && gmailStep5 == false" class="Ubuntu-L cursor-pointer" (click)="gmailNext()" style="display: inline-block; margin-right: 10%; background-color: #497487; padding: 0.2em; color: white; font-size: 16px; border-radius: 20px; padding-left: 2.8em; padding-right: 2.8em">Next Step</a>
+		<a *ngIf="gmailStep5 == true" class="Ubuntu-L cursor-pointer" (click)="reset()" style="display: inline-block; margin-right: 10%; background-color: grey; padding: 0.2em; color: white; font-size: 16px; border-radius: 20px; padding-left: 2.8em; padding-right: 2.8em">Reset</a>
+	</div>
+	<!-- <h3 class="Ubuntu-L" style="margin-left: 100px; font-size: 15px">
+		2. <a href="https://support.google.com/a/answer/60757?hl=en"
+			target="_blank">https://support.google.com/a/answer/60757?hl=en</a>
+	</h3> -->
+	<br>
+	<br>
+	
+	
+
+	<!--End of changes by aashish--> </mat-tab> 
+	<mat-tab> 
+		<ng-template mat-tab-label>
+			 <img src="./images/Servers icons-pst2.png" style="width: 25%"> 
+			 <span>PST File</span>	
+		</ng-template> <br />
+	<br />
+	<h4 class="Ubuntu-L ng-star-inserted" style="font-size: 17px; text-align: center; font-weight: bold;">PST Server Configuration
+	</h4>
+	<br />
+	<form class="Ubuntu-L" style="margin-left: 100px;">
+		<div class="form-group">
+			Input File : <input #folderInput type="file"
+				(change)="runImportRecordsJobforfolder(folderInput.files)"
+				webkitDirectory> <br> <br>
+			<div style="text-align: center">
+				<button type="submit"
+					style="border-radius: 10px; border-color: #487497; width: 30%; text-align: centre">
+					Upload Pst files.</button>
+			</div>
+
+		</div>
+
+
+	</form>
+	</mat-tab> 
+	<!-- <mat-tab> 
+		<ng-template mat-tab-label> 
+			<img src="./images/Servers icons-outlook.png" style="width: 25%"> 
+			<span>Outlook</span>
+		</ng-template> <br />
+	<br />
+	<h3 class="Ubuntu-L" style="margin-left: 100px; font-size: 23px">Outlook
+		Configuration</h3>
+	<br />
+
+	<form [formGroup]="outlookFor" (submit)="saveOutlookConfig()">
+		<div class="form-inline" style="margin-bottom: 10px; display: inline">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; CLIENT ID:
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			 <input formControlName="clientid_365"
+				placeholder="Client Id" class="inputD"
+				style="width: 40%; line-height: 1.5em; margin-left: 70px;">
+		</div>
+		<br>
+		<div
+			*ngIf="outlookFor.controls.clientid_365.invalid && (outlookFor.controls.clientid_365.dirty || outlookFor.controls.clientid_365.touched)"
+			style="display: block; width: 40%; margin-right: 10px; position: absolute;">
+			<font color="RED" size="1.5"><i>Client Id  is Required.</i></font>
+		</div>
+		
+	<br>
+		<div class="form-inline" style="margin-bottom: 10px; display: inline">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AZURE AD ADMIN USER NAME:
+			 <input formControlName="azure_ad_admin_user_name"
+				placeholder="AZURE AD ADMIN USER NAME" class="inputD"
+				style="width: 40%; line-height: 1.5em; margin-left: 70px;">
+
+		</div>
+		<br>
+		<div
+			*ngIf="outlookFor.controls.azure_ad_admin_user_name.invalid && (outlookFor.controls.azure_ad_admin_user_name.dirty || outlookFor.controls.azure_ad_admin_user_name.touched)"
+			style="display: block; width: 40%; margin-right: 10px; position: absolute;">
+			<font color="RED" size="1.5"><i>User name is Required.</i></font>
+		</div>
+<br>
+<br>
+		<div class="form-inline" style="margin-bottom: 10px; display: inline">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AZURE AD ADMIN PASSWORD:
+             <input formControlName="azure_ad_admin_password" placeholder="AZURE AD ADMIN PASSWORD"
+				class="inputD"
+				style="width: 40%; line-height: 1.5em; margin-left: 70px;" type="password">
+
+		</div>
+		<br>
+		<div
+			*ngIf="outlookFor.controls.azure_ad_admin_password.invalid && (outlookFor.controls.azure_ad_admin_password.dirty || outlookFor.controls.azure_ad_admin_password.touched)"
+			style="display: block; width: 40%; margin-right: 10px; position: absolute;">
+			<font color="RED" size="1.5"><i>Password Is Required.</i></font>
+		</div>
+	<br>
+	<br>
+		<div style="text-align: center">
+			<button type="submit"
+				[disabled]="!outlookFor.valid"
+				style="border-radius: 10px; border-color: #487497; width: 30%; text-align: center">
+				Save Settings..</button>
+		</div>
+
+	</form>
+
+	
+	</mat-tab>  -->
+
+
+	<!-- <mat-tab> 
+		<ng-template mat-tab-label> 
+			<img src="./images/Servers icons-IBM.png" style="width: 25%"> 
+			<span>IBM Verse</span>
+		</ng-template> <br />
+	<br />
+	<h3 class="Ubuntu-L" style="margin-left: 100px; font-size: 23px">IBM
+		Verse Server Configuration</h3>
+	<br />
+	<form class="Ubuntu-L" style="margin-left: 100px;">
+
+		Password: <input class="inputD" style="margin-left: 25px;"
+			type="password"><br />
+		<br /> <input type="submit" style="border-radius: 30px;">
+	</form>
+	</mat-tab> -->
+
+</mat-tab-group>
+</div>
+<notifier-container></notifier-container>
+</main> 

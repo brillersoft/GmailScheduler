@@ -1,0 +1,996 @@
+<aside class="col-sm-2 show pl-0 pull-left d-none d-xl-block" style="height:100%">
+	<div class="sidebar-left" style="background-color: white">
+		<!-- <ul class="nav sidebar-nav" role="tablist">
+				   <li class="nav-item menu-item height-50px" style="background-color:#497487">
+					 <span class="nav-link color-ff font-size-19 Ubutu-B margin-top-2px margin-bottom-3" role="tab" >Tone </span>
+				   </li>
+					<li class="nav-item menu-item border-bottom-2 height-100px">
+					  <img src="images/kafal-4-circles.png" style="width:18%;margin-top: 8%">
+								   <p class="OpenSans-Semibold font-size-12 margin-top-3">Over all Email Tone Analysis</p>
+					 </li>
+					 <li class="nav-item menu-item">
+						<button type="button" class="btn border-1 border-radius-20 background-color-transparent width-80 margin-10 padding-0 Ubuntu-B" style="color:#497487;margin-top: 17px;font-weight: 600">{{teamRelation.employeeName}}</button>
+					 </li>
+					 <li class="nav-item menu-item">
+						<p class="Ubuntu-B font-size-14" style="color:#497487;font-weight: 500">Insights</p>
+						<div class="hr-3"></div>
+					 </li>
+					 <li class="nav-item">
+						   <div class="pad-10">
+							   <span class="OpenSans-Semibold font-size-11" style="color:#323232"><u>Department-</u><br>
+								   <span class=" OpenSans-Semibold font-size-15" style="color:#323232">&nbsp;{{teamRelation.department}}</span>
+							   </span>
+	  
+						   </div>
+					   </li>
+					   <li class="nav-item">
+							<div class="pad-10">
+								<span class="OpenSans-Semibold font-size-11" style="color:#323232"><u>Reporting to persons-</u><br>
+									<span class="OpenSans-Semibold font-size-15" style="color:#323232">{{teamRelation.reportTo}}</span>
+								</span>
+							</div>
+					   </li>
+					   <li class="nav-item">
+						   <div class="pad-10">
+							   <span class="OpenSans-Semibold font-size-11" style="color:#323232"><u>No of people in team-</u><br>
+								   <span class=" OpenSans-Semibold font-size-15" style="color:#323232">{{teamRelation.noOfTeamMember}}</span>
+							   </span>
+						   </div>
+						</li>
+						 <li class="nav-item">
+						   <div class="pad-10">
+							   <span class="OpenSans-Semibold font-size-11" style="color:#323232"><u>No of Emails-</u><br>
+								   <span class=" OpenSans-Semibold font-size-15" style="color:#323232">{{teamRelation.noOfMail}}</span>
+							   </span>
+						   </div>
+						</li>
+				  </ul>
+				  <div class="text-right pad-10">                
+				  <a href="javascript:void(0)" data-toggle="collapse" data-target="#showmore" class="color-439cc4 OpenSans-Semibold font-size-10">Show More <i class="fa fa-angle-down"></i></a>
+				  </div>                  
+				  <div id="showmore" class="collapse pad-10">
+					<div class="text-center">
+					   <p class="Ubuntu-B font-size-14" style="color:#497487;font-weight: 500">Relation</p>
+					   <hr class="hr-4" />
+					</div>
+					 team bar
+					  <ul class="bar-ul nav Ubuntu-L font-size-11 color-606060">
+						<li>Team</li>
+						<li [ngStyle]="{'width': teamRelation.teamgood / 1.3 + '%' }">
+							 <span>{{teamRelation.teamgood}}</span>
+							<div class="progress height-3px">
+							 <div *ngIf="teamRelation.teamgood <= 70" class="progress-bar bgcolor-red margin-left-2px" role="progressbar" style="width: 100%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+							<div *ngIf="teamRelation.teamgood >= 70" class="progress-bar bgcolor-green margin-left-2px" role="progressbar" style="width: 100%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+							</div>
+						</li>
+						<li [ngStyle]="{'width': teamRelation.teambad / 1.3 + '%' }">
+						  <span>{{teamRelation.teambad}}</span>
+							<div class="progress height-3px">
+							<div *ngIf="teamRelation.teambad <= 70" class="progress-bar bgcolor-red margin-left-2px" role="progressbar" style="width: 100%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+							<div *ngIf="teamRelation.teambad >= 70" class="progress-bar bgcolor-green margin-left-2px" role="progressbar" style="width: 100%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+							</div>
+						</li>
+					  </ul>
+					  
+					  client bar
+					   <ul class="bar-ul nav Ubuntu-L font-size-11 color-606060">
+						<li>Client</li>
+						<li [ngStyle]="{'width': teamRelation.clientgood / 1.3 + '%' }">
+							 <span>{{teamRelation.clientgood}}</span>
+							<div class="progress height-3px">
+							 <div *ngIf="teamRelation.clientgood <= 70" class="progress-bar bgcolor-red margin-left-2px" role="progressbar" style="width: 100%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+							<div *ngIf="teamRelation.clientgood >= 70" class="progress-bar bgcolor-green margin-left-2px" role="progressbar" style="width: 100%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+							</div>
+						</li>
+						<li [ngStyle]="{'width':teamRelation.clientbad / 1.3 + '%' }">
+						  <span>{{teamRelation.clientbad}}</span>
+							<div class="progress height-3px">
+							<div *ngIf="teamRelation.clientbad <= 70" class="progress-bar bgcolor-red margin-left-2px" role="progressbar" style="width: 100%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+							<div *ngIf="teamRelation.clientbad >= 70" class="progress-bar bgcolor-green margin-left-2px" role="progressbar" style="width: 100%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+							</div>
+						</li>
+					  </ul>
+					  
+					 
+					  
+					   bar presents
+					  <div class="text-center">
+					  <div class=" form-check-inline">
+						  <div class="spinner-dot bg-danger"></div>
+						  <label class="form-check-label OpenSans-Semibold font-size-11"> &nbsp; Bad</label>
+						</div>
+						<div class="form-check form-check-inline">
+						  <div class="spinner-dot bg-success"></div>
+						  <label class="form-check-label OpenSans-Semibold font-size-11"> &nbsp; Good</label>
+						</div>
+					  
+					  </div>
+					   
+				  </div> -->
+		<ul class="nav sidebar-nav" role="tablist">
+			<li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRoute('my-dashboard','Analysis');">
+				<a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+					 src="images/dashboard_blue.png" style="width:17%; margin-right: 5px;" />Dashboard</a>
+			</li>
+			<hr style="width: 90%; margin-top: 1px; margin-bottom: 1px;">
+			<li class="nav-item menu-item height-40px" style="background-color:#497487; text-align: left">
+				<a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: white; display: inline; padding: 0px"><img
+					 src="images/tone_white.png" style="width:17%; margin-right: 5px;" />Tone</a>
+			</li>
+			<li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="teamtoneemployeeEscalation('yes')">
+				<a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+					 src="images/escalation_blue.png" style="width:17%; margin-right: 5px;" />Escalation</a>
+			</li>
+			<li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="teamtoneemployeeAdverse('yes')">
+				<a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+					 src="images/adverse_blue.png" style="width:17%; margin-right: 5px;" />Adverse Events</a>
+			</li>
+			<hr style="width: 90%; margin-top: 1px; margin-bottom: 1px;">
+			<li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRoutePersonalTeam('my-employee-personal-score','employee');">
+				<a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+					 src="images/personal_insights_blue.png" style="width:17%; margin-right: 5px;" />Personal Insights</a>
+			</li>
+			<li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRoutePersonalTeam('my-team-score','employee');">
+				<a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+					 src="images/team_insights_blue.png" style="width:17%; margin-right: 5px;%" />My Team Insights</a>
+			</li>
+			<hr style="width: 90%; margin-top: 1px; margin-bottom: 1px;">
+			<li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRouteTouch('touch-points');">
+				<a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+					 src="images/touch_points_blue.png" style="width:17%; margin-right: 5px;" />Touch Points</a>
+			</li>
+			<li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRouteTouch('response-time');">
+                <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3"
+				            style="color: black; display: inline; padding: 0px"><img
+					          src="images/response_time_blue.png" style="width:17%; margin-right: 5px;" />Response Time</a>
+              </li>
+              <li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRouteTouch('personality-analytics');">
+                <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3"
+				            style="color: black; display: inline; padding: 0px"><img
+					          src="images/personality_analytics_blue.png" style="width:17%; margin-right: 5px;" />Personality Analytics</a>
+              </li>
+              <li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRouteTouch('relationship');">
+                <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3"
+				            style="color: black; display: inline; padding: 0px"><img
+					          src="images/relationship_blue.png" style="width:17%; margin-right: 5px;" />Relationship</a>
+              </li> 
+		</ul>
+	</div>
+</aside>
+<main class="col-xl-10 col-lg-12 pull-left" role="main">
+	<div class="container-fluid1">
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="nav font-size-12">
+					<li class="pad-r-10">
+						<div class="breadcrumb2" style="color: #497487">Tone</div>
+					</li>&nbsp;
+					<li>
+						<div class="breadcrumb2 color-606060"><i class="fa fa-angle-right" aria-hidden="true" style="color: #497487;"></i></div>
+					</li>&nbsp;
+					<li class="li-breadcrumbnew width-70px">
+						<div class="pad-t-5" style="color: #497487">Client</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+
+			</div>
+			<div class="col-md-6 text-center">
+				<div class="line-height-10">
+					<p class="Ubuntu-B font-size-17 text-center">Client Overall Email Tone Analysis</p>
+					<ul id="emp-dasboard" class="nav nav-tabs tabs-2 nav-border text-center border-bottom-none margin-left-35" role="tablist">
+						<li class="pull-left nav-item nav-li-bg border-radius-5 margin-right-20 width-180">
+							<a class="nav-link padding-15 height-45 Ubuntu-L color-00 border-1 border-radius-30 background-color-ff" style="cursor: pointer"
+							 (click)="changRoute('my-employee-dashboard','employee');">
+								<span>Employee </span>
+							</a>
+						</li>
+						<li class=" pull-left  display-grid nav-item nav-li-bg margin-left-20 border-radius-5  width-180">
+							<a class="nav-link active padding-15 height-45 Ubuntu-L color-00 border-1 border-radius-30 background-color-ff"
+							 style="cursor: pointer; margin-bottom: 21px;" id="bt"> Client <span class="arrow"></span></a>
+
+						</li>
+
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-3">
+			</div>
+		</div>
+	</div>
+
+	<!-- ---------------///////////////////EMPLOYEE START//////////////////////////----------------------------- -->
+
+	<!-- ------------------------------////////////////EMPLOYEE END//////////////////////---------------------------------->
+
+
+	<!-- -----------------------------//////////////CLIENT START/////////////////////--------------------------------- -->
+	<div class="" id="client-tab" role="tabpanel" aria-labelledby="nav-profile-tab">
+		<!-- ---------------------------------Client Back Button Start--------------------------------------- -->
+		<div class="row">
+			<div class="col-md-12">
+				<table class="margin-1- width-full">
+					<tbody>
+						<tr class="width-full">
+							<td style="width: 6%;">
+								<button *ngIf="backFlag == true" class="btn background-color-439cc4 padding-8 margin-left--1 margin-top-3"
+								 style="border-top-left-radius: 8px;border-top-right-radius: 8px;">
+									<div class="background-color-ff width-45px font-size-10 border-radius-5px padding-1 Ubuntu-M">
+										<a href="home.jsp" style="color:#323232"><img class="width-16px" src="images/back.png">&nbsp;<span>Back</span></a>
+									</div>
+								</button>
+								<button *ngIf="backFlag == false" class="btn background-color-439cc4 padding-8 margin-left--1 margin-top-3"
+								 style="border-top-left-radius: 8px;border-top-right-radius: 8px;">
+									<div class="background-color-ff width-45px font-size-10 border-radius-5px padding-1 Ubuntu-M">
+										<a href="javascript:void(0)" (click)="backReloadsubmit();" style="color:#323232"><img class="width-16px" src="images/back.png">&nbsp;<span>Back</span></a>
+									</div>
+								</button>
+							</td>
+							<!-- <td style="width: 9%;">
+                                    <div class="dropdown show width-90per d-sm-none">
+                                      <a class="btn border-2 width-full dropdown-toggle background-color-ff border-top-left-radius-13 border-top-right-radius-13 font-size-13 Ubuntu-L" style="color:#000;height: 30px;margin-bottom: -4px;padding-top: 4px;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="Ubuntu-L" style="color:#323232">Filters</span>
+                                      </a>
+                                       <ul class="padding-15 dropdown-menu multi-level Ubuntu-L font-size-12 color-00" role="menu" aria-labelledby="dropdownMenu">
+	                                       	<li class="dropdown-submenu"><button style="background-color:#439cc4 !important" class="btn btn-primary font-size-10 width-full height-20 padding-0 border-radius-20">Clear all</button></li>
+	                                       	<li class="divider">&nbsp;</li>
+	                                       	<li>
+                                       			<div class="form-group">
+										
+												    <input type="email" class="form-control width-full height-30 font-size-10 border-radius-10" id="exampleFormControlInput1" placeholder="name@example.com">
+												 </div>
+                                       		</li>
+
+                                       		<li ><hr></li>
+                                       		<li class="divider"></li>
+								             <li class="dropdown-submenu padding-bottom-5"><a href="#" class="Ubuntu-M " style="color:#000 !important">Name</a>
+								              	<ul class="dropdown-menu margin-left-25 font-size-12 padding-15">
+								                 	<li>
+										               <input  id="clientName" checkMandatory="true" ng2-auto-complete spellcheck="false" class="form-control width-full height-30 font-size-10 border-radius-10"
+			                                             [(ngModel)]="typeObj.clientName"
+			                                             name="vendorsss"
+			                                             [source]="'app/auth/getClientFilterResult?clientFilter=:keyword&key=clientName'"
+			                                             [list-formatter]="autocompleListFormatter"
+			                                             value-property-name="clientName"
+			                                             display-property-name="clientName"
+			                                             (valueChanged)="onChange($event)"
+			                                             placeholder=""
+			                                             path-to-data="rsBody.msg"
+			                                             clearSelected="setStatus"
+			                                             min-chars="2" />												  	
+			                                       	</li>
+                                       				
+									             </ul>
+								              </li>
+								              <li class="dropdown-submenu padding-bottom-5">
+								              	<a class="Ubuntu-M" style="color:#000 !important" href="#">Email ID</a>
+								              	<ul class="dropdown-menu margin-left-25 font-size-12">
+								                  <li>
+								                  <input  id="emailId" checkMandatory="true" ng2-auto-complete spellcheck="false" class="form-control width-full height-30 font-size-10 border-radius-10"
+			                                             [(ngModel)]="typeObj.emailId"
+			                                             name="vendorsss"
+			                                             [source]="'app/auth/getClientFilterResult?clientFilter=:keyword&key=emailId'"
+			                                             [list-formatter]="autocompleListFormatter"
+			                                             value-property-name="emailId"
+			                                             display-property-name="emailId"
+			                                             (valueChanged)="onChange($event)"
+			                                             placeholder=""
+			                                             path-to-data="rsBody.msg"
+			                                             clearSelected="setStatus"
+			                                             min-chars="2" />
+								                  </li>								                  
+								                </ul>
+								              </li>
+								              <li class="dropdown-submenu padding-bottom-5">
+								              	<a class="Ubuntu-M" style="color:#000 !important" href="#">Location</a>
+								              	<ul class="dropdown-menu margin-left-25 font-size-12">
+								                  <li>
+								                  
+								                  </li>								                  
+								                </ul>
+								              </li>
+								              <li class="dropdown-submenu padding-bottom-5">
+								              	<a class="Ubuntu-M" style="color:#000 !important" href="#">Designation</a>
+								              	<ul class="dropdown-menu margin-left-25 font-size-12">
+								                  <li>
+								                  <input  id="designation" checkMandatory="true" ng2-auto-complete spellcheck="false" class="form-control width-full height-30 font-size-10 border-radius-10"
+			                                             [(ngModel)]="typeObj.designation"
+			                                             name="designation"
+			                                             [source]="'app/auth/getClientFilterResult?clientFilter=:keyword&key=designation'"
+			                                             [list-formatter]="autocompleListFormatter"
+			                                             value-property-name="designation"
+			                                             display-property-name="designation"
+			                                             (valueChanged)="onChange($event)"
+			                                             placeholder=""
+			                                             path-to-data="rsBody.msg"
+			                                             clearSelected="setStatus"
+			                                             min-chars="2" />
+								                  </li>
+								                 
+								                </ul>
+								              </li>
+								              <li class="padding-bottom-5"><a class="Ubuntu-M " style="color:#000 !important" href="#">Suborg</a></li>
+								              <li class="padding-bottom-5"><a class="Ubuntu-M" style="color:#000 !important" href="#">Client</a></li>
+								              <li class="padding-bottom-5"><a class="Ubuntu-M" style="color:#000 !important" href="#">Add more</a></li>
+								              <li class="divider"></li>
+								              <li><hr></li>
+								              <li class="dropdown-submenu"><button style="background-color:#439cc4 !important" class="btn btn-primary font-size-10 width-full height-20 padding-0 border-radius-5px">Appl</button></li>
+							
+								         	 </ul>
+
+                                    </div>
+                                        </td> -->
+							<td style="width:10%">
+								<div class="btn-group border-2 border-top-left-radius-16 border-top-right-radius-16 margin-10 font-size-11 active height-25 Ubuntu-L"
+								 role="group" aria-label="Basic example">
+									<button style="color:#323232;padding-top: 3px;background:#F5F5F5;" type="button" class="btn border-top-left-radius-20 Ubuntu-M font-size-11 filteractiveall"
+									 (click)="getClickAll('all')">All</button>
+									<button style="color:#323232;padding-top: 3px;border-left: 1px solid #9ea3af; background: #e9e9e9;" type="button"
+									 class="btn Ubuntu-M font-size-11 filteractivesent" (click)="getClickSent('sent')">Send</button>
+									<button style="color:#323232;padding-top: 3px;border-left: 1px solid #9ea3af; background: #e9e9e9;" type="button"
+									 class="btn border-top-right-radius-20 Ubuntu-M font-size-11 filteractivereceive" (click)="getClickReceive('received')">Received</button>
+								</div>
+							</td>
+							<td class="d-none d-md-table-cell" style="width:70%;text-align:  right;">
+								<a class="btn border-2 border-top-left-radius-13 border-top-right-radius-13
+									background-color-ff margin-10 border-top-left-radius-20 border-top-right-radius-20 font-size-10 Ubuntu-M"
+								 style="color:#000" href="javascript:void(0);" id="dropdownMenuLink" (click)="excelExportSubmit();">
+									<i class="fa fa-sign-out"></i> Export to excel
+								</a>
+								<!-- <pagination-template #pT="paginationApi" [id]="config.id" (pageChange)="config.currentPage = $event">
+											<button class="btn background-color-439cc4 padding-5px width-30" style="width: 130px">
+											  <div class="color-ff font-size-10 border-radius-5px padding-2 Ubuntu-M">
+											   <div *ngFor="let page of pT.pages" style="display: inline;" [class.current]="pT.getCurrent() === page.value">
+												<span *ngIf="pT.getCurrent() === page.value && !pT.isLastPage()">{{ 1+(page.value-1)*config.itemsPerPage }} - {{ page.value*config.itemsPerPage }} of {{clientInfo.length}} <i aria-hidden="true" class="fa fa-angle-down"></i>&nbsp;&nbsp;</span>
+												<span *ngIf="pT.getCurrent() === page.value && pT.isLastPage()">{{ 1+(page.value-1)*config.itemsPerPage }} - {{ clientInfo.length }} of {{clientInfo.length}} <i aria-hidden="true" class="fa fa-angle-down"></i>&nbsp;&nbsp;</span>
+											   </div>
+												   <div class="pagination-previous" style="display: inline;" [class.disabled]="pT.isFirstPage()">
+													<a class="border-radius-5px background-color-ff padding-5px" *ngIf="!pT.isFirstPage()" (click)="pT.previous()">
+													  <i class="fa fa-caret-left" style="color:#000 !important;"></i>
+													</a>&nbsp;
+												   </div>
+												  
+												   <div class="pagination-next" style="display: inline;" [class.disabled]="pT.isLastPage()">
+													<a class="border-radius-5px background-color-ff padding-5px" *ngIf="!pT.isLastPage()" (click)="pT.next()">
+													  <i class="fa fa-caret-right" style="color:#000 !important;"></i>
+													</a>
+												   </div>
+											  </div>
+											</button>
+										   </pagination-template> -->
+							</td>
+
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+
+		<!-- ------------------------Client Back Button End------------------------------ -->
+
+		<div class="scrollmenu d-sm-none">
+
+			<a *ngFor="let emp1 of empdashboard; let nameindex=index" id="v-pills-home-{{nameindex}}" href="#v-pills-home"
+			 (click)="getClickedData(nameindex)" [ngClass]="{active: nameindex == companyIndex, show: nameindex == companyIndex}">{{emp1.companyName}}</a>
+
+		</div>
+
+		<div class="card border-none margin-5-" style="border-radius: 0px 0px 0px 10px;">
+			<div class="card-header background-color-439cc4 color-ff" style="padding:0px !important">
+				<!-- -------------------------------Client Blue Bar Start------------------------------------------- -->
+				<table class="Ubuntu-L font-size-12 color-ff table">
+					<thead>
+						<tr>
+							<td class="ver-a-middle border-r d-none d-md-table-cell" style="width: 200px;">
+								<span>Account name</span>
+							</td>
+							<td class="ver-a-middle border-r" style="width: 200px;">
+								<span>
+									<img class="cursor-pointer" src="images/search-icone.png" (click)="opendropdownname();" style="height:16px">
+									<div id="myDropdown" class="menu-class" *ngIf="setsearchbyname == false">
+										<div class="form-group">
+											<input id="center_name" checkMandatory="true" ng2-auto-complete spellcheck="false" class="form-control width-full height-30 font-size-10 border-radius-10"
+											 [(ngModel)]="orgObj.clientName" name="vendorsss" [source]="'app/auth/getCompanyClientResult?clientName=:keyword&key=clientName&companyId='+companyId"
+											 [list-formatter]="autocompleListFormatter" value-property-name="clientName" display-property-name="clientName"
+											 (valueChanged)="onChangeClientName($event)" placeholder="" path-to-data="rsBody.msg" clearSelected="setStatus"
+											 min-chars="2" />
+											<span class="ng-hide displayError" id="clientName_error"></span>
+										</div>
+										<div class="form-group">
+											<div class="dropdown-submenu text-center">
+												<button (click)="searchOrganization()" class="btn btn-primary font-size-10 width-full height-20 padding-0 border-radius-5px"
+												 style="background-color:#439cc4 !important">Search</button>
+											</div>
+										</div>
+									</div>
+								</span>
+
+								<span>Client Name &nbsp;&nbsp;<i class="fa fa-angle-up" aria-hidden="true"></i></span>
+
+								<span class="pull-right">
+									<img class="cursor-pointer" style="height:15px" src="images/dots.png" (click)="namedropdown();">
+									<div id="myDropdown" class="menu-class" *ngIf="nameflag == false" style="margin-left: -14px;">
+										<div class="border-bottom">
+											<div class="custom-control custom-checkbox">
+												<input type="checkbox" class="custom-control-input" id="customCheck1" (click)="resetNone();">
+												<label class="custom-control-label" for="customCheck1">None</label>
+											</div>
+										</div>
+										<div *ngFor="let item of ascOrDescList let i=index" class="custom-control custom-checkbox filter-list__item">
+											<input type="checkbox" class="custom-control-input" id="experience{{item.id}}" value="{{item.option}}"
+											 [checked]="item.checked" (click)="searchbyalfaexeemp($event.target.value, i)">
+											<label class="custom-control-label" for="experience{{item.id}}">{{item.name}}</label>
+										</div>
+									</div>
+								</span>
+
+							</td>
+							<td class="text-center ver-a-middle border-r d-none d-lg-table-cell" style="width: 120px">
+								<span class="no-of-email-icons2"><i class="fa fa-angle-up" aria-hidden="true"></i></span>
+								<span class="text-leftserach"><img class="cursor-pointer" src="images/search-icone.png" (click)="opendropdownondesignation();"
+									 style="height:16px"></span>
+								<span class="des-org">Designation</span>
+
+								<div id="myDropdown" class="menu-class" *ngIf="setsearchbydesignation == false" style="margin-top: 40px;">
+									<div class="form-group">
+										<label>Designation</label>
+										<input id="organization_name" checkMandatory="true" ng2-auto-complete spellcheck="false" class="form-control width-full height-30 font-size-10 border-radius-10"
+										 [(ngModel)]="orgObj.designation" name="vendorsss" [source]="'app/auth/getClientFilterResult?clientFilter=:keyword&key=designation'"
+										 [list-formatter]="designantionforclient" value-property-name="designation" display-property-name="designation"
+										 (valueChanged)="onChangeDesignation($event)" placeholder="" path-to-data="rsBody.msg" clearSelected="setStatus"
+										 min-chars="2" />
+										<span class="ng-hide displayError" id="clientName_error"></span>
+									</div>
+									<div class="form-group">
+										<hr>
+									</div>
+									<div class="form-group">
+										<label>Organization</label>
+										<input id="company_name" checkMandatory="true" ng2-auto-complete spellcheck="false" class="form-control width-full height-30 font-size-10 border-radius-10"
+										 [(ngModel)]="orgObj.companyName" name="vendorsss" [source]="'app/auth/getOrgName?companyName=:keyword&key=companyName'"
+										 [list-formatter]="organizationforclient" value-property-name="companyName" display-property-name="companyName"
+										 (valueChanged)="onChangeOrganization($event)" placeholder="" path-to-data="rsBody.msg" clearSelected="setStatus"
+										 min-chars="2" />
+										<span class="ng-hide displayError" id="clientName_error"></span>
+									</div>
+									<div class="form-group">
+										<div class="dropdown-submenu text-center">
+											<button (click)="searchDesOrgSubmit();" class="btn btn-primary font-size-10 width-full height-20 padding-0 border-radius-5px"
+											 style="background-color:#439cc4 !important">Search</button>
+										</div>
+									</div>
+								</div>
+
+							</td>
+							<td class="border-r ver-a-middle text-center d-none d-md-table-cell"><span>Team Tone Score in % <i class="fa fa-angle-down cursor-pointer"
+									 *ngIf="orderflag == true" aria-hidden="true" (click)="asendignOrderSubmit();"></i> <i class="fa fa-angle-up cursor-pointer"
+									 *ngIf="orderflag == false" aria-hidden="true" (click)="dsendignOrderSubmit();"></i> </span>
+								<span class="pull-right pad-t-6"><img class="cursor-pointer" style="height:15px" (click)="teamtonedropdown();"
+									 src="images/dots.png">
+									<div id="myDropdown" class="menu-class text-left" *ngIf="teamtoneflag == false" style="margin-left: -14px;">
+										<div class="border-bottom">
+											<div class="custom-control custom-checkbox">
+												<input type="checkbox" class="custom-control-input" id="customCheck15">
+												<label class="custom-control-label" for="customCheck15" (click)='resetScoreNone();'>None </label>
+											</div>
+										</div>
+										<div *ngFor="let item of teamScoreList let i=index" class="custom-control custom-checkbox filter-list__item">
+											<input type="checkbox" class="custom-control-input" id="teamscore{{item.id}}" value="{{item.option}}"
+											 [checked]="item.checked" (click)="searchbyateamtone($event.target.value, i)">
+											<label class="custom-control-label" for="teamscore{{item.id}}">{{item.name}}</label>
+										</div>
+
+									</div>
+								</span>
+								<div class="pro-team bgcolor-white height-21 border-box-progres margin-6- color-black">
+									<ul class="nav Ubuntu-L font-size-10 text-center margin-left-15">
+										<li class="width-10">
+											<span> Anger</span>
+											<div class="progress height-3px">
+												<div class="progress-bar bgcolor-red margin-left-2px" role="progressbar" style="width: 100%" aria-valuenow="10"
+												 aria-valuemin="0" aria-valuemax="100"></div>
+											</div>
+										</li>
+										<li style="width:1%"></li>
+										<li class="width-8">
+											<span> Joy</span>
+											<div class="progress height-3px">
+												<div class="progress-bar bgcolor-green margin-left-2px" role="progressbar" style="width: 100%"
+												 aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+											</div>
+										</li>
+										<li style="width:1%"></li>
+										<li class="width-13per">
+											<span> Sadness</span>
+											<div class="progress height-3px">
+												<div class="progress-bar bgcolor-gray margin-left-2px" role="progressbar" style="width: 100%" aria-valuenow="10"
+												 aria-valuemin="0" aria-valuemax="100"></div>
+											</div>
+										</li>
+										<li style="width:1%"></li>
+										<li class="width-8">
+											<span>Fear</span>
+											<div class="progress height-3px">
+												<div class="progress-bar bgcolor-brown margin-left-2px" role="progressbar" style="width: 100%"
+												 aria-valuenow="32" aria-valuemin="0" aria-valuemax="100"></div>
+											</div>
+										</li>
+										<li style="width:1%"></li>
+										<li class="width-16">
+											<span>Tentative</span>
+											<div class="progress height-3px">
+												<div class="progress-bar bgcolor-yellow margin-left-2px" role="progressbar" style="width: 100%"
+												 aria-valuenow="32" aria-valuemin="0" aria-valuemax="100"></div>
+											</div>
+										</li>
+										<li style="width:1%"></li>
+										<li class="width-17">
+											<span>Confident</span>
+											<div class="progress height-3px">
+												<div class="progress-bar bgcolor-purple margin-left-2px" role="progressbar" style="width:100%"
+												 aria-valuenow="32" aria-valuemin="0" aria-valuemax="100"></div>
+											</div>
+										</li>
+										<li style="width:1%"></li>
+										<li class="width-16">
+											<span>Analytical</span>
+											<div class="progress height-3px">
+												<div class="progress-bar bgcolor-blue margin-left-2px" role="progressbar" style="width: 100%" aria-valuenow="32"
+												 aria-valuemin="0" aria-valuemax="100"></div>
+											</div>
+										</li>
+									</ul>
+								</div>
+
+
+							</td>
+							<td class="text-center ver-a-middle border-r" style="width: 100px;">Team<br> No. of Emails
+								<span class="no-of-email-icons">
+									<i class="fa fa-angle-down cursor-pointer" *ngIf="orderTeamflag == true" aria-hidden="true" (click)="asendignOrderTeamSubmit();"></i>
+									<i class="fa fa-angle-up cursor-pointer" *ngIf="orderTeamflag == false" aria-hidden="true" (click)="dsendignOrderTeamSubmit();"></i>
+								</span>
+							</td>
+							<!-- <td class="ver-a-middle d-none d-md-table-cell" style="width: 100px;">  
+                             <span class="pull-right" style="padding-top: 9px;">
+                               <img class="cursor-pointer" style="height:15px" (click)="currentprogressicons();" src="images/dots.png">
+                                <div id="myDropdown" class="menu-class2" *ngIf="currentprogressflag == false" style="right: 0;">
+					                <div class="border-bottom">
+					                 <div class="custom-control custom-checkbox">
+      										  <input type="checkbox" class="custom-control-input" id="customCheck1" (click)="resetNone();">
+      										  <label class="custom-control-label" for="customCheck1">None</label>
+    								  </div>
+					                </div>
+					                <div *ngFor="let item of currentProgressList let i=index" class="custom-control custom-checkbox filter-list__item">
+							              <input type="checkbox" class="custom-control-input" id="currentprogress{{item.id}}" value="{{item.option}}" [checked]="item.checked" (click)="searchbycurrentprogress($event.target.value, i)">
+													  <label class="custom-control-label" for="currentprogress{{item.id}}">{{item.name}}</label>
+								    </div>																						                															            
+					            </div>
+                            </span>                  
+                            Current<br>Progress  
+                            <span class="no-of-email-icons"><i class="fa fa-angle-up" aria-hidden="true"></i></span>
+                                               
+                           
+                            
+                           </td> -->
+
+						</tr>
+					</thead>
+
+				</table>
+
+
+				<!-- -------------------------------Client Blue Bar End------------------------------------------- -->
+			</div>
+			<!-- -------------------------Wight Bar Start-------------------------- -->
+			<div class="tab-content card-body1 nav-shadow11 height-551px d-none d-md-block" style="z-index: 2; border-radius: 0px 0px 10px 10px;padding: 10px 0px 10px 0;">
+				<div class="row1 ">
+					<table class="width-p-100">
+						<tbody>
+							<tr>
+								<td class="Ubuntu-M font-size-13 ver-a-middle" style="width: 146px; padding-left: 10px;">All Account / Vendors</td>
+								<td style="width: 80px;" class="d-none d-lg-table-cell"></td>
+								<td class="ver-a-middle" style="width: 180px;">
+									<div class="custom-control custom-checkbox my-1 mr-sm-2">
+										<input type="checkbox" class="custom-control-input" id="clientControlInline" (change)="executivefn($event)">
+										<label class="custom-control-label font-size-13" for="clientControlInline" (change)="executivefn($event)">Executives</label>
+									</div>
+								</td>
+								<td style="width: 120px;" class="d-none d-lg-table-cell"></td>
+								<td class="ver-a-middle">
+									<ul class="nav Ubuntu-L ul-client font-size-13 width-p-1001">
+										<li *ngIf="clientScore.anger != 0" class="" [ngStyle]="{'width': widthstyle.anger }" (click)="orgtonesearch('anger');">
+											<span> {{clientScore.anger}}</span>
+											<div class="progress height-5">
+												<div class="progress-bar bgcolor-red margin-left-2px width-p-100" role="progressbar" aria-valuenow="10"
+												 aria-valuemin="0" aria-valuemax="100"></div>
+											</div><span class="vl-score border-red"></span>
+										</li>
+										<li *ngIf="clientScore.joy != 0" class="" [ngStyle]="{'width': widthstyle.joy }" (click)="orgtonesearch('joy');">
+											<span> {{clientScore.joy}}</span>
+											<div class="progress height-5">
+												<div class="progress-bar bgcolor-green margin-left-2px width-p-100" role="progressbar" aria-valuenow="10"
+												 aria-valuemin="0" aria-valuemax="100"></div>
+											</div><span class="vl-score border-green"></span>
+										</li>
+										<li *ngIf="clientScore.sadness != 0" class="" [ngStyle]="{'width': widthstyle.sadness }" (click)="orgtonesearch('sadness');">
+											<span> {{clientScore.sadness}}</span>
+											<div class="progress height-5">
+												<div class="progress-bar bgcolor-gray margin-left-2px width-p-100" role="progressbar" aria-valuenow="10"
+												 aria-valuemin="0" aria-valuemax="100"></div>
+											</div><span class="vl-score border-gray"></span>
+										</li>
+										<li *ngIf="clientScore.fear != 0" class="" [ngStyle]="{'width': widthstyle.fear }" (click)="orgtonesearch('fear');">
+											<span>{{clientScore.fear}}</span>
+											<div class="progress height-5">
+												<div class="progress-bar bgcolor-brown margin-left-2px width-p-100" role="progressbar" aria-valuenow="32"
+												 aria-valuemin="0" aria-valuemax="100"></div>
+											</div><span class="vl-score border-brown"></span>
+										</li>
+										<li *ngIf="clientScore.tentative != 0" class="" [ngStyle]="{'width': widthstyle.tentative }" (click)="orgtonesearch('tentative');">
+											<span>{{clientScore.tentative}}</span>
+											<div class="progress height-5">
+												<div class="progress-bar bgcolor-yellow margin-left-2px width-p-100" role="progressbar" aria-valuenow="32"
+												 aria-valuemin="0" aria-valuemax="100"></div>
+											</div><span class="vl-score border-yellow"></span>
+										</li>
+										<li *ngIf="clientScore.confident != 0" class="" [ngStyle]="{'width': widthstyle.confident }" (click)="orgtonesearch('confident');">
+											<span>{{clientScore.confident}}</span>
+											<div class="progress height-5">
+												<div class="progress-bar bgcolor-purple margin-left-2px width-p-100" role="progressbar" aria-valuenow="32"
+												 aria-valuemin="0" aria-valuemax="100"></div>
+											</div><span class="vl-score border-blue"></span>
+										</li>
+										<li *ngIf="clientScore.analytical != 0" class="" [ngStyle]="{'width': widthstyle.analytical }" (click)="orgtonesearch('analytical');">
+											<span>{{clientScore.analytical}}
+											</span>
+											<div class="progress height-5">
+												<div class="progress-bar bgcolor-blue margin-left-2px width-p-100" role="progressbar" aria-valuenow="32"
+												 aria-valuemin="0" aria-valuemax="100"></div>
+											</div><span class="vl-score border-purple"></span>
+										</li>
+									</ul>
+								</td>
+								<td class="ver-a-middle text-center" style="width: 100px;"><button type="Filter" style="width:80px;height: 25px;padding-top: 4px;"
+									 class="btn btn-default border-radius-20 background-color-439cc4 color-ff font-size-12" (click)="orgscore()">{{clientdashboardDATA.noOfMail}}</button></td>
+								<!-- <td class="ver-a-middle text-center" style="width: 100px;">
+                            <span>
+                            <i style="color:#00C851;font-size: 18px;" class="fa fa-arrow-up"></i>
+                            </span>
+                             <span class="pull-right" style="font-size: 12px;position: relative;right: 28px;">UP<br>27%</span>
+                            </td> -->
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+		</div>
+
+		<!--  Employee Details -->
+
+		<div class="row" *ngIf="this.setFlag == true">
+			<div class="col-sm-2 d-none d-md-block">
+				<div class="nav flex-column nav-pills tbs bg-color-b7b7b7" id="v-pills-tab-1" role="tablist" aria-orientation="vertical">
+					<a class="nav-link side-tab font-size-12 padding-10per" *ngFor="let emp1 of empdashboard; let nameindex=index" id="v-pills-home-{{nameindex}}"
+					 data-toggle="pill" href="#v-pills-home" (click)="getClickedData(nameindex)" role="tab" aria-controls="v-pills-home"
+					 style="color:#000" aria-selected="true" [ngClass]="{active: nameindex == companyIndex, show: nameindex == companyIndex }">{{emp1.companyName}}</a>
+
+				</div>
+			</div>
+			<div class="col-sm-10">
+				<div class="tab-content" id="v-pills-tabContent">
+					<div class="tab-pane fade show active" id="v-pills-home-{{nameindex}}" role="tabpanel" aria-labelledby="v-pills-home-tab">
+						<div class="card radius-zero border-none " style="background-color: #f9f9f9;">
+							<div class="tab-content card-body padding-card2">
+								<div class="row1" *ngFor="let clientdata of clientInfo | paginate: config ; let i=index ">
+
+									<div class="com-md-121">
+										<table class="width-p-100">
+											<tr>
+												<td class="ver-a-middle text-center" style="width: 40px">
+													<img *ngIf="clientdata.executive == 'yes'" src="images/tie-01.png" style="height:28px; width:28px;">
+												</td>
+												<td class="ver-a-middle" style="width: 180px">
+													<div class="input-group mb-2" style="height:36px">
+														<div class="input-group-prepend" style="width:39px">
+															<div class="input-group-text background-color-439cc4 font-size-13" style="border-radius: 8px 0px 0px 8px;width:45px"><img
+																 class="height-20" src="images/arrow-icon.png"></div>
+														</div>
+
+														<input type="text" class="form-control font-size-13" style="border-radius: 0px 8px 8px 0px;" id="select_name_{{i}}"
+														 [(ngModel)]="clientdata.employeeName" name="select_name_{{i}}" checkMandatory="true">
+													</div>
+												</td>
+												<td class="ver-a-middle text-center d-none d-lg-table-cell" style="width: 120px">
+													<p class="Ubuntu-L font-size-11">{{clientdata.designation}}</p>
+												</td>
+												<td class="ver-a-middle d-none d-md-table-cell">
+													<ul class="nav Ubuntu-L ul-client font-size-13">
+														<li *ngIf="clientdata.toneOfTeamMail.anger != 0" [ngStyle]="{'width': clientdata.widthstyle.anger }"
+														 class="" (click)="clienttonesearch('anger', i);">
+															<span class="margin-left-4px"> {{clientdata.toneOfTeamMail.anger}}</span>
+															<div class="progress height-3px">
+																<div class="progress-bar bgcolor-red margin-left-2px width-p-100" role="progressbar" aria-valuenow="10"
+																 aria-valuemin="0" aria-valuemax="100"></div>
+															</div><span class="vl-score border-red"></span>
+														</li>
+														<li *ngIf="clientdata.toneOfTeamMail.joy != 0" [ngStyle]="{'width': clientdata.widthstyle.joy }" (click)="clienttonesearch('joy', i);">
+															<span class="margin-left-4px"> {{clientdata.toneOfTeamMail.joy}}</span>
+															<div class="progress height-3px">
+																<div class="progress-bar bgcolor-green margin-left-2px width-p-100" role="progressbar" aria-valuenow="10"
+																 aria-valuemin="0" aria-valuemax="100"></div>
+															</div><span class="vl-score border-green"></span>
+														</li>
+														<li *ngIf="clientdata.toneOfTeamMail.sadness != 0" [ngStyle]="{'width': clientdata.widthstyle.sadness }"
+														 (click)="clienttonesearch('sadness', i);">
+															<span class="margin-left-4px"> {{clientdata.toneOfTeamMail.sadness}}</span>
+															<div class="progress height-3px">
+																<div class="progress-bar bgcolor-gray margin-left-2px width-p-100" role="progressbar" aria-valuenow="10"
+																 aria-valuemin="0" aria-valuemax="100"></div>
+															</div><span class="vl-score border-gray"></span>
+														</li>
+														<li *ngIf="clientdata.toneOfTeamMail.fear != 0" [ngStyle]="{'width': clientdata.widthstyle.fear }"
+														 (click)="clienttonesearch('fear', i);">
+															<span class="margin-left-4px">{{clientdata.toneOfTeamMail.fear}}</span>
+															<div class="progress height-3px">
+																<div class="progress-bar bgcolor-brown margin-left-2px width-p-100" role="progressbar" aria-valuenow="32"
+																 aria-valuemin="0" aria-valuemax="100"></div>
+															</div><span class="vl-score border-brown"></span>
+														</li>
+														<li *ngIf="clientdata.toneOfTeamMail.tentative != 0" [ngStyle]="{'width': clientdata.widthstyle.tentative }"
+														 (click)="clienttonesearch('tentative', i);">
+															<span class="margin-left-4px">{{clientdata.toneOfTeamMail.tentative}}</span>
+															<div class="progress height-3px">
+																<div class="progress-bar bgcolor-yellow margin-left-2px width-p-100" role="progressbar" aria-valuenow="32"
+																 aria-valuemin="0" aria-valuemax="100"></div>
+															</div><span class="vl-score border-yellow"></span>
+														</li>
+														<li *ngIf="clientdata.toneOfTeamMail.confident != 0" [ngStyle]="{'width': clientdata.widthstyle.confident }"
+														 (click)="clienttonesearch('confident', i);">
+															<span class="margin-left-4px">{{clientdata.toneOfTeamMail.confident}}</span>
+															<div class="progress height-3px">
+																<div class="progress-bar bgcolor-purple margin-left-2px width-p-100" role="progressbar" aria-valuenow="32"
+																 aria-valuemin="0" aria-valuemax="100"></div>
+															</div><span class="vl-score border-purple"></span>
+														</li>
+														<li *ngIf="clientdata.toneOfTeamMail.analytical != 0" [ngStyle]="{'width': clientdata.widthstyle.analytical }"
+														 (click)="clienttonesearch('analytical', i);">
+															<span class="margin-left-4px">{{clientdata.toneOfTeamMail.analytical}}</span>
+															<div class="progress height-3px">
+																<div class="progress-bar bgcolor-blue margin-left-2px width-p-100" role="progressbar" aria-valuenow="32"
+																 aria-valuemin="0" aria-valuemax="100"></div>
+															</div><span class="vl-score border-blue"></span>
+														</li>
+													</ul>
+												</td>
+												<td class="ver-a-middle text-center" style="width: 100px">
+													<button type="Filter" class="btn btn-default border-radius-20 background-color-439cc4 color-ff font-size-12 margin-left-3"
+													 style="width:80px;height: 25px;padding-top: 4px;" (click)="clientscore(i);">{{clientdata.noOfMail}}</button>
+												</td>
+												<!-- <td class="ver-a-middle text-center d-none d-md-table-cell" style="width: 100px">
+                                        					<span>
+								                            <i style="color:#00C851;font-size: 18px;" class="fa fa-arrow-up"></i>
+								                            </span>
+								                             <span class="pull-right" style="font-size: 12px;position: relative;right: 28px;">UP<br>27%</span>
+                                        				</td> -->
+											</tr>
+											<tr>
+												<td colspan="6" class="ver-a-middle d-sm-none">
+													<ul class="nav Ubuntu-L ul-client font-size-13">
+														<li *ngIf="clientdata.toneOfTeamMail.anger != 0" [ngStyle]="{'width': clientdata.widthstyle.anger }"
+														 class="" (click)="clienttonesearch('anger', i);">
+															<span class="margin-left-4px"> {{clientdata.toneOfTeamMail.anger}}</span>
+															<div class="progress height-3px">
+																<div class="progress-bar bgcolor-red margin-left-2px width-p-100" role="progressbar" aria-valuenow="10"
+																 aria-valuemin="0" aria-valuemax="100"></div>
+															</div><span class="vl-score border-red"></span>
+														</li>
+														<li *ngIf="clientdata.toneOfTeamMail.joy != 0" [ngStyle]="{'width': clientdata.widthstyle.joy }" (click)="clienttonesearch('joy', i);">
+															<span class="margin-left-4px"> {{clientdata.toneOfTeamMail.joy}}</span>
+															<div class="progress height-3px">
+																<div class="progress-bar bgcolor-green margin-left-2px width-p-100" role="progressbar" aria-valuenow="10"
+																 aria-valuemin="0" aria-valuemax="100"></div>
+															</div><span class="vl-score border-green"></span>
+														</li>
+														<li *ngIf="clientdata.toneOfTeamMail.sadness != 0" [ngStyle]="{'width': clientdata.widthstyle.sadness }"
+														 (click)="clienttonesearch('sadness', i);">
+															<span class="margin-left-4px"> {{clientdata.toneOfTeamMail.sadness}}</span>
+															<div class="progress height-3px">
+																<div class="progress-bar bgcolor-gray margin-left-2px width-p-100" role="progressbar" aria-valuenow="10"
+																 aria-valuemin="0" aria-valuemax="100"></div>
+															</div><span class="vl-score border-gray"></span>
+														</li>
+														<li *ngIf="clientdata.toneOfTeamMail.fear != 0" [ngStyle]="{'width': clientdata.widthstyle.fear }"
+														 (click)="clienttonesearch('fear', i);">
+															<span class="margin-left-4px">{{clientdata.toneOfTeamMail.fear}}</span>
+															<div class="progress height-3px">
+																<div class="progress-bar bgcolor-brown margin-left-2px width-p-100" role="progressbar" aria-valuenow="32"
+																 aria-valuemin="0" aria-valuemax="100"></div>
+															</div><span class="vl-score border-brown"></span>
+														</li>
+														<li *ngIf="clientdata.toneOfTeamMail.tentative != 0" [ngStyle]="{'width': clientdata.widthstyle.tentative }"
+														 (click)="clienttonesearch('tentative', i);">
+															<span class="margin-left-4px">{{clientdata.toneOfTeamMail.tentative}}</span>
+															<div class="progress height-3px">
+																<div class="progress-bar bgcolor-yellow margin-left-2px width-p-100" role="progressbar" aria-valuenow="32"
+																 aria-valuemin="0" aria-valuemax="100"></div>
+															</div><span class="vl-score border-yellow"></span>
+														</li>
+														<li *ngIf="clientdata.toneOfTeamMail.confident != 0" [ngStyle]="{'width': clientdata.widthstyle.confident }"
+														 (click)="clienttonesearch('confident', i);">
+															<span class="margin-left-4px">{{clientdata.toneOfTeamMail.confident}}</span>
+															<div class="progress height-3px">
+																<div class="progress-bar bgcolor-purple margin-left-2px width-p-100" role="progressbar" aria-valuenow="32"
+																 aria-valuemin="0" aria-valuemax="100"></div>
+															</div><span class="vl-score border-purple"></span>
+														</li>
+														<li *ngIf="clientdata.toneOfTeamMail.analytical != 0" [ngStyle]="{'width': clientdata.widthstyle.analytical }"
+														 (click)="clienttonesearch('analytical', i);">
+															<span class="margin-left-4px">{{clientdata.toneOfTeamMail.analytical}}</span>
+															<div class="progress height-3px">
+																<div class="progress-bar bgcolor-blue margin-left-2px width-p-100" role="progressbar" aria-valuenow="32"
+																 aria-valuemin="0" aria-valuemax="100"></div>
+															</div><span class="vl-score border-blue"></span>
+														</li>
+													</ul>
+												</td>
+											</tr>
+
+										</table>
+									</div>
+									<div class="col-md-12">
+										<hr class="hr-m">
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<div *ngIf="resultFlag == false" style="text-align: center; padding-top: 10%">
+							<img src="images/no_results_found.png" style="width: 60px; display:block;margin-left: auto; margin-right: auto">
+							<span class="Ubuntu-L" style="color:grey; font-weight: bold;">Sorry, No results found</span>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+
+
+		<!--  condition false -->
+		<div class="row" *ngIf="this.setFlag == false">
+			<div class="col-md-2">
+				<div class="nav flex-column nav-pills tbs" id="v-pills-tab-1" role="tablist" aria-orientation="vertical" style="background-color: #b7b7b7;height:400px;width:181px">
+					<a class="nav-link side-tab font-size-12 padding-10per active show" id="v-pills-home-0" data-toggle="pill" href="#v-pills-home"
+					 (click)="getClickedData(0)" role="tab" aria-controls="v-pills-home" style="color:#000">{{searchData.companyName}}</a>
+
+				</div>
+			</div>
+			<div class="col-md-10">
+				<div class="tab-content" id="v-pills-tabContent">
+					<div class="tab-pane fade show active" id="v-pills-home-{{nameindex}}" role="tabpanel" aria-labelledby="v-pills-home-tab">
+						<div class="card radius-zero border-none " style="background-color: #f9f9f9;">
+							<div class="tab-content card-body padding-card">
+								<div class="row" *ngFor="let i=index ; let clientdata of searchList   ">
+
+									<div class="com-md-12">
+										<table style="width:100%">
+											<tr style="width:100%">
+												<td style="width:2%;text-align: center">
+													<img src="images/font-awesome.png" style="height:28px; width:28px;">
+												</td>
+												<td style="width:8%">
+													<div class="input-group mb-2" style="height:36px">
+														<div class="input-group-prepend" style="width:39px">
+															<div class="input-group-text background-color-439cc4 font-size-13" style="border-radius: 8px 0px 0px 8px;width:45px"><img
+																 class="height-20" src="images/arrow-icon.png"></div>
+														</div>
+
+														<input type="text" class="form-control font-size-13" style="border-radius: 0px 8px 8px 0px;" id="select_name_{{i}}"
+														 [(ngModel)]="clientdata.employeeName" name="select_name_{{i}}" checkMandatory="true">
+													</div>
+												</td>
+												<td style="width:6%">
+													<p class="Ubuntu-L font-size-11" style="margin-left: 16%;width:40%">{{clientdata.designation}}</p>
+												</td>
+												<td style="width:16%">
+													<ul style="width:91%;" class="nav Ubuntu-L font-size-13">
+														<li class="width-32 height-3px" (click)="teamtonescoresearch('anger', i);">
+															<span class="margin-left-4px"> {{clientdata.toneOfTeamMail.anger}}</span>
+															<div class="progress height-3px">
+																<div class="progress-bar bgcolor-red margin-left-2px" role="progressbar" style="width: 100%"
+																 aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+															</div><span class="vl-score border-red"></span>
+														</li>
+														<li class="width-12" (click)="teamtonescoresearch('joy', i);">
+															<span class="margin-left-4px"> {{clientdata.toneOfTeamMail.joy}}</span>
+															<div class="progress height-3px">
+																<div class="progress-bar bgcolor-green margin-left-2px" role="progressbar" style="width: 100%"
+																 aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+															</div><span class="vl-score border-green"></span>
+														</li>
+														<li class="width-12" (click)="teamtonescoresearch('sadness', i);">
+															<span class="margin-left-4px"> {{clientdata.toneOfTeamMail.sadness}}</span>
+															<div class="progress height-3px">
+																<div class="progress-bar bgcolor-gray margin-left-2px" role="progressbar" style="width: 100%"
+																 aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+															</div><span class="vl-score border-gray"></span>
+														</li>
+														<li class="width-10" (click)="teamtonescoresearch('fear', i);">
+															<span class="margin-left-4px">{{clientdata.toneOfTeamMail.fear}}</span>
+															<div class="progress height-3px">
+																<div class="progress-bar bgcolor-brown margin-left-2px" role="progressbar" style="width: 100%"
+																 aria-valuenow="32" aria-valuemin="0" aria-valuemax="100"></div>
+															</div><span class="vl-score border-brown"></span>
+														</li>
+														<li class="width-12" (click)="teamtonescoresearch('tentative', i);">
+															<span class="margin-left-4px">{{clientdata.toneOfTeamMail.tentative}}</span>
+															<div class="progress height-3px">
+																<div class="progress-bar bgcolor-yellow margin-left-2px" role="progressbar" style="width: 100%"
+																 aria-valuenow="32" aria-valuemin="0" aria-valuemax="100"></div>
+															</div><span class="vl-score border-yellow"></span>
+														</li>
+														<li class="width-8" (click)="teamtonescoresearch('confident', i);">
+															<span class="margin-left-4px">{{clientdata.toneOfTeamMail.confident}}</span>
+															<div class="progress height-3px">
+																<div class="progress-bar bgcolor-purple margin-left-2px" role="progressbar" style="width:100%"
+																 aria-valuenow="32" aria-valuemin="0" aria-valuemax="100"></div>
+															</div><span class="vl-score border-purple"></span>
+														</li>
+														<li class="width-14" (click)="teamtonescoresearch('analytical', i);">
+															<span class="margin-left-4px">{{clientdata.toneOfTeamMail.analytical}}</span>
+															<div class="progress height-3px">
+																<div class="progress-bar bgcolor-blue margin-left-2px" role="progressbar" style="width: 100%"
+																 aria-valuenow="32" aria-valuemin="0" aria-valuemax="100"></div>
+															</div><span class="vl-score border-blue"></span>
+														</li>
+													</ul>
+												</td>
+												<td style="width:3%;text-align: center">
+													<button type="Filter" class="btn btn-default border-radius-20 background-color-439cc4 color-ff font-size-12 margin-left-3"
+													 style="width:80px;height: 25px;padding-top: 4px;">{{clientdata.noOfMail}}</button>
+												</td>
+												<!-- <td style="width:3%">
+                                        					<table style="width:100%">
+			                                                   <tbody>
+			                                                      	 <tr style="width:100%">
+			                                                           <td style="width:30%;text-align: right;"><i style="color:#00C851;font-size: 18px;" class="fa fa-arrow-up"></i></td>
+			                                                           <td style="width:70%;text-align:left;font-size: 12px"> UP <br>27%</td>
+			                                                       	</tr>
+			                                                  	 </tbody>
+			                                               	</table>
+                                        				</td> -->
+											</tr>
+
+										</table>
+									</div>
+									<div class="col-md-12">
+										<hr class="hr-5">
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12 text-center font-size-12 Ubuntu-L" style="color: #b7b7b7;border-top:1px solid #b7b7b7">
+				Copyright @2018
+			</div>
+			<a id="ExportExcelData" href=""></a>
+		</div>
+	</div>
+
+	<!-- ----------------------------------//////////////CLIENT/ END///////////////////--------------------------------- -->
+</main>

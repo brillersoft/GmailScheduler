@@ -1,0 +1,302 @@
+<header class="header">
+  <nav class="navbar navbar-expand-lg nav-shadow padding-0">
+    <div class="col-sm-3 d-none d-xl-block">
+
+      <div class="logo">
+        <a class="navbar-brand OpenSans-Bold font-size-30" style="margin-right: 0rem" href="#">
+          <!-- <img src="images/LOGO2.png" class="logo-img"> -->
+          <img src="images/Hanogi-n-Kafal-6-2-06.png" class="logo-img">
+        </a>
+      </div>
+    </div>
+    <!-- <div class="col-sm-6 text-center d-none d-md-block" style="margin-top:0px;">
+            
+          <div class="margin-bottom-m-16 pull-left">
+          <div class="dropdown" style="line-height: 19px; margin-right:30px; ">
+        <a class="dropdown-toggle Ubuntu-B down font-size-17" style="font-weight: 400px !important;" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Employee 
+        </a>
+        <div class="dropdown-menu logoutdata Ubuntu-L" aria-labelledby="dropdownMenu2">
+        <a class="color-606060 font-14"  (click)="changRoute('my-dashboard','Analysis');">
+          Dashboard
+        </a>
+        <br>
+        <a class="color-606060 font-14" (click)="changRoute('my-employee-dashboard','employee');" style="cursor: pointer;" href="javascript:void(0)">
+            Tone View
+          </a>
+          <br>
+          <a class="color-606060 font-14" style="cursor: pointer;" href="javascript:void(0)">
+              Adverse Events
+            </a>
+            <br>
+        <a class="color-606060 font-14" style="cursor: pointer;" href="javascript:void(0)">
+            Escalation
+          </a>
+          </div>
+        </div>
+        </div>
+              <div class="margin-bottom-m-16 pull-left">
+              <div class="dropdown" style="line-height: 19px; margin-right:30px">
+            <a class="dropdown-toggle Ubuntu-B down font-size-17" style="font-weight: 400px !important;" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Client 
+            </a>
+            <div class="dropdown-menu logoutdata Ubuntu-L" aria-labelledby="dropdownMenu2">
+            <a class="color-606060 font-14"  (click)="changRoute('my-dashboard','Analysis');">
+              Dashboard
+            </a>
+            <br>
+            <a class="color-606060 font-14" (click)="changRoute('my-client-dashboard','client');" style="cursor: pointer;" href="javascript:void(0)">
+                Tone View
+              </a>
+              <br>
+            <a class="color-606060 font-14" (click)="changRoute('my-client-dashboard','client');" style="cursor: pointer;" href="javascript:void(0)">
+                Adverse Events
+              </a>
+              <br>
+            <a class="color-606060 font-14" style="cursor: pointer;" href="javascript:void(0)">
+                Escalation
+              </a>
+              </div>
+            </div>
+            </div>
+                  <div class="margin-bottom-m-16 pull-left">
+                  <div class="dropdown" style="line-height: 19px">
+                <a class="dropdown-toggle Ubuntu-B down font-size-17" style="font-weight: 400px !important;" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                My Insights 
+                </a>
+                <div class="dropdown-menu logoutdata Ubuntu-L" aria-labelledby="dropdownMenu2">
+                <a class="color-606060 font-14" (click)="changRouteemployee('my-employee-personal-score','employee');">
+                  Personal 
+                </a><br/>
+                <a class="color-606060 font-14" (click)="changRouteTeamScore('my-team-score','employee');">
+                    Team
+                  </a>
+                  </div>
+                </div>
+                </div>
+                <div class=" text-center">         
+                    <form class="form-inline inputWithIcon">
+                        <input type="search" class="form-control text-center font-size-14 search-box" style="width: 30%" name="search" placeholder="Search.. ">
+                        
+                    </form>
+                 </div>
+                </div> -->
+    <div>
+      <a class="d-xl-none" mat-icon-button (click)="drawer.toggle();" style="display: inline">
+        <mat-icon class="md-24">menu</mat-icon>
+      </a>￼
+      <div class="logo d-xl-none" style="display:inline-block">
+
+        <a class="navbar-brand OpenSans-Bold font-size-30" href="#" style="display:inline-block; margin-right: 0rem">
+          <img src="images/Hanogi-n-Kafal-6-2-06.png" class="logo-img">
+        </a>
+      </div>
+    </div>
+
+
+    <div class="pull-right col-sm-3 text-center d-none d-md-block" style="float:right;width:100%;margin-left:auto;">
+      <div class="pull-right user-details" style="min-width: 200px; padding-left: 0px !important">
+        <div class="pull-left dropdown"><img id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false" class="cursor-pointer dropdown-toggle" style="padding:10px 18px" src="images/user-w.png"
+            alt="profile" />
+          <div class="dropdown-menu logoutdata Ubuntu-L " aria-labelledby="dropdownMenu2" style="width: 350px; height: 170px; left: -158px; right: 100em; overflow: visible;padding: 0em;border-radius: 5px; margin-top:0px !important">
+            <div style="width: 100%; height: 100%; background-color: #EAEAEA;border-radius: 5px 5px 0px 0px">
+              <br>
+              <a class="Ubuntu-L" style="text-align: center;font-weight: bold;">{{dashboard.employeeName}}</a>
+              <hr style="width: 50%">
+              <a class="Ubuntu-L" style="text-align: center;font-size: 12px; display: block">{{dashboard.designation}}</a>
+              <a class="Ubuntu-L" style="text-align: center;font-size: 12px; display: block">Employee Id:
+                {{dashboard.employeeId}}</a>
+              <a class="Ubuntu-L" style="text-align: center;font-size: 12px; display: block">{{dashboard.emailId}}</a>
+              <br>
+              <a *ngIf="employeeRole != 'admin'" class="Ubuntu-L schbutton cursor-pointer" (click)="changeRouteAdmin('admin-dashboard');" style="text-align: center; display: inline; background-color: #497487; color: white ">Admin</a>
+              <a #signOut class="Ubuntu-L schbutton cursor-pointer" href="./j_employee_logout" style="text-align: center; display: inline; background-color: #f57660; color: white; border-color: #f57660; ">Signout</a>
+              <br style="display:block">
+            </div>
+            <div style="width: 100%; height:20px; background-color: white;border-radius: 0px 0px 5px 5px; border: 1px solid rgba(0,0,0,.15);">
+            </div>
+          </div>
+        </div>
+        <div class="margin-bottom-m-16 pull-left">
+          <div class="dropdown" style="line-height: 19px">
+            <!--             <a class="dropdown-toggle Ubuntu-B down font-size-17" style="font-weight: 400px !important;" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+            </a> -->
+
+            <!-- <div class="dropdown-menu logoutdata Ubuntu-L " aria-labelledby="dropdownMenu2">
+              <a class="cursor-pointer color-606060 font-14" (click)="changeRoute('admin-dashboard');">
+                Admin
+              </a>
+              <br>
+              <a class="cursor-pointer color-606060 font-14" href="./j_employee_logout">
+                Logout
+              </a>
+            </div> -->
+          </div>
+
+          <p class="font-size-15 Ubuntu-L mb-0 mt-2" style="font-weight: bold">{{dashboard.employeeName}}</p>
+          <p class="font-size-10 Ubuntu-L">{{dashboard.designation}}</p>
+        </div>
+      </div>
+      <!-- <p class="font-size-10 Ubuntu-L">{{dashboard.designation}}</p> -->
+    </div>
+
+    <div class="pull-right user-details d-sm-none">
+
+      <div class="margin-bottom-m-16 pull-left">
+        <div class="dropdown" style="line-height: 19px">
+          <a class="dropdown-toggle Ubuntu-B down font-size-17" style="font-weight: 400px !important;" id="dropdownMenu2"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{dashboard.employeeName}}
+          </a>
+          <div class="dropdown-menu logoutdata Ubuntu-L" aria-labelledby="dropdownMenu2" style="left: -30px">
+            <!-- <a class="color-606060 font-14" (click)="changRoute('my-main-dashboard','Main');">
+                              Main dashboard
+                            </a> -->
+            <a *ngIf="employeeRole != 'admin'" class="cursor-pointer  color-606060 font-14 d-none d-xl-block" (click)="changeRouteAdmin('admin-dashboard');">
+              Admin
+            </a>
+            <a class="cursor-pointer color-606060 font-14" href="./j_employee_logout">
+              Logout
+            </a>
+            <!--  <button class="dropdown-item" type="button">Logout</button> -->
+
+          </div>
+
+        </div>
+        <div class="dropdown-menu logoutdata Ubuntu-L" aria-labelledby="dropdownMenu2">
+          <a class="color-606060 font-14" href="./j_employee_logout">
+            Logout
+          </a>
+          <!--  <button class="dropdown-item" type="button">Logout</button> -->
+
+        </div>
+
+      </div>
+    </div>
+
+  </nav>
+
+</header>
+<!-- <mat-drawer-container  [hasBackdrop]="true"> -->
+<!-- <div id="wrapper" class="d-flex">	 -->
+
+<!-- <mat-sidenav #sidenav mode="side" class="app-sidenav d-sm-none">
+        <mat-nav-list>
+            <a mat-list-item href="page1.html">Page 1</a>
+            <a mat-list-item href="page2.html">Page 2</a>
+            <a mat-list-item href="page3.html">Page 3</a>
+        </mat-nav-list>
+     </mat-sidenav> -->
+<mat-drawer-container hasBackdrop="true" style="height: 100%">
+  <mat-drawer #drawer mode="over" class="d-xl-none" style="min-width: 250px; visibility: visible !important; background-color: #FFFFFF; width: 140px;">
+    <ul class="nav sidebar-nav" style="display: flex" role="tablist">
+      <li class="nav-item menu-item height-50px" style="background-color:#497487; text-align: left; margin: 0px;">
+        <span class="cursor-pointer nav-link color-00 font-size-18 Ubuntu-B margin-top-2px margin-bottom-3" data-toggle="collapse"
+          href="#collapse2" style="color:white; display: inline" role="tab"> Admin
+        </span>
+      </li>
+      <hr style="border: 0px;color: white;background-color: white;height: 0px; margin-top: 0.5px; margin-bottom: 0.5px">
+      <li>
+        <div id="collapse2" class="panel-collapse collapse">
+          <ul class="nav sidebar-nav" role="tablist">
+            <li class="nav-item menu-item1 height-40px" style="background-color:#FFFFFF; color:white !important">
+              <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px"
+                (click)="changeRouteAdmin('admin-dashboard');">
+                <img src="images/Admin_screens_logos-11.png" style="width:18%">Admin Panel</a>
+            </li>
+            <li class="nav-item menu-item1 height-40px" style="background-color:#FFFFFF; text-align: left">
+              <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px"
+                (click)="changeRoute('employee-upload');">
+                <img src="images/Admin_screens_logos-02.png" style="width:18%">Employee data upload</a>
+            </li>
+            <li class="nav-item menu-item1 height-40px">
+              <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px"
+                (click)="changeRoute('employee-data');">
+                <img src="images/Admin_screens_logos-03.png" style="width:18%">Employee data</a>
+
+            </li>
+            <hr style="width: 90%; margin-top: 1px; margin-bottom: 1px;">
+            <li class="nav-item menu-item1 height-40px" style="background-color:#FFFFFF; text-align: left">
+              <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px"
+                (click)="changeRoute('client-upload');">
+                <img src="images/Admin_screens_logos-02.png" style="width:18%" /> Client data upload</a>
+            </li>
+            <li class="nav-item menu-item1 height-40px" style="background-color:#FFFFFF; text-align: left">
+              <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px"
+                (click)="changeRoute('client-data');">
+                <img src="images/Admin_screens_logos-03.png" style="width:18%">Client data</a>
+
+            </li>
+            <hr style="width: 90%; margin-top: 1px; margin-bottom: 1px;">
+            <li class="nav-item menu-item1 height-40px" style="background-color:#FFFFFF; text-align: left">
+              <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px"
+                (click)="changeRoute('schedule-batch');">
+                <img src="images/Admin_screens_logos-08.png" style="width:18%">Schedule </a>
+            </li>
+            <li class="nav-item menu-item1 height-40px ">
+              <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px">
+                <img src="images/Admin_screens_logos-05.png" style="width:18%">Status</a>
+
+            </li>
+            <hr style="width: 90%; margin-top: 1px; margin-bottom: 1px;">
+            <li class="nav-item menu-item1 height-40px" style="background-color:#FFFFFF; text-align: left">
+              <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px"
+                (click)="changeRoute('server-configuration');">
+                <img src="images/Admin_screens_logos-06.png" style="width:18%">Configure Email server</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item menu-item height-50px" style="background-color:#497487; text-align: left; margin: 0px;">
+        <span class="cursor-pointer nav-link color-00 font-size-18 Ubuntu-B margin-top-2px margin-bottom-3" style="color:white; display: inline"
+          role="tab"> Analysis View
+        </span>
+      </li>
+    </ul>
+    <div id="collapse1" class="panel-collapse collapse show">
+      <ul class="nav sidebar-nav" style="display: flex" role="tablist">
+        <li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRoute('my-dashboard','Analysis');">
+          <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+              src="images/dashboard_blue.png" style="width:17%; margin-right: 5px;" />Dashboard</a>
+        </li>
+        <hr style="width: 90%; margin-top: 1px; margin-bottom: 1px;">
+        <li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRoute('my-employee-dashboard','employee');">
+          <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+              src="images/tone_blue.png" style="width:17%; margin-right: 5px;" />Tone</a>
+        </li>
+        <li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="teamtoneemployeeEscalation('yes')">
+          <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+              src="images/escalation_blue.png" style="width:17%; margin-right: 5px;" />Escalation</a>
+        </li>
+        <li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="teamtoneemployeeAdverse('yes')">
+          <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+              src="images/adverse_blue.png" style="width:17%; margin-right: 5px;" />Adverse Events</a>
+        </li>
+        <hr style="width: 90%; margin-top: 1px; margin-bottom: 1px;">
+        <li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRoutePersonal('my-employee-personal-score','employee');">
+          <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+              src="images/personal_insights_blue.png" style="width:17%; margin-right: 5px;" />Personal Insights</a>
+        </li>
+        <li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRoutePersonal('my-team-score','employee')">
+          <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+              src="images/team_insights_blue.png" style="width:17%; margin-right: 5px;%" />My Team Insights</a>
+        </li>
+        <hr style="width: 90%; margin-top: 1px; margin-bottom: 1px;">
+        <li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left">
+          <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+              src="images/touch_points_blue.png" style="width:17%; margin-right: 5px;" />Touch Points</a>
+        </li>
+      </ul>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+
+
+<!-- </div> -->
+
+<!-- </mat-drawer-container> -->

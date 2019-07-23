@@ -1,0 +1,114 @@
+<aside class="col-sm-2 show pl-0 pull-left d-none d-xl-block" style="height:100%">
+
+    <div class="sidebar-left" style="background-color: white">
+        <!-- Sidebar -->
+
+
+
+        <ul class="nav sidebar-nav" role="tablist">
+            <li class="nav-item menu-item1 height-40px" style="background-color:#497487; color:white !important">
+                <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:white; display: inline; padding: 0px"><img
+                        src="images/Admin_dashboard_white.png" style="width:18%" />Admin Panel</a>
+            </li>
+            <li class="nav-item menu-item1 height-40px" style="background-color:#FFFFFF; text-align: left">
+                <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px"
+                    (click)="changeRouteAdmin('employee-upload');">
+                    <img src="images/Admin_screens_logos-02.png" style="width:18%">Employee data upload</a>
+            </li>
+            <li class="nav-item menu-item1 height-40px">
+                <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px"
+                    (click)="changeRouteAdmin('employee-data');">
+                    <img src="images/Admin_screens_logos-03.png" style="width:18%">Employee data</a>
+
+            </li>
+            <hr style="width: 90%; margin-top: 1px; margin-bottom: 1px;">
+            <li class="nav-item menu-item1 height-40px" style="background-color:#FFFFFF; text-align: left">
+                <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px"
+                    (click)="changeRouteAdmin('client-upload');">
+                    <img src="images/Admin_screens_logos-02.png" style="width:18%" /> Client data upload</a>
+            </li>
+            <li class="nav-item menu-item1 height-40px" style="background-color:#FFFFFF; text-align: left">
+                <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px"
+                    (click)="changeRouteAdmin('client-data');">
+                    <img src="images/Admin_screens_logos-03.png" style="width:18%">Client data</a>
+
+            </li>
+            <hr style="width: 90%; margin-top: 1px; margin-bottom: 1px;">
+            <li class="nav-item menu-item1 height-40px" style="background-color:#FFFFFF; text-align: left">
+                <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px"
+                    (click)="changeRouteAdmin('schedule-batch');">
+                    <img src="images/Admin_screens_logos-08.png" style="width:18%">Schedule </a>
+            </li>
+            <li class="nav-item menu-item1 height-40px ">
+                <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px">
+                    <img src="images/Admin_screens_logos-05.png" style="width:18%">Status</a>
+
+            </li>
+            <hr style="width: 90%; margin-top: 1px; margin-bottom: 1px;">
+            <li class="nav-item menu-item1 height-40px" style="background-color:#FFFFFF; text-align: left">
+                <a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color:black; display: inline; padding: 0px"
+                    (click)="changeRouteAdmin('server-configuration');">
+                    <img src="images/Admin_screens_logos-06.png" style="width:18%">Configure Email server</a>
+            </li>
+        </ul>
+
+    </div>
+
+</aside>
+
+<main class="col-lg-12 col-xl-10 pull-left" role="main">
+    <div class="mainPage" style="margin-top: 20px;">
+        <p class="heading Ubuntu-L" style="margin-left:30px; padding-top: 16px; font-size: 18px; padding-bottom: 6px;">Dashboard
+            - Configure your account</p>
+        <hr style="width: 95%; border-top: 1px solid #D8D8D8">
+
+        <div class="row" style="text-align:center; padding-bottom: 13%">
+
+            <div class="col-lg-2 div1 dash-col">
+                <div class="dash-height">
+                    <img src="images/GreyServerLogo.png" alt="Email Server" class="imageIcon">
+                    <p class="head2 Ubuntu-L">Server Config</p>
+                    <p class="head3 Ubuntu-L">No server is available!</p>
+                    <p class="head4 Ubuntu-L">Please add server</p>
+                </div>
+                <button class="dashButton Ubuntu-L dash-padding cursor-pointer" style="padding-left: 32px; padding-right: 32px;" (click)="changeRouteAdmin('server-configuration');">
+                    Add Server</button>
+            </div>
+            <div class=" d-none d-xl-block" style="border-left: 3px solid #EAEAEA;margin-top: 40px;overflow: visible;margin-bottom: 40px"></div>
+            <div class="col-lg-2 dash-col">
+                <div class="dash-height">
+                    <img src="images/GreyEmployeeLogo.png" alt="Employee" class="imageIcon">
+                    <p class="head2 Ubuntu-L">Employee</p>
+                    <p class="head3 Ubuntu-L">No information available!</p>
+                    <p class="head4 Ubuntu-L">Please add employees</p>
+                </div>
+                <button class="dashButton Ubuntu-L dash-padding cursor-pointer" style="padding-left: 20px; padding-right: 20px;" (click)="changeRouteAdmin('employee-upload');">
+                    Add Employee</button>
+            </div>
+            <div class=" d-none d-xl-block" style="border-left: 3px solid #EAEAEA;margin-top: 40px;overflow: visible;margin-bottom: 40px"></div>
+            <div class="col-lg-2 dash-col">
+                <div class="dash-height">
+                    <img src="images/GreyClientLogo.png" alt="Client" class="imageIcon">
+                    <p class="head2 Ubuntu-L">Client/Account</p>
+                    <p class="head3 Ubuntu-L">No information available!</p>
+                    <p class="head4 Ubuntu-L">Please add clients</p>
+                </div>
+                <button class="dashButton Ubuntu-L dash-padding cursor-pointer" style="padding-left: 34px; padding-right: 34px;" (click)="changeRouteAdmin('client-upload');">
+                    Add Client</button>
+            </div>
+            <div class="d-none d-xl-block" style="border-left: 3px solid #EAEAEA;margin-top: 40px;overflow: visible;margin-bottom: 40px"></div>
+            <div class="col-lg-2 dash-col">
+                <div class="dash-height">
+                    <img src="images/GreyScheduleLogo.png" alt="Schedule" class="imageIcon">
+                    <p class="head2 Ubuntu-L">Schedule</p>
+                    <p class="head3 Ubuntu-L">No schedule is set!</p>
+                    <p class="head4 Ubuntu-L">Please set a schedule</p>
+                </div>
+                <button class="dashButton Ubuntu-L dash-padding cursor-pointer" style="padding-left: 20px; padding-right: 20px;" (click)="changeRouteAdmin('schedule-batch');">
+                    Add Schedule</button>
+            </div>
+
+        </div>
+    </div>
+
+</main>

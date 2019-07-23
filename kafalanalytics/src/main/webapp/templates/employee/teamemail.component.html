@@ -1,0 +1,909 @@
+<aside class="col-sm-2 show pl-0 pull-left d-none d-xl-block" style="height:100%">
+	<div class="sidebar-left" style="background-color: white">
+		<!-- <ul class="nav sidebar-nav" role="tablist">
+                 <li class="nav-item menu-item height-50px" style="background-color:#497487">
+                   <span class="nav-link color-ff font-size-19 Ubutu-B margin-top-2px margin-bottom-3" role="tab" >Tone </span>
+                 </li>
+                  <li class="nav-item menu-item border-bottom-2 height-100px">
+                    <img src="images/kafal-4-circles.png" style="width:18%;margin-top: 8%">
+                                 <p class="OpenSans-Semibold font-size-12 margin-top-3">Over all Email Tone Analysis</p>
+                   </li>
+                   <li class="nav-item menu-item">
+                      <button type="button" class="btn border-1 border-radius-20 background-color-transparent width-80 margin-10 padding-0 Ubuntu-B" style="color:#497487;margin-top: 17px;font-weight: 600">{{dashboard.employeeName}}</button>
+                   </li>
+                   <li class="nav-item menu-item">
+                      <p class="Ubuntu-B font-size-14" style="color:#497487;font-weight: 500">Insights</p>
+                      <div class="hr-3"></div>
+                   </li>
+                   <li class="nav-item">
+	                     <div class="pad-10">
+	                         <span class="OpenSans-Semibold font-size-11" style="color:#323232"><u>Department-</u><br>
+	                             <span class=" OpenSans-Semibold font-size-15" style="color:#323232">&nbsp;{{dashboard.department}}</span>
+	                         </span>
+	
+	                     </div>
+                     </li>
+                     <li class="nav-item">
+                          <div class="pad-10">
+                              <span class="OpenSans-Semibold font-size-11" style="color:#323232"><u>Reporting to persons-</u><br>
+                                  <span class="OpenSans-Semibold font-size-15" style="color:#323232">{{dashboard.reportTo}}</span>
+                              </span>
+                          </div>
+                     </li>
+                     <li class="nav-item">
+                         <div class="pad-10">
+                             <span class="OpenSans-Semibold font-size-11" style="color:#323232"><u>No of people in team-</u><br>
+                                 <span class=" OpenSans-Semibold font-size-15" style="color:#323232">{{dashboard.noOfTeamMember}}</span>
+                             </span>
+                         </div>
+                      </li>
+                      <li class="nav-item">
+                         <div class="pad-10">
+                             <span class="OpenSans-Semibold font-size-11" style="color:#323232"><u>No of Emails-</u><br>
+                                 <span class=" OpenSans-Semibold font-size-15" style="color:#323232">{{dashboard.noOfMail}}</span>
+                             </span>
+                         </div>
+                      </li>
+                </ul>
+                <div class="text-right pad-10">                
+                <a href="javascript:void(0)" data-toggle="collapse" data-target="#showmore" class="color-439cc4 OpenSans-Semibold font-size-10">Show More <i class="fa fa-angle-down"></i></a>
+                </div>                  
+				<div id="showmore" class="collapse pad-10">
+				  <div class="text-center">
+				     <p class="Ubuntu-B font-size-14" style="color:#497487;font-weight: 500">Relation</p>
+				     <hr class="hr-4" />
+				  </div>
+				   team bar
+				    <ul class="bar-ul nav Ubuntu-L font-size-11 color-606060">
+				      <li>Team</li>
+				      <li [ngStyle]="{'width': teamRelation.good / 1.3 + '%' }">
+				           <span>{{teamRelation.good}}</span>
+                          <div class="progress height-3px">                           
+                          <div class="progress-bar bgcolor-green margin-left-2px" role="progressbar" style="width: 100%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+				      </li>
+				      <li [ngStyle]="{'width': teamRelation.bad / 1.3 + '%' }">
+				        <span>{{teamRelation.bad}}</span>
+                          <div class="progress height-3px">
+                          <div class="progress-bar bgcolor-red margin-left-2px" role="progressbar" style="width: 100%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                          
+                          </div>
+				      </li>
+				    </ul>
+				    
+				    client bar
+				     <ul class="bar-ul nav Ubuntu-L font-size-11 color-606060">
+				      <li>Client</li>
+				      <li [ngStyle]="{'width': clientRelation.good / 1.3 + '%' }">
+				           <span>{{clientRelation.good}}</span>
+                          <div class="progress height-3px">
+                           <div *ngIf="clientRelation.good < 70" class="progress-bar bgcolor-red margin-left-2px" role="progressbar" style="width: 100%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                          <div *ngIf="clientRelation.good > 70" class="progress-bar bgcolor-green margin-left-2px" role="progressbar" style="width: 100%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+				      </li>
+				      <li [ngStyle]="{'width':clientRelation.bad / 1.3 + '%' }">
+				        <span>{{clientRelation.bad}}</span>
+                          <div class="progress height-3px">
+                          <div *ngIf="clientRelation.bad < 70" class="progress-bar bgcolor-red margin-left-2px" role="progressbar" style="width: 100%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                          <div *ngIf="clientRelation.bad > 70" class="progress-bar bgcolor-green margin-left-2px" role="progressbar" style="width: 100%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+				      </li>
+				    </ul>
+				    
+				   
+				    
+				     bar presents
+				    <div class="text-center">
+				    <div class=" form-check-inline">
+                        <div class="spinner-dot bg-danger"></div>
+                        <label class="form-check-label OpenSans-Semibold font-size-11"> &nbsp; Bad</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <div class="spinner-dot bg-success"></div>
+                        <label class="form-check-label OpenSans-Semibold font-size-11"> &nbsp; Good</label>
+                      </div>
+				    
+				    </div>
+                     
+				</div> -->
+		<ul class="nav sidebar-nav" role="tablist">
+			<li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRouteEmployee('my-dashboard','Analysis');">
+				<a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+					 src="images/dashboard_blue.png" style="width:17%; margin-right: 5px;" />Dashboard</a>
+			</li>
+			<hr style="width: 90%; margin-top: 1px; margin-bottom: 1px;">
+			<li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRouteEmployee('my-employee-dashboard','employee');">
+				<a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+					 src="images/tone_blue.png" style="width:17%; margin-right: 5px;" />Tone</a>
+			</li>
+			<li *ngIf="escalationFilter.length != 0" class="nav-item menu-item height-40px" style="background-color:#497487; text-align: left"
+			 (click)="teamtoneemployeeEscalation('yes')">
+				<a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: white; display: inline; padding: 0px"><img
+					 src="images/escalation_white.png" style="width:17%; margin-right: 5px;" />Escalation</a>
+			</li>
+			<li *ngIf="escalationFilter.length == 0" class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left"
+			 (click)="teamtoneemployeeEscalation('yes')">
+				<a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+					 src="images/escalation_blue.png" style="width:17%; margin-right: 5px;" />Escalation</a>
+			</li>
+			<li *ngIf="adverseFilter.length != 0 " class="nav-item menu-item height-40px" style="background-color:#497487; text-align: left"
+			 (click)="teamtoneemployeeAdverse('yes')">
+				<a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: white; display: inline; padding: 0px"><img
+					 src="images/adverse_white.png" style="width:17%; margin-right: 5px;" />Adverse Events</a>
+
+			</li>
+			<li *ngIf="adverseFilter.length == 0 " class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left"
+			 (click)="teamtoneemployeeAdverse('yes')">
+				<a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+					 src="images/adverse_blue.png" style="width:17%; margin-right: 5px;" />Adverse Events</a>
+			</li>
+			<hr style="width: 90%; margin-top: 1px; margin-bottom: 1px;">
+			<li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRoutePersonalTeam('my-employee-personal-score','employee');">
+				<a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+					 src="images/personal_insights_blue.png" style="width:17%; margin-right: 5px;" />Personal Insights</a>
+			</li>
+			<li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRoutePersonalTeam('my-team-score','employee');">
+				<a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+					 src="images/team_insights_blue.png" style="width:17%; margin-right: 5px;%" />My Team Insights</a>
+			</li>
+			<hr style="width: 90%; margin-top: 1px; margin-bottom: 1px;">
+			<li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRouteTouch('touch-points');">
+				<a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+					 src="images/touch_points_blue.png" style="width:17%; margin-right: 5px;" />Touch Points</a>
+			</li>
+			<li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRouteTouch('response-time');">
+				<a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+					 src="images/response_time_blue.png" style="width:17%; margin-right: 5px;" />Response Time</a>
+			</li>
+			<li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRouteTouch('personality-analytics');">
+				<a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+					 src="images/personality_analytics_blue.png" style="width:17%; margin-right: 5px;" />Personality Analytics</a>
+			</li>
+			<li class="nav-item menu-item height-40px" style="background-color:#FFFFFF; text-align: left" (click)="changRouteTouch('relationship');">
+				<a class="cursor-pointer nav-link color-00 font-size-15 Ubuntu-B margin-top-2px margin-bottom-3" style="color: black; display: inline; padding: 0px"><img
+					 src="images/relationship_blue.png" style="width:17%; margin-right: 5px;" />Relationship</a>
+			</li>
+		</ul>
+	</div>
+</aside>
+<main class="col-xl-10 col-lg-12 pull-left" role="main">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="nav font-size-12">
+					<li class="pad-r-10">
+						<div class="breadcrumb2" style="color: #497487">Tone</div>
+					</li>&nbsp;
+					<li>
+						<div class="breadcrumb2" style="color: #497487"><i class="fa fa-angle-right" aria-hidden="true" style="padding-right: 3px;"></i></div>
+					</li>
+					<li *ngIf="clientEmailId.length == 0 && companyName.length == 0 " class="li-breadcrumbnew width-70px">
+						<div class="pad-t-5" style="color: #497487">Employee</div>
+					</li>
+					<li *ngIf="clientEmailId.length != 0 || companyName.length != 0 " class="li-breadcrumbnew width-70px">
+						<div class="pad-t-5" style="color: #497487">Client</div>
+					</li>
+					<li>
+						<div class="breadcrumb2" style="color: #497487"><i class="fa fa-angle-right" aria-hidden="true" style="padding-right: 3px; padding-left: 6px;"></i></div>
+					</li>
+					<li *ngIf="clientEmailId.length == 0 && companyName.length == 0 " class="li-breadcrumbnew" style="width: 80px;">
+						<div class="pad-t-5 " style="color: #497487">Team Email</div>
+					</li>
+					<li *ngIf="clientEmailId.length != 0 || companyName.length != 0 " class="li-breadcrumbnew" style="width: 80px;">
+						<div class="pad-t-5 " style="color: #497487">Email</div>
+					</li>
+
+				</ul>
+			</div>
+		</div><br>
+
+		<div class="col-md-4 text-center" style="margin-left: auto; margin-right: auto;">
+			<div>
+				<i class="fa fa-user" aria-hidden="true"></i>
+				<span *ngIf="clientEmailId.length == 0 && companyName.length == 0" class="Ubuntu-B font-size-18">Team Emails of</span>
+				<span *ngIf="clientEmailId.length != 0 || companyName.length != 0" class="Ubuntu-B font-size-18">Emails of</span>
+				<div class="row margin-left-10 background-color-ff  border-radius-30 width-85">
+					<div class=col-md-3>
+						<img src="images/user-c.png" class=" height-45px width-45px margin-top-7px margin-left--5">
+					</div>
+					<div *ngIf="clientEmailId.length == 0 && companyName.length == 0 " class="col-md-9 text-center margin-10 padding-left-0 d-none d-md-flex ">
+						<div class="line-height-0 color-497487" style="margin-bottom: -4px;margin-top: 3px; text-align: center;">
+							<p class="font-size-16 Ubuntu-M">{{dashboard.employeeName}}</p>
+							<p class="font-size-13 Ubuntu-M ">{{dashboard.designation}}</p>
+							<p class="font-size-12 Ubuntu-L">{{dashboard.emailId}}</p>
+						</div>
+					</div>
+					<div *ngIf="clientEmailId.length == 0 && companyName.length == 0" class="col-md-9 text-center margin-10 padding-left-0 d-sm-none">
+						<div class="line-height-0 color-497487" style="margin-bottom: -4px;margin-top: 3px;">
+							<p class="font-size-16 Ubuntu-M">{{dashboard.employeeName}}</p>
+							<p class="font-size-13 Ubuntu-M ">{{dashboard.designation}}</p>
+							<p class="font-size-12 Ubuntu-L">{{dashboard.emailId}}</p>
+						</div>
+					</div>
+					<div *ngIf="clientEmailId.length != 0" class="col-md-9 text-center margin-10 padding-left-0 d-none d-md-flex ">
+						<div class="line-height-0 color-497487" style="margin-bottom: -4px;margin-top: 3px; text-align: center;">
+							<p class="font-size-16 Ubuntu-M">{{clientName}}</p>
+							<!-- <p class="font-size-13 Ubuntu-M ">{{dashboard.designation}}</p> -->
+							<p class="font-size-12 Ubuntu-L">{{clientEmailId}}</p>
+						</div>
+					</div>
+					<div *ngIf="clientEmailId.length != 0" class="col-md-9 text-center margin-10 padding-left-0 d-sm-none">
+						<div class="line-height-0 color-497487" style="margin-bottom: -4px;margin-top: 3px;">
+							<p class="font-size-16 text-center Ubuntu-M">{{clientName}}</p>
+							<!-- <p class="font-size-13 Ubuntu-M ">{{dashboard.designation}}</p> -->
+							<p class="font-size-12 Ubuntu-L">{{clientEmailId}}</p>
+						</div>
+					</div>
+					<div *ngIf="companyName.length != 0" class="col-md-9 text-center margin-10 padding-left-0 d-none d-md-flex">
+						<div class="line-height-0 color-497487" style="margin-bottom: -4px;margin-top: 3px;">
+							<p class="font-size-16 text-center Ubuntu-M">{{companyName}}</p>
+							<!-- <p class="font-size-13 Ubuntu-M ">{{dashboard.designation}}</p> -->
+							<!-- <p class="font-size-12 Ubuntu-L">{{clientEmailId}}</p> -->
+						</div>
+					</div>
+					<div *ngIf="companyName.length != 0" class="col-md-9 text-center margin-10 padding-left-0 d-sm-none">
+						<div class="line-height-0 color-497487" style="margin-bottom: -4px;margin-top: 3px;">
+							<p class="font-size-16 Ubuntu-M">{{companyName}}</p>
+							<!-- <p class="font-size-13 Ubuntu-M ">{{dashboard.designation}}</p> -->
+							<!-- <p class="font-size-12 Ubuntu-L">{{clientEmailId}}</p> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4 d-none d-md-block">
+				<!-- <a type="Filter" class="btn btn-default font-size-13 margin-top-5px width-50per color-ff border-radius-20 height-26 padding-top-2px " style="background-color:brown; color: ghostwhite; margin-left: 32%;" (click)="adverseevents();">Adverse Events</a> -->
+				<!-- <a *ngIf="resultFlag == false" type="Filter" class="btn btn-default font-size-13 margin-top-5px width-50per color-ff border-radius-20 height-26 padding-top-2px "
+				 style="background-color:indianred; color: ghostwhite; margin-left: 32%;">0 results found</a> -->
+			</div>
+			<div class="col-md-4"></div>
+		</div>
+
+
+		<!-- ---------------///////////////////EMPLOYEE START//////////////////////////----------------------------- -->
+		<div class="tab-content" id="nav-tabContent">
+			<div class="tab-pane fade show active" id="employee-tab" role="tabpanel" aria-labelledby="nav-home-tab">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="col-md-4 float-left padding-left-0">
+							<button class="btn background-color-439cc4 padding-5" style="border-top-left-radius: 8px;border-top-right-radius: 8px;"
+							 (click)="changRoute('my-employee-dashboard','employee');">
+								<div class="background-color-ff width-45px font-size-10 border-radius-5px padding-1 Ubuntu-M">
+									<img class="width-16px" src="images/back.png">&nbsp;<span>Back</span>
+								</div>
+							</button>
+							<div class="btn-group border-2 border-top-left-radius-16 border-top-right-radius-16 font-size-11 active Ubuntu-L"
+							 role="group" aria-label="Basic example">
+								<button *ngIf="clientEmailId.length == 0" style="color:#323232;padding-top: 3px;background-color:#F5F5F5;" type="button"
+								 class="btn border-top-left-radius-20 Ubuntu-M font-size-11 filteractiveall" (click)="getClickAll()">All</button>
+								<button *ngIf="clientEmailId.length == 0" style="color:#323232;padding-top: 3px;border-left: 1px solid #9ea3af; background: #e9e9e9;"
+								 type="button" class="btn Ubuntu-M font-size-11 filteractivesent" (click)="getClickSent()">Sent</button>
+								<button *ngIf="clientEmailId.length == 0" style="color:#323232;padding-top: 3px;border-left: 1px solid #9ea3af; background: #e9e9e9;"
+								 type="button" class="btn border-top-right-radius-20 Ubuntu-M font-size-11 filteractivereceive" (click)="getClickReceive()">Received</button>
+								<button *ngIf="clientEmailId.length != 0" style="color:#323232;padding-top: 3px;background-color:#F5F5F5;" type="button"
+								 class="btn border-top-left-radius-20 Ubuntu-M font-size-11 filteractiveall" (click)="getClickAllClient()">All</button>
+								<button *ngIf="clientEmailId.length != 0" style="color:#323232;padding-top: 3px;border-left: 1px solid #9ea3af; background: #e9e9e9;"
+								 type="button" class="btn Ubuntu-M font-size-11 filteractivesent" (click)="getClickSentClient()">Sent</button>
+								<button *ngIf="clientEmailId.length != 0" style="color:#323232;padding-top: 3px;border-left: 1px solid #9ea3af; background: #e9e9e9;"
+								 type="button" class="btn border-top-right-radius-20 Ubuntu-M font-size-11 filteractivereceive" (click)="getClickReceiveClient()">Received</button>
+							</div>
+						</div>
+						<div class="col-md-4 float-left">
+							<button class="btn btn-default font-size-12 margin-10 width-60per color-ff border-radius-20 height-20 padding-top-0 ng-star-inserted"
+							 style="background-color:#497487;  margin:0px 20%;" type="Filter">Back to Employee</button>
+						</div>
+						<div class="col-md-4 float-left padding-0">
+							<div class="float-right">
+								<a class="d-none d-md-inline btn border-2 margin-10 border-top-left-radius-13 border-top-right-radius-13 font-size-10 Ubuntu-M color-00"
+								 href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+								 style="background-color:#ee543a; color:ghostwhite;" (click)="clearAll()">
+									<i class="fa fa-sign-out"></i> Clear all
+								</a>
+								<a *ngIf="clientEmailId.length == 0 && companyName.length == 0 " class="d-none d-md-inline btn border-2 background-color-ff margin-10 border-top-left-radius-13 border-top-right-radius-13 font-size-11 Ubuntu-M color-00"
+								 style="color:#000;margin-bottom: -2px;" href="javascript:void(0)" role="button" id="dropdownMenuLink" (click)="excelExportSubmit();">
+									<i class="fa fa-sign-out"></i> Export to excel
+
+								</a>
+								<pagination-template #pT="paginationApi" [id]="config.id" (pageChange)="config.currentPage = $event">
+									<button class="d-none d-md-table-cell btn background-color-439cc4 padding-5px">
+										<div class="color-ff font-size-10 border-radius-5px Ubuntu-M">
+											<div *ngFor="let page of pT.pages" style="display: inline;" [class.current]="pT.getCurrent() === page.value">
+												<span *ngIf="pT.getCurrent() === page.value && !pT.isLastPage()">{{ 1+(page.value-1)*config.itemsPerPage
+													}} - {{ page.value*config.itemsPerPage }} of {{EmployeeTeamEmail.length}} <i aria-hidden="true" class="fa fa-angle-down"></i>&nbsp;&nbsp;</span>
+												<span *ngIf="pT.getCurrent() === page.value && pT.isLastPage()">{{ 1+(page.value-1)*config.itemsPerPage
+													}} - {{ EmployeeTeamEmail.length }} of {{EmployeeTeamEmail.length}} <i aria-hidden="true" class="fa fa-angle-down"></i>&nbsp;&nbsp;</span>
+											</div>
+											<div class="pagination-previous" style="display: inline;" [class.disabled]="pT.isFirstPage()">
+												<a class="border-radius-5px background-color-ff padding-5px" *ngIf="!pT.isFirstPage()" (click)="pT.previous()">
+													<i class="fa fa-caret-left" style="color:#000 !important;"></i>
+												</a>&nbsp;
+											</div>
+											<!-- <div *ngFor="let page of pT.pages" [class.current]="pT.getCurrent() === page.value">
+												 <a (click)="pT.setCurrent(page.value)" *ngIf="pT.getCurrent() !== page.value">
+													 <span>{{ page.label }}</span>
+												 </a>
+												 <div *ngIf="pT.getCurrent() === page.value">
+													 <span>{{ page.label }}</span>
+												 </div>
+											 </div> -->
+											<div class="pagination-next" style="display: inline;" [class.disabled]="pT.isLastPage()">
+												<a class="border-radius-5px background-color-ff padding-5px" *ngIf="!pT.isLastPage()" (click)="pT.next()">
+													<i class="fa fa-caret-right" style="color:#000 !important;"></i>
+												</a>
+											</div>
+										</div>
+									</button>
+									<button class="d-sm-none btn background-color-439cc4 padding-5px width-50">
+										<div class="color-ff font-size-10 border-radius-5px padding-2 Ubuntu-M">
+											<div *ngFor="let page of pT.pages" style="display: inline;" [class.current]="pT.getCurrent() === page.value">
+												<span *ngIf="pT.getCurrent() === page.value && !pT.isLastPage()">{{ 1+(page.value-1)*config.itemsPerPage
+													}} - {{ page.value*config.itemsPerPage }} of {{EmployeeTeamEmail.length}} <i aria-hidden="true" class="fa fa-angle-down"></i>&nbsp;&nbsp;</span>
+												<span *ngIf="pT.getCurrent() === page.value && pT.isLastPage()">{{ 1+(page.value-1)*config.itemsPerPage
+													}} - {{ EmployeeTeamEmail.length }} of {{EmployeeTeamEmail.length}} <i aria-hidden="true" class="fa fa-angle-down"></i>&nbsp;&nbsp;</span>
+											</div>
+											<div class="pagination-previous" style="display: inline;" [class.disabled]="pT.isFirstPage()">
+												<a class="border-radius-5px background-color-ff padding-5px" *ngIf="!pT.isFirstPage()" (click)="pT.previous()">
+													<i class="fa fa-caret-left" style="color:#000 !important;"></i>
+												</a>&nbsp;
+											</div>
+											<!-- <div *ngFor="let page of pT.pages" [class.current]="pT.getCurrent() === page.value">
+														<a (click)="pT.setCurrent(page.value)" *ngIf="pT.getCurrent() !== page.value">
+															<span>{{ page.label }}</span>
+														</a>
+														<div *ngIf="pT.getCurrent() === page.value">
+															<span>{{ page.label }}</span>
+														</div>
+													</div> -->
+											<div class="pagination-next" style="display: inline;" [class.disabled]="pT.isLastPage()">
+												<a class="border-radius-5px background-color-ff padding-5px" *ngIf="!pT.isLastPage()" (click)="pT.next()">
+													<i class="fa fa-caret-right" style="color:#000 !important;"></i>
+												</a>
+											</div>
+										</div>
+									</button>
+								</pagination-template>
+								<span class="background-color-439cc4 d-none d-md-inline" style="padding: 5px 5px;">
+									<img class="cursor-pointer" src="images/dots.png" style="height:15px" (click)="teamGridDropdown($event);">
+								</span>
+								<div id="myDropdown" class="select-col-class text-left d-none d-md-inline" *ngIf="teamColDottedFlag == false"
+								 style="margin-left: -14px;top: -5px !important; right: 22px !important">
+									<div class="border-bottom">
+										<div class="custom-control custom-checkbox">
+											<input type="checkbox" class="custom-control-input" id="showColumnByName" [checked]="selectAllColumnFlag">
+											<label class="custom-control-label" for="customCheck15" (click)="selectCollumnAll($event)">Select All
+											</label>
+										</div>
+									</div>
+									<div *ngFor="let item of teamScoreColumnList let i=index" class="custom-control custom-checkbox filter-list__item">
+										<input type="checkbox" class="custom-control-input" id="teamScoreColumnList{{item.id}}" value="{{item.option}}"
+										 [checked]="item.checked" (click)="showColumnsByName($event.target.value, i)">
+										<label class="custom-control-label" for="teamScoreColumnList{{item.id}}">{{item.name}}</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="card border-none margin-5-">
+							<div class="card-header" style="padding:0px !important">
+								<div class="row">
+									<div class="col-md-12">
+										<table class="Ubuntu-L font-size-12 table">
+											<thead class="background-color-439cc4 color-ff">
+												<tr>
+													<td class="ver-a-middle border-r" style="width: 5%">Sr. No.</td>
+													<td class="ver-a-middle border-r" style="width: 15%;">
+														<div (click)="clickedInside($event,'emailSubjectFlag')">
+															<img src="images/search-icone.png" (click)="emailSubjectSearch();" style="height:16px"> Email Subject
+															<div id="myDropdown" class="menu-class" *ngIf="emailSubjectFlag == false">
+																<div class="form-group">
+																	<input id="center_name" checkMandatory="true" ng2-auto-complete spellcheck="false" class="form-control width-full height-30 font-size-10 border-radius-10"
+																	 [(ngModel)]="orgObj.subject" name="vendorsss" [source]="'app/auth/getEmailSubject?emailSubject=:keyword&employeeId='+userId"
+																	 [list-formatter]="autocompleListFormatter" value-property-name="subject" display-property-name="subject"
+																	 (valueChanged)="onChange($event)" placeholder="" path-to-data="rsBody.msg" clearSelected="setStatus"
+																	 min-chars="2" />
+																	<span class="ng-hide displayError" id="clientName_error"></span>
+																</div>
+																<div class="form-group">
+																	<div class="dropdown-submenu text-center">
+																		<button (click)="searchSubject(orgObj)" class="btn btn-primary font-size-10 width-full height-20 padding-0 border-radius-5px"
+																		 style="background-color:#439cc4 !important">Search</button>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</td>
+													<td class="ver-a-middle border-r " *ngIf="showColumnByName.includes('employee')" style="width: 10%;">
+														<div (click)="clickedInside($event,'employeeFlag')">
+															<img src="images/search-icone.png" (click)="searchByEmp();" style="height:16px"> Employee
+															<div id="myDropdown" class="menu-class" *ngIf="employeeFlag == false">
+																<div class="form-group">
+																	<input id="center_name" checkMandatory="true" ng2-auto-complete spellcheck="false" class="form-control width-full height-30 font-size-10 border-radius-10"
+																	 [(ngModel)]="orgObj.EmpName" name="vendorsss" [list-formatter]="autocompleListFormatter"
+																	 value-property-name="subject" display-property-name="subject" (valueChanged)="onChange($event)"
+																	 placeholder="" path-to-data="rsBody.msg" clearSelected="setStatus" min-chars="2" />
+																	<span class="ng-hide displayError" id="clientName_error"></span>
+																</div>
+																<div class="form-group">
+																	<div class="dropdown-submenu text-center">
+																		<button (click)="searchEmp(orgObj)" class="btn btn-primary font-size-10 width-full height-20 padding-0 border-radius-5px"
+																		 style="background-color:#439cc4 !important">Search</button>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</td>
+													<td class="ver-a-middle border-r" *ngIf="showColumnByName.includes('sentreceive')" style="width: 9%;">
+														Sent/Received
+													</td>
+													<!-- <td class="ver-a-middle border-r" style="width: 10%;">
+														Employee <i class="fa fa-angle-down" aria-hidden="true"></i><br> Sent/Received
+													</td> -->
+													<td *ngIf="showColumnByName.includes('client')" class="ver-a-middle border-r" style="width: 10%;">
+														<div (click)="clickedInside($event,'clientdropdownflag')">
+															<span class="pull-right">
+																<!-- 																<img class="cursor-pointer" style="height:15px" src="images/dots.png" (click)="clientdropdown();">
+ -->
+																<div id="myDropdown" class="menu-class" *ngIf="clientdropdownflag == false" style="margin-left: -14px;">
+																	<div class="border-bottom">
+																		<div class="custom-control custom-checkbox">
+																			<input type="checkbox" class="custom-control-input" id="customCheck1" (click)="resetNone();">
+																			<label class="custom-control-label" for="customCheck1">None</label>
+																		</div>
+																	</div>
+																	<div *ngFor="let item of clientDataList let i=index" class="custom-control custom-checkbox filter-list__item">
+																		<input type="checkbox" class="custom-control-input" id="experience{{item.id}}" value="{{item.option}}"
+																		 [checked]="item.checked" (click)="searchbyalfaexeemp($event.target.value, i)">
+																		<label class="custom-control-label" for="experience{{item.id}}">{{item.name}}</label>
+																	</div>
+																</div>
+															</span>
+															<img src="images/search-icone.png" (click)="clientSerachSubmit();" style="height:16px"> Client
+															<div id="myDropdown" class="menu-class" *ngIf="clientFlag == false">
+																<div class="form-group">
+																	<input id="center_name" checkMandatory="true" ng2-auto-complete spellcheck="false" class="form-control width-full height-30 font-size-10 border-radius-10"
+																	 [(ngModel)]="orgObj.clientName" name="vendorsss" [list-formatter]="autocompleListFormatter"
+																	 value-property-name="subject" display-property-name="subject" (valueChanged)="onChange($event)"
+																	 placeholder="" path-to-data="rsBody.msg" clearSelected="setStatus" min-chars="2" />
+																	<span class="ng-hide displayError" id="clientName_error"></span>
+																</div>
+																<div class="form-group">
+																	<div class="dropdown-submenu text-center">
+																		<button (click)="searchClient(orgObj)" class="btn btn-primary font-size-10 width-full height-20 padding-0 border-radius-5px"
+																		 style="background-color:#439cc4 !important">Search</button>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</td>
+													<td *ngIf="showColumnByName.includes('organization')" class="ver-a-middle border-r d-none d-md-table-cell"
+													 style="width: 9%;">
+														<div (click)="clickedInside($event,'orgFlag')">
+															<img src="images/search-icone.png" (click)="searchByOrg();" style="height:16px"> Organization
+															<div id="myDropdown" class="menu-class" *ngIf="orgFlag == false">
+																<div class="form-group">
+																	<input id="center_name" checkMandatory="true" ng2-auto-complete spellcheck="false" class="form-control width-full height-30 font-size-10 border-radius-10"
+																	 [(ngModel)]="orgObj.OrgName" name="vendorsss" [list-formatter]="autocompleListFormatter"
+																	 value-property-name="subject" display-property-name="subject" (valueChanged)="onChange($event)"
+																	 placeholder="" path-to-data="rsBody.msg" clearSelected="setStatus" min-chars="2" />
+																	<span class="ng-hide displayError" id="clientName_error"></span>
+																</div>
+																<div class="form-group">
+																	<div class="dropdown-submenu text-center">
+																		<button (click)="searchOrg(orgObj)" class="btn btn-primary font-size-10 width-full height-20 padding-0 border-radius-5px"
+																		 style="background-color:#439cc4 !important">Search</button>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</td>
+													<td *ngIf="showColumnByName.includes('ccclient')" class="ver-a-middle border-r d-none d-lg-table-cell"
+													 style="width: 6%;">
+														CC<br>Client
+													</td>
+													<td *ngIf="showColumnByName.includes('ccemployee')" class="ver-a-middle border-r d-none d-lg-table-cell"
+													 style="width: 6%;">
+														CC<br>Employee
+													</td>
+													<td *ngIf="showColumnByName.includes('datetime')" class="ver-a-middle border-r d-none d-md-table-cell"
+													 style="width: 9%">
+														<div (click)="clickedInside($event,'searchbyDateflag')">
+															<img src="images/search-icone.png" (click)="searchByDateSubmit();" style="height:16px"> Date/Time
+															<div id="myDropdown" class="menu-class" *ngIf="searchbyDateflag == false" style="width: 115px;">
+																<div class="form-group text-center">
+																	<label class="label-date" for="from">From</label>
+																	<input id="fromDate" class="form-control text-center height-20 font-size-10 border-radius-10 datepickerform"
+																	 [(ngModel)]="orgObj.fromDate" placeholder="YYYY-MM-DD" (click)="datePickerFrom();">
+																	<span class="ng-hide displayError" id="from_error"></span>
+																	<hr />
+																	<label class="label-date" for="upto">Upto</label>
+																	<input id="upToDate" class="form-control text-center height-20 font-size-10 border-radius-10 datepickerto"
+																	 [(ngModel)]="orgObj.upto" placeholder="YYYY-MM-DD" (click)="datePickerTo();">
+																	<span class="ng-hide displayError" id="upto_error"></span>
+																	<hr />
+																	<div class="dropdown-submenu text-center">
+																		<button (click)="searchByDateFromTO()" class="btn btn-primary font-size-10 width-full height-20 padding-0 border-radius-5px"
+																		 style="background-color:#439cc4 !important">Search</button>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</td>
+													<!-- 													<td class="ver-a-middle border-r d-none d-lg-table-cell" style="width: 8%;">
+														<img src="images/search-icone.png" (click)="searchByTimeSubmit();" style="height:16px"> Time <i class="fa fa-angle-up"
+														 aria-hidden="true"></i>
+														<div id="myDropdown" class="menu-class" *ngIf="searchbyTimeflag == false">
+															<div class="form-group">
+																<input id="center_name" checkMandatory="true" ng2-auto-complete spellcheck="false" class="form-control width-full height-30 font-size-10 border-radius-10"
+																 [(ngModel)]="orgObj.subject" name="vendorsss" [source]="'app/auth/getEmailSubject?emailSubject=:keyword'"
+																 [list-formatter]="autocompleListFormatter" value-property-name="subject" display-property-name="subject"
+																 (valueChanged)="onChange($event)" placeholder="" path-to-data="rsBody.msg" clearSelected="setStatus"
+																 min-chars="2" />
+																<span class="ng-hide displayError" id="clientName_error"></span>
+															</div>
+															<div class="form-group">
+																<div class="dropdown-submenu text-center">
+																	<button (click)="searchOrganization(setObj)" class="btn btn-primary font-size-10 width-full height-20 padding-0 border-radius-5px"
+																	 style="background-color:#439cc4 !important">Search</button>
+																</div>
+															</div>
+														</div>
+													</td> -->
+													<td class="ver-a-middle border-r d-none d-md-table-cell" style="width: 14%;">
+														<div>
+															<img src="images/search-icone.png" style="height:16px" (click)="teamtonedropdown();"> Email major tone
+															<span class="pull-right">
+																<img class="cursor-pointer" style="height:15px" src="images/dots.png" (click)="teamtonedropdown();">
+															</span>
+															<div id="myDropdown" class="menu-class text-left" *ngIf="teamtoneflag == false" style="margin-left: -14px;">
+																<div class="border-bottom">
+																	<div class="custom-control custom-checkbox">
+																		<input type="checkbox" class="custom-control-input" id="customCheck15">
+																		<label class="custom-control-label" for="customCheck15" (click)='selectScoreAll();'>Select All
+																		</label>
+																	</div>
+																</div>
+																<div *ngFor="let item of teamScoreListDotted let i=index" class="custom-control custom-checkbox filter-list__item">
+																	<input type="checkbox" class="custom-control-input" id="teamscore{{item.id}}" value="{{item.option}}"
+																	 [checked]="item.checked" (click)="searchbyateamtonedotted($event.target.value, i)">
+																	<label class="custom-control-label" for="teamscore{{item.id}}"> <i class="fa fa-circle {{item.color}}"
+																		 aria-hidden="true"></i> {{item.name}}</label>
+																</div>
+																<hr />
+																<div class="form-group">
+																	<div class="dropdown-submenu text-center">
+																		<button (click)="applyTeamfilterDotted()" class="btn btn-primary font-size-10 width-full height-20 padding-0 border-radius-5px"
+																		 style="background-color:#439cc4 !important">Apply</button>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</td>
+													<td class="ver-a-middle border-r d-none d-md-table-cell" style="width: 6%;">
+														<img *ngIf="escalationFlag == true" class="cursor-pointer " style="height:20px" data-toggle="tooltip"
+														 title="Escalation" src="images/escalation_inactive.png" (click)="toggleEscalation()">
+														<img *ngIf="escalationFlag == false" class="cursor-pointer " style="height:20px" data-toggle="tooltip"
+														 title="Escalation" src="images/escalation_active.png" (click)="toggleEscalation()">
+														<p style="display: inline-flex"> </p>
+														<img *ngIf="adverseFlag == true" class="cursor-pointer " style="height:20px" data-toggle="tooltip" title="Adverse Events"
+														 src="images/adverse_inactive.png" (click)="toggleAdverse()">
+														<img *ngIf="adverseFlag == false" class="cursor-pointer " style="height:20px" data-toggle="tooltip" title="Adverse Events"
+														 src="images/adverse_active.png" (click)="toggleAdverse()">
+													</td>
+												</tr>
+												<tr>
+													<td colspan="1"></td>
+													<td class="ver-a-middle border-r d-sm-none" style="width: 100px;">
+														<img src="images/search-icone.png" (click)="searchByDateSubmit();" style="height:16px"> Date
+														<div id="myDropdown" class="menu-class" *ngIf="searchbyDateflag == false" style="width: 115px;">
+															<div class="form-group text-center">
+																<label class="label-date" for="from">From</label>
+																<input id="fromDate" class="form-control text-center height-20 font-size-10 border-radius-10 datepickerform"
+																 [(ngModel)]="orgObj.fromDate" placeholder="DD/MM/YYYY" (click)="datePickerFrom();">
+																<span class="ng-hide displayError" id="from_error"></span>
+																<hr />
+																<label class="label-date" for="upto">Upto</label>
+																<input id="upToDate" class="form-control text-center height-20 font-size-10 border-radius-10 datepickerto"
+																 [(ngModel)]="orgObj.upto" placeholder="YYYY-MM-DD" (click)="datePickerTo();">
+																<span class="ng-hide displayError" id="upto_error"></span>
+																<hr />
+																<div class="dropdown-submenu text-center">
+																	<button (click)="searchByDateFromTO()" class="btn btn-primary font-size-10 width-full height-20 padding-0 border-radius-5px"
+																	 style="background-color:#439cc4 !important">Search</button>
+																</div>
+															</div>
+														</div>
+
+													</td>
+													<td class="ver-a-middle border-r d-sm-none" style="width: 100px;">
+														<img src="images/search-icone.png" (click)="searchByTimeSubmit();" style="height:16px"> Time <i class="fa fa-angle-up"
+														 aria-hidden="true"></i>
+														<div id="myDropdown" class="menu-class" *ngIf="searchbyTimeflag == false">
+															<div class="form-group">
+																<input id="center_name" checkMandatory="true" ng2-auto-complete spellcheck="false" class="form-control width-full height-30 font-size-10 border-radius-10"
+																 [(ngModel)]="orgObj.subject" name="vendorsss" [source]="'app/auth/getEmailSubject?emailSubject=:keyword'"
+																 [list-formatter]="autocompleListFormatter" value-property-name="subject" display-property-name="subject"
+																 (valueChanged)="onChange($event)" placeholder="" path-to-data="rsBody.msg" clearSelected="setStatus"
+																 min-chars="2" />
+																<span class="ng-hide displayError" id="clientName_error"></span>
+															</div>
+															<div class="form-group">
+																<div class="dropdown-submenu text-center">
+																	<button (click)="searchOrganization(setObj)" class="btn btn-primary font-size-10 width-full height-20 padding-0 border-radius-5px"
+																	 style="background-color:#439cc4 !important">Search</button>
+																</div>
+															</div>
+														</div>
+													</td>
+													<td class="ver-a-middle border-r d-sm-none" style="width: 146px;">
+														<img src="images/search-icone.png" style="height:16px" (click)="teamtonedropdown();"> Email major tone
+														<span class="pull-right">
+															<img class="cursor-pointer" style="height:15px" src="images/dots.png" (click)="teamtonedropdown();">
+														</span>
+														<div id="myDropdown" class="menu-class text-left" *ngIf="teamtoneflag == false" style="margin-left: -14px;">
+															<div class="border-bottom">
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" id="customCheck15">
+																	<label class="custom-control-label" for="customCheck15" (click)='selectScoreAll();'>Select All </label>
+																</div>
+															</div>
+															<div *ngFor="let item of teamScoreListDotted let i=index" class="custom-control custom-checkbox filter-list__item">
+																<input type="checkbox" class="custom-control-input" id="teamscore{{item.id}}" value="{{item.option}}"
+																 [checked]="item.checked" (click)="searchbyateamtonedotted($event.target.value, i)">
+																<label class="custom-control-label" for="teamscore{{item.id}}"> <i class="fa fa-circle {{item.color}}"
+																	 aria-hidden="true"></i> {{item.name}}</label>
+															</div>
+															<hr />
+															<div class="form-group">
+																<div class="dropdown-submenu text-center">
+																	<button (click)="applyTeamfilterDotted()" class="btn btn-primary font-size-10 width-full height-20 padding-0 border-radius-5px"
+																	 style="background-color:#439cc4 !important">Apply</button>
+																</div>
+															</div>
+
+														</div>
+													</td>
+													<td class="ver-a-middle border-r d-sm-none" style="width: 70px;">
+														<img *ngIf="escalationFlag == true" class="cursor-pointer " style="height:20px" data-toggle="tooltip"
+														 title="Escalation" src="images/escalation_inactive.png" (click)="toggleEscalation()">
+														<img *ngIf="escalationFlag == false" class="cursor-pointer " style="height:20px" data-toggle="tooltip"
+														 title="Escalation" src="images/escalation_active.png" (click)="toggleEscalation()">
+														<p style="display: inline-flex"> </p>
+														<img *ngIf="adverseFlag == true" class="cursor-pointer " style="height:20px" data-toggle="tooltip" title="Adverse Events"
+														 src="images/adverse_inactive.png" (click)="toggleAdverse()">
+														<img *ngIf="adverseFlag == false" class="cursor-pointer " style="height:20px" data-toggle="tooltip" title="Adverse Events"
+														 src="images/adverse_active.png" (click)="toggleAdverse()">
+													</td>
+												</tr>
+											</thead>
+										</table>
+										<div class="border-radius-8 border-4" *ngFor="let teamMail of EmployeeTeamEmail | paginate: config; let i=index ">
+											<table class="font-size-12 Ubuntu-L table" style="table-layout: fixed;">
+												<tbody>
+													<tr class="height-45px">
+														<td class="text-center ver-a-middle border-0 bg-color-eaeaea" style="width: 5%;">{{(i+1)+((config.currentPage-1)*config.itemsPerPage)}}</td>
+														<td class="ver-a-middle border-0 bg-color-eaeaea tabletextoverflow d-none d-md-table-cell" style="width: 15%; max-width: 100px;">{{teamMail.subject}}</td>
+														<td class="ver-a-middle border-0 bg-color-eaeaea tabletextoverflow d-sm-none" style="width: 46px; max-width: 46px;">{{teamMail.subject}}</td>
+														<td *ngIf="teamMail.from.length != 0" class="ver-a-middle border-0 bg-color-eaeaea tabletextoverflow d-none d-md-table-cell"
+														 style="width: 10%; max-width: 110px">{{teamMail.from}}
+														</td>
+														<td *ngIf="teamMail.from.length == 0 && teamMail.toEmployeeNames.length>1 && showColumnByName.includes('employee')"
+														 class="ver-a-middle border-0 bg-color-eaeaea tabletextoverflow d-none d-md-table-cell" style="width: 10%; max-width: 110px">{{teamMail.toEmployeeNames[0]}}
+															<br> +
+															{{teamMail.toEmployeeNames.length-1}} </td>
+														<td *ngIf="teamMail.from.length == 0 && teamMail.toEmployeeNames.length==1 && showColumnByName.includes('employee')"
+														 class="ver-a-middle border-0 bg-color-eaeaea tabletextoverflow d-none d-md-table-cell" style="width: 10%; max-width: 110px">{{teamMail.toEmployeeNames[0]}}
+														</td>
+														<td *ngIf="teamMail.from.length == 0 && teamMail.toEmployeeNames.length==0 && showColumnByName.includes('employee')"
+														 class="ver-a-middle border-0 bg-color-eaeaea tabletextoverflow d-none d-md-table-cell" style="width: 10%; max-width: 110px">{{teamMail.toEmployeeNames[0]}}
+														</td>
+														<td *ngIf="teamMail.from.length != 0" class="ver-a-middle border-0 bg-color-eaeaea tabletextoverflow d-sm-none"
+														 style="width: 46px; max-width: 46px;">{{teamMail.from}}
+														</td>
+														<!-- <td class="ver-a-middle border-0 bg-color-eaeaea" style="width: 10%;">
+															<div *ngIf="teamMail.type == 'sent' " class="bg-color-arrow">
+																<i class="fa fa-arrow-right background-color-439cc4" aria-hidden="true"></i> Sent
+															</div>
+															<div *ngIf="teamMail.type == 'Received' " class="bg-color-arrow">
+																<i class="fa fa-arrow-left background-color-2ac2eb" aria-hidden="true"></i> Received
+															</div>
+														</td> -->
+														<td *ngIf="teamMail.from.length == 0 && teamMail.toEmployeeNames.length>1 && showColumnByName.includes('employee')"
+														 class="ver-a-middle border-0 bg-color-eaeaea d-sm-none tabletextoverflow" style="width: 46px; max-width: 46px;">{{teamMail.toEmployeeNames[0]}}
+															<br> +
+															{{teamMail.toEmployeeNames.length-1}} </td>
+														<td *ngIf="teamMail.from.length == 0 && teamMail.toEmployeeNames.length==1 && showColumnByName.includes('employee')"
+														 class="ver-a-middle border-0 bg-color-eaeaea d-sm-none tabletextoverflow" style="width: 46px; max-width: 46px;">{{teamMail.toEmployeeNames[0]}}
+														</td>
+														<td *ngIf="teamMail.from.length == 0 && teamMail.toEmployeeNames.length==0 && showColumnByName.includes('employee')"
+														 class="ver-a-middle border-0 bg-color-eaeaea d-sm-none tabletextoverflow" style="width: 46px; max-width: 46px;">{{teamMail.toEmployeeNames[0]}}
+														</td>
+														<td *ngIf="showColumnByName.includes('sentreceive')" class="ver-a-middle border-0 bg-color-eaeaea" style="width: 9%;">
+															<div *ngIf="teamMail.type == 'sent' " class="bg-color-arrow">
+																<i class="fa fa-arrow-right background-color-439cc4" aria-hidden="true"></i> Sent
+															</div>
+															<div *ngIf="teamMail.type == 'Received' " class="bg-color-arrow">
+																<i class="fa fa-arrow-left background-color-2ac2eb" aria-hidden="true"></i> Received
+															</div>
+														</td>
+														<td *ngIf="teamMail.toClientNames.length>1 && showColumnByName.includes('client')" class="ver-a-middle border-0 bg-color-eaeaea tabletextoverflow d-none d-md-table-cell"
+														 style="width: 10%; max-width: 110px;">{{teamMail.toClientNames[0]}}
+															<br> + {{teamMail.toClientNames.length-1}}</td>
+														<td *ngIf="teamMail.toClientNames.length==1 && showColumnByName.includes('client')" class="ver-a-middle border-0 bg-color-eaeaea tabletextoverflow d-none d-md-table-cell"
+														 style="width: 10%; max-width: 110px;">{{teamMail.toClientNames[0]}}
+															<br></td>
+														<td *ngIf="teamMail.toClientNames.length==0 && showColumnByName.includes('client')" class="ver-a-middle border-0 bg-color-eaeaea tabletextoverflow d-none d-md-table-cell"
+														 style="width: 10%; max-width: 110px;">{{teamMail.senderName}}
+															<br></td>
+														<td *ngIf="teamMail.toClientNames.length>1 && showColumnByName.includes('client')" class="ver-a-middle border-0 bg-color-eaeaea tabletextoverflow d-sm-none"
+														 style="width: 46px; max-width: 46px;">{{teamMail.toClientNames[0]}}
+															<br> + {{teamMail.toClientNames.length-1}}</td>
+														<td *ngIf="teamMail.toClientNames.length==1 && showColumnByName.includes('client')" class="ver-a-middle border-0 bg-color-eaeaea tabletextoverflow d-sm-none"
+														 style="width: 46px; max-width: 46px;">{{teamMail.toClientNames[0]}}
+															<br></td>
+														<td *ngIf="teamMail.toClientNames.length==0 && showColumnByName.includes('client')" class="ver-a-middle border-0 bg-color-eaeaea tabletextoverflow d-sm-none"
+														 style="width: 46px; max-width: 46px;">{{teamMail.senderName}}
+															<br></td>
+														<td *ngIf="showColumnByName.includes('organization')" class="ver-a-middle border-0 bg-color-eaeaea d-none d-md-table-cell"
+														 style="width: 10%">{{teamMail.companyName}}</td>
+														<td *ngIf="showColumnByName.includes('ccclient')" class="ver-a-middle border-0 bg-color-eaeaea d-none d-lg-table-cell"
+														 style="width: 6%;">{{teamMail.totalccClients}}</td>
+														<td *ngIf="showColumnByName.includes('ccemployee')" class="ver-a-middle border-0 bg-color-eaeaea d-none d-lg-table-cell"
+														 style="width: 6%;">{{teamMail.totalccEmployees}}</td>
+														<td *ngIf="showColumnByName.includes('datetime')" class="text-center ver-a-middle border-0 bg-color-eaeaea d-none d-md-table-cell"
+														 style="width: 10%;">{{teamMail.date}}<br> {{teamMail.time}}</td>
+														<!-- <td class="text-center ver-a-middle border-0 bg-color-eaeaea d-none d-lg-table-cell" style="width: 9%;">{{teamMail.time}}</td> -->
+														<td class="text-center ver-a-middle border-l-4 bg-color-eaeaea d-none d-md-table-cell" style="width: 14%;">
+															<span *ngIf="teamMail.anger != 0" class="badge badge-secondary bgcolor-red">{{teamMail.anger}}</span>
+															<span *ngIf="teamMail.joy != 0" class="badge bgcolor-green badge-secondary">{{teamMail.joy}}</span>
+															<span *ngIf="teamMail.sadness != 0" class="badge badge-secondary bgcolor-gray">{{teamMail.sadness}}</span>
+															<span *ngIf="teamMail.fear != 0" class="badge badge-secondary bgcolor-brown">{{teamMail.fear}}</span>
+															<span *ngIf="teamMail.tentative != 0" class="badge bgcolor-green bgcolor-yellow">{{teamMail.tentative}}</span>
+															<span *ngIf="teamMail.confident != 0" class="badge badge-secondary bgcolor-purple">{{teamMail.confident}}</span>
+															<span *ngIf="teamMail.analytical != 0" class="badge badge-secondary bgcolor-blue">{{teamMail.analytical}}</span>
+														</td>
+														<td class="ver-a-middle border-0 bg-color-eaeaea d-none d-md-table-cell" style="width: 6%">
+															<!-- <p *ngIf="teamMail.escalated == 'yes'" style="display: inline-flex"> Es</p> -->
+															<img *ngIf="teamMail.escalated == 'yes'" class="cursor-pointer" style="height:20px" src="images/escalation_grey.png">
+															<p *ngIf="teamMail.escalated != 'yes'" style="display: inline-flex"> &emsp; </p>
+
+															<p style="display: inline-flex"> </p>
+															<!-- <p *ngIf="teamMail.adverse == 'yes'" style="display: inline-flex"> Ad</p> -->
+															<img *ngIf="teamMail.adverse == 'yes'" class="cursor-pointer" style="height:20px" src="images/adverse_red.png">
+														</td>
+													</tr>
+													<tr>
+														<td colspan="2" class="text-center ver-a-middle border-0 bg-color-eaeaea d-sm-none" style="width: 100px;">{{teamMail.date}}</td>
+														<td class="text-center ver-a-middle border-0 bg-color-eaeaea d-sm-none" style="width: 100px;">{{teamMail.time}}</td>
+														<td class="text-center ver-a-middle border-l-4 bg-color-eaeaea d-sm-none" style="width: 146px;">
+															<span *ngIf="teamMail.anger != 0" class="badge badge-secondary bgcolor-red">{{teamMail.anger}}</span>
+															<span *ngIf="teamMail.joy != 0" class="badge bgcolor-green badge-secondary">{{teamMail.joy}}</span>
+															<span *ngIf="teamMail.sadness != 0" class="badge badge-secondary bgcolor-gray">{{teamMail.sadness}}</span>
+															<span *ngIf="teamMail.fear != 0" class="badge badge-secondary bgcolor-brown">{{teamMail.fear}}</span>
+															<span *ngIf="teamMail.tentative != 0" class="badge bgcolor-green bgcolor-yellow">{{teamMail.tentative}}</span>
+															<span *ngIf="teamMail.confident != 0" class="badge badge-secondary bgcolor-purple">{{teamMail.confident}}</span>
+															<span *ngIf="teamMail.analytical != 0" class="badge badge-secondary bgcolor-blue">{{teamMail.analytical}}</span>
+														</td>
+														<td class="ver-a-middle border-0 bg-color-eaeaea d-sm-none" style="width: 70px">
+															<!-- <p *ngIf="teamMail.escalated == 'yes'" style="display: inline-flex"> Es</p> -->
+															<img *ngIf="teamMail.escalated == 'yes'" class="cursor-pointer" style="height:20px" src="images/escalation_grey.png">
+															<p *ngIf="teamMail.escalated != 'yes'" style="display: inline-flex"> &emsp; </p>
+
+															<p style="display: inline-flex"> </p>
+															<!-- <p *ngIf="teamMail.adverse == 'yes'" style="display: inline-flex"> Ad</p> -->
+															<img *ngIf="teamMail.adverse == 'yes'" class="cursor-pointer" style="height:20px" src="images/adverse_red.png">
+														</td>
+													</tr>
+
+												</tbody>
+											</table>
+										</div>
+										<div *ngIf="resultFlag == false" style="background-color: white; width: 100%; height: 400px">
+
+											<div style="text-align: center; padding-top: 10%">
+												<img src="images/no_results_found.png" style="width: 60px; display:block;margin-left: auto; margin-right: auto">
+												<span class="Ubuntu-L" style="color:grey; font-weight: bold;">Sorry, No results found</span>
+											</div>
+										</div>
+										<!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--  <div class="col-md-12">
+                  <div class="card border-none margin-5-">
+                    <div class="card-header background-color-439cc4 color-ff" style="padding:0px !important">
+                        <div class="row text-center">
+                            <div class="col-md-10">
+                                
+                                <table class="color-ff font-size-12 Ubuntu-L text-left" style="width:100%;">
+                                    <tbody><tr style="width:100%">
+                                        <td style="width: 7%;border-right: 1px solid #FFF;">&nbsp;&nbsp;Sr.No</td>
+                                        <td style="width: 27%;/* text-align:  left; */border-right: 1px solid #FFF;">&nbsp; <i aria-hidden="true" class="fa fa-search"></i> &nbsp;Email Subject &nbsp;<i class="fa fa-angle-down"></i></td>
+                                        <td style="width: 10%;border-right: 1px solid #FFF;">Employee <i class="fa fa-angle-down"></i> <br> Sent/Received</td>
+                                        <td style="width:16%;border-right: 1px solid #FFF;">&nbsp;&nbsp;<i aria-hidden="true" class="fa fa-search"></i> &nbsp;Client &nbsp;<i class="fa fa-angle-up"></i>  <i class="fa fa-ellipsis-v float-right margin-right-5"></i></td>
+                                        <td style="width: 7%;border-right: 1px solid #FFF;">&nbsp;&nbsp;CC <i class="fa fa-angle-up"></i> <br>&nbsp;&nbsp; client</td>
+                                        <td style="width: 10%;border-right: 1px solid #FFF;">&nbsp;&nbsp;CC <br> Employee <i class="fa fa-angle-up "></i></td>
+                                        <td style="width: 10%;border-right: 1px solid #FFF;">&nbsp;&nbsp;<i aria-hidden="true" class="fa fa-search"></i> &nbsp;Date &nbsp;&nbsp;<i class="fa fa-angle-up"></i></td>
+                                        <td style="width:13%;border-right: 1px solid #FFF;">&nbsp;&nbsp;<i aria-hidden="true" class="fa fa-search"></i> Time&nbsp;&nbsp;<i class="fa fa-angle-up"></i></td>
+                                    </tr>
+                                </tbody></table>
+                            </div>
+                            <div class="col-md-2">
+                               <table class="color-ff font-size-12 Ubuntu-L text-left width-full">
+                                  <tbody>
+                                    <tr class="width-full">
+                                        <td class="width-full" style="border-right: 1px solid #FFF;">&nbsp;&nbsp;<i aria-hidden="true" class="fa fa-search"></i>&nbsp;&nbsp; Email major tone &nbsp;&nbsp;<i class="fa fa-angle-up"></i> <i class="fa fa-ellipsis-v float-right margin-right-5"></i></td>
+                                    </tr>
+                                  </tbody>
+                               </table>
+                            </div>
+                            
+                          </div>
+                      </div>
+                    <div class="tab-content card-body nav-shadow11" style="z-index: 2;">
+                      <div class="row padding-bottom-5px" *ngFor="let teamMail of EmployeeTeamEmail;">
+                        <div class="col-md-10" >
+                          <table class=" font-size-12 Ubuntu-L text-center width-full height-45px border-radius-5px" style=" background-color:#EFEFEF">
+                              <tbody>
+                                <tr style="width:100%">
+                                  <td style="width: 7%;">1</td>
+                                  <td style="width: 26%;text-align:left">{{teamMail.subject}}</td>
+                                  <td style="width: 12%;">
+                                    <div>
+                                       <div style="width: 93px;margin-left: 8%;height: 24px;" class="input-group mb-2 margin-top-5per">
+                                          <div class="input-group-prepend" style="height: 24px;">
+                                            <div class="input-group-text background-color-439cc4" style="padding-top: 13px;width: 28px;">
+                                            	
+                                            	<img src="images/left-arrow.png" style="width:16px;height: 18px;margin-top: -7px;margin-left: -7px;">
+                                            </div>
+                                          </div>
+                                        <input type="text" style="border: none;padding-left: 7px;background-color: #f9f9f9;" class="form-control font-size-10" value="sent" id="select_name_nameindex" value="{{teamMail.type}}" name="select_name_nameindex" checkMandatory="true">
+                                      </div>
+                                    </div>
+                                     
+                                   </td>
+                                  <td style="width:16%;" >
+                                  	<span *ngIf="teamMail.ccClientNames.length == '1' ">{{teamMail.ccClientNames[0]}}</span>
+                                  	<span *ngIf="teamMail.ccClientNames.length >'1' ">{{teamMail.ccClientNames[0]}} <br> + {{teamMail.ccClientNames.length-1}}</span>
+                                  </td>
+                                  
+                                  <td style="width: 7%;">5</td>
+                                  <td style="width: 10%;">10</td>
+                                  <td style="width: 10%;">{{teamMail.date}}</td>
+                                  <td style="width:12%;">{{teamMail.time}}</td>
+
+                              </tr>
+                          </tbody></table>
+                        </div>
+                        <div class="col-md-2" >
+                           <table class="color-00 font-size-12 Ubuntu-L text-center width-full height-45px border-radius-5px" style=" background-color:#EFEFEF">
+                              <tbody>
+                                <tr class="width-full">
+                                    <td class="width-full">
+                                      <span class="badge badge-secondary bgcolor-red">{{teamMail.anger}}</span>
+                                              <span class="badge bgcolor-green badge-secondary">{{teamMail.joy}}</span>
+                                              <span class="badge badge-secondary bgcolor-gray">{{teamMail.sadness}}</span>
+                                              <span class="badge badge-secondary bgcolor-brown">{{teamMail.fear}}</span>
+                                              <span class="badge bgcolor-green bgcolor-yellow">{{teamMail.tentative}}</span>
+                                              <span class="badge badge-secondary bgcolor-purple">{{teamMail.confident}}</span>
+                                              <span class="badge badge-secondary bgcolor-blue">{{teamMail.analytical}}</span>
+                                    </td>
+                                </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                      </div>
+                     </div>
+                  </div>
+
+                </div>-->
+				</div>
+			</div>
+		</div>
+	</div>
+	<a id="ExportExcelData" href=""></a>
+</main>

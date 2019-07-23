@@ -1,0 +1,7 @@
+/node_modules/
+/target/
+/src/main/webapp/build/assets/js/
+/src/main/webapp/WEB-INF/config/mongo-config.xml
+/src/main/webapp/build/assets/js/employeemodule.js
+/src/main/webapp/build/assets/js/polyfills.js
+/src/main/webapp/build/assets/js/vendor.js
