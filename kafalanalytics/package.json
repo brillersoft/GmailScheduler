@@ -75,7 +75,7 @@
     "@types/node": "^6.0.45",
     "angular2-template-loader": "^0.6.0",
     "awesome-typescript-loader": "^3.0.4",
-    "axios": "^0.16.2",
+    "axios": "^0.21.1",
     "bootstrap-sass": "^3.3.7",
     "cross-env": "^5.0.1",
     "css-loader": "^0.26.1",
