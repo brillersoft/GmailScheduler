@@ -48,7 +48,7 @@
     "jquery": "^3.3.1",
     "jwt-decode": "^2.2.0",
     "material-design-icons": "^3.0.1",
-    "moment-timezone": "^0.5.14",
+    "moment-timezone": "^0.5.35",
     "mydatepicker": "^2.6.1",
     "mysql": "^2.15.0",
     "ng-pick-datetime": "^7.0.0",
